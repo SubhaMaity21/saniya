@@ -1,0 +1,2 @@
+export const NAV_WHITE_SCROLL_START = 800;
+export const NAV_WHITE_SCROLL_END = 1700;

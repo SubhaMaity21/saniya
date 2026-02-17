@@ -1,31 +1,32 @@
-import React, { useRef } from "react";
+import React, { useCallback } from "react";
 import LandingFinal from "./imports/LandingFinal";
 
+const WORK_SECTION_TOP = 900;
+const ABOUT_SECTION_TOP = 1800;
+
 export default function App() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const scrollTo = useCallback((top: number) => {
+    window.scrollTo({ top, behavior: "smooth" });
+  }, []);
 
-  const scrollToWork = () => {
-    // Adjusted for 0.75 scale (1200 * 0.75 = 900px)
-    window.scrollTo({ top: 900, behavior: "smooth" });
-  };
+  const scrollToTop = useCallback(() => {
+    scrollTo(0);
+  }, [scrollTo]);
 
-  const scrollToAbout = () => {
-    // Adjusted for 0.75 scale (2400 * 0.75 = 1800px)
-    window.scrollTo({ top: 1800, behavior: "smooth" });
-  };
+  const scrollToWork = useCallback(() => {
+    scrollTo(WORK_SECTION_TOP);
+  }, [scrollTo]);
 
-  const scrollToContact = () => {
-    // Scroll to contact/footer section (bottom of page)
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth",
-    });
-  };
+  const scrollToAbout = useCallback(() => {
+    scrollTo(ABOUT_SECTION_TOP);
+  }, [scrollTo]);
+
+  const scrollToContact = useCallback(() => {
+    scrollTo(document.documentElement.scrollHeight);
+  }, [scrollTo]);
 
   return (
-    <div className="bg-[#fefcf4] relative w-screen h-screen flex justify-center align-center overflow-auto overflow-x-hidden">
+    <div className="relative flex h-screen w-screen justify-center overflow-auto overflow-x-hidden bg-[#fefcf4]">
       <LandingFinal
         onHomeClick={scrollToTop}
         onWorkClick={scrollToWork}
