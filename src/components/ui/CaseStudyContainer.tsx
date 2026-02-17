@@ -9,12 +9,15 @@ function cn(...inputs: ClassValue[]) {
 interface CaseStudyContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'dark' | 'light';
   children?: React.ReactNode;
+  zIndex?: number;
 }
 
 export function CaseStudyContainer({
   variant = 'dark',
   className,
   children,
+  zIndex,
+  style,
   ...props
 }: CaseStudyContainerProps) {
   const variants = {
@@ -25,10 +28,14 @@ export function CaseStudyContainer({
   return (
     <div
       className={cn(
-        'w-full h-full rounded-t-[30px] rounded-b-none overflow-hidden',
+        'w-full rounded-t-[30px] rounded-b-none overflow-hidden',
         variants[variant],
         className
       )}
+      style={{
+        ...style,
+        ...(zIndex !== undefined && { zIndex }),
+      }}
       {...props}
     >
       {children}
