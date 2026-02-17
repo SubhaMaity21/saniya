@@ -1,5 +1,5 @@
 import React from "react";
-
+// @ts-ignore
 import imgB551D4405Bc31B48D23669C7D041Acd31 from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.png";
 
 type BackdropOutlineProps = {

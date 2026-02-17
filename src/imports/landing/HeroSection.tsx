@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from "react";
+// @ts-ignore
 import imgContactMe1 from "figma:asset/1077e5ec0d9d3a9da413e90dbe1960e8121cb40b.png";
+// @ts-ignore
 import imgLocationPng1 from "figma:asset/33c5347c8865ddee8a9ed022a5443794850405f7.png";
+// @ts-ignore
 import imgMeIcon1 from "figma:asset/c86a38aafd6e5f2f41dab258742a41c31f635ea3.png";
 
 const EXPANDABLE_CARD_BASE_CLASS =
@@ -137,7 +140,10 @@ export default function HeroSection() {
         <HeroHeading />
         <IntroCards />
       </div>
-      <div className="-translate-x-1/2 absolute left-1/2 top-[calc(50%+320px)] px-4 text-center font-['Martel:ExtraBold',sans-serif] text-[22px] not-italic leading-[normal] text-[#2d6dc3]">
+      <div 
+        className="absolute left-1/2 -translate-x-1/2 w-full max-w-[800px] px-4 text-center font-['Martel:ExtraBold',sans-serif] text-[22px] not-italic leading-[normal] text-[#2d6dc3]"
+        style={{ top: "550px" }}
+      >
         <p className="mb-0">
           Designing meaningful experiences where every interaction is crafted with
           purpose,
