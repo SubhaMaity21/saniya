@@ -16,6 +16,11 @@ type ExpandableCardProps = {
 
 type ActiveCard = "profile" | "location" | "phone";
 
+type HeroSectionProps = {
+  coverProgress?: number;
+  containerRef?: React.RefObject<HTMLDivElement | null>;
+};
+
 function HeroHeading() {
   return (
     <div className="-translate-x-1/2 -translate-y-1/2 absolute contents left-1/2 top-[calc(50%-357.5px)] not-italic">
@@ -133,22 +138,46 @@ function IntroCards() {
   );
 }
 
-export default function HeroSection() {
+export default function HeroSection({
+  coverProgress = 0,
+  containerRef,
+}: HeroSectionProps) {
+  const clampedCoverProgress = Math.min(1, Math.max(0, coverProgress));
+  const contentScale = 1 - clampedCoverProgress * 0.16;
+  const contentOpacity = 1 - clampedCoverProgress * 0.35;
+  const contentBlur = clampedCoverProgress * 2;
+  const contentLift = clampedCoverProgress * -36;
+
   return (
-    <div className="relative sticky top-[200px] mx-auto h-[780px] w-full shrink-0 overflow-visible">
-      <div className="-translate-x-1/2 absolute left-[calc(50%+8.5px)] top-40 mt-5 h-[686px] w-[1664px]">
-        <HeroHeading />
-        <IntroCards />
-      </div>
-      <div 
-        className="absolute left-1/2 -translate-x-1/2 w-full max-w-[800px] px-4 text-center font-['Martel:ExtraBold',sans-serif] text-[22px] not-italic leading-[normal] text-[#2d6dc3]"
-        style={{ top: "550px" }}
+    <div
+      ref={containerRef}
+      className="relative sticky top-[200px] mx-auto h-[780px] w-full shrink-0 overflow-visible"
+    >
+      <div
+        className="relative h-full w-full"
+        style={{
+          transform: `translate3d(0, ${contentLift}px, 0) scale(${contentScale})`,
+          transformOrigin: "50% 35%",
+          opacity: contentOpacity,
+          filter: `blur(${contentBlur}px)`,
+          willChange: "transform, opacity, filter",
+          transition: "transform 80ms linear, opacity 80ms linear, filter 80ms linear",
+        }}
       >
-        <p className="mb-0">
-          Designing meaningful experiences where every interaction is crafted with
-          purpose,
-        </p>
-        <p>From head scratching moments to flows that just make sense.</p>
+        <div className="-translate-x-1/2 absolute left-[calc(50%+8.5px)] top-40 mt-5 h-[686px] w-[1664px]">
+          <HeroHeading />
+          <IntroCards />
+        </div>
+        <div
+          className="absolute left-1/2 -translate-x-1/2 w-full max-w-[800px] px-4 text-center font-['Martel:ExtraBold',sans-serif] text-[22px] not-italic leading-[normal] text-[#2d6dc3]"
+          style={{ top: "550px" }}
+        >
+          <p className="mb-0">
+            Designing meaningful experiences where every interaction is crafted with
+            purpose,
+          </p>
+          <p>From head scratching moments to flows that just make sense.</p>
+        </div>
       </div>
     </div>
   );

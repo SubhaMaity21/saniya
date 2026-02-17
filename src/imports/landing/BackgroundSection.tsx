@@ -2,6 +2,10 @@ import React from "react";
 // @ts-ignore
 import imgBackground from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.png";
 
+type BackgroundSectionProps = {
+  containerRef?: React.RefObject<HTMLDivElement | null>;
+};
+
 type ProjectData = {
   title: string;
   subtitle: string;
@@ -220,9 +224,9 @@ function WorkCard({ project }: { project: ProjectData }) {
   );
 }
 
-export default function BackgroundSection() {
+export default function BackgroundSection({ containerRef }: BackgroundSectionProps) {
   return (
-    <div className="relative w-full shrink-0" style={{ minHeight: 2500 }}>
+    <div ref={containerRef} className="relative w-full shrink-0" style={{ minHeight: 2500 }}>
       {/* Full-width background image */}
       <div
         className="absolute left-1/2 top-0 h-full"

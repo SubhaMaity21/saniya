@@ -4,4 +4,4 @@ build/
 
 .idea/
 
-build
+build/index.html
