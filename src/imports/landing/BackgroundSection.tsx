@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // @ts-ignore
 import imgBackground from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.png";
 import imgBazarghorr from "@/assets/landing-work/bazarghorr-landing.png"
@@ -30,7 +31,7 @@ const PROJECTS: ProjectData[] = [
       "A Mobile App Delivering Daily Grocery Essentials From Trusted Local Kirana Stores To Small-Town Residents. Bringing Modern Convenience To Underserved Markets.",
     tags: ["Product Design", "Mobile App", "Handed Off To Development"],
     ctaText: "VIEW CASE STUDY",
-    ctaLink: "#",
+    ctaLink: "/bazarghorr",
     bannerGradient:
       "linear-gradient(180deg, #e8f5e3 0%, #c8e6c9 40%, #a5d6a7 100%)",
     bannerTextColor: "#101010",
@@ -45,7 +46,7 @@ const PROJECTS: ProjectData[] = [
       "An All-In-One Ecommerce Platform That Enables Local Businesses To Easily Set Up, Manage, And Grow Their Online Stores, From Storefront Creation To Orders, Payments, And Deliveries.",
     tags: ["UI Design", "Ecom. Website", "Handed Off To Development"],
     ctaText: "VIEW CASE STUDY",
-    ctaLink: "#",
+    ctaLink: "/bms",
     bannerGradient:
       "linear-gradient(180deg, #a0845c 0%, #7a6240 50%, #5c4a30 100%)",
     bannerTextColor: "#ffffff",
@@ -58,7 +59,8 @@ const PROJECTS: ProjectData[] = [
     description:
       "A Purpose-Led Brand Identity Focused On Connecting Learners And Mentors, Enabling Meaningful Growth Through Guidance, Collaboration, And Shared Progress.",
     tags: ["Visual Identity", "Brand Strategy", "Marketing Collaterals"],
-    ctaText: "COMING SOON",
+    ctaText: "VIEW CASE STUDY",
+    ctaLink: "/mentorme",
     bannerGradient:
       "linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
     bannerTextColor: "#ffffff",
@@ -158,25 +160,47 @@ function WorkCard({ project }: { project: ProjectData }) {
             ))}
           </div>
 
-          <button
-            type="button"
-            style={{
-              padding: "12px 28px",
-              borderRadius: 24,
-              border: "2px solid #2d6dc3",
-              background:
-                project.ctaText === "COMING SOON" ? "#fefcf4" : "#ffffff",
-              fontFamily: "'Martel:ExtraBold', sans-serif",
-              fontSize: 14,
-              color: "#2d6dc3",
-              letterSpacing: 1.5,
-              cursor: project.ctaLink ? "pointer" : "default",
-              whiteSpace: "nowrap",
-              flexShrink: 0,
-            }}
-          >
-            {project.ctaText}
-          </button>
+          {project.ctaLink ? (
+            <Link
+              to={project.ctaLink}
+              style={{
+                padding: "12px 28px",
+                borderRadius: 24,
+                border: "2px solid #2d6dc3",
+                background: "#ffffff",
+                fontFamily: "'Martel:ExtraBold', sans-serif",
+                fontSize: 14,
+                color: "#2d6dc3",
+                letterSpacing: 1.5,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+                textDecoration: "none",
+                display: "inline-block",
+              }}
+            >
+              {project.ctaText}
+            </Link>
+          ) : (
+            <button
+              type="button"
+              style={{
+                padding: "12px 28px",
+                borderRadius: 24,
+                border: "2px solid #2d6dc3",
+                background: "#fefcf4",
+                fontFamily: "'Martel:ExtraBold', sans-serif",
+                fontSize: 14,
+                color: "#2d6dc3",
+                letterSpacing: 1.5,
+                cursor: "default",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+              }}
+            >
+              {project.ctaText}
+            </button>
+          )}
         </div>
       </div>
     </div>

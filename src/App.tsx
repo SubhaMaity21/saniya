@@ -1,10 +1,14 @@
 import React, { useCallback } from "react";
+import { Routes, Route } from "react-router-dom";
 import LandingFinal from "./imports/LandingFinal";
+import BazarghorrPage from "./pages/BazarghorrPage";
+import BMSPage from "./pages/BMSPage";
+import MentorMePage from "./pages/MentorMePage";
 
 const WORK_SECTION_TOP = 700;
 const ABOUT_SECTION_TOP = 3300;
 
-export default function App() {
+function HomePage() {
   const scrollTo = useCallback((top: number) => {
     window.scrollTo({ top, behavior: "smooth" });
   }, []);
@@ -34,5 +38,16 @@ export default function App() {
         onContactClick={scrollToContact}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/bazarghorr" element={<BazarghorrPage />} />
+      <Route path="/bms" element={<BMSPage />} />
+      <Route path="/mentorme" element={<MentorMePage />} />
+    </Routes>
   );
 }
