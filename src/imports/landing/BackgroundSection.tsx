@@ -1,6 +1,9 @@
 import React from "react";
 // @ts-ignore
 import imgBackground from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.png";
+import imgBazarghorr from "@/assets/landing-work/bazarghorr-landing.png"
+import imgBuildMyStore from "@/assets/landing-work/BMS-landing.png"
+import imgMentorMe from "@/assets/landing-work/mentorme-landing.png"
 
 type BackgroundSectionProps = {
   containerRef?: React.RefObject<HTMLDivElement | null>;
@@ -16,6 +19,7 @@ type ProjectData = {
   bannerGradient: string;
   bannerTextColor: string;
   subtitleColor: string;
+  image: string;
 };
 
 const PROJECTS: ProjectData[] = [
@@ -31,6 +35,7 @@ const PROJECTS: ProjectData[] = [
       "linear-gradient(180deg, #e8f5e3 0%, #c8e6c9 40%, #a5d6a7 100%)",
     bannerTextColor: "#101010",
     subtitleColor: "#555555",
+    image: imgBazarghorr,
   },
 
   {
@@ -45,6 +50,7 @@ const PROJECTS: ProjectData[] = [
       "linear-gradient(180deg, #a0845c 0%, #7a6240 50%, #5c4a30 100%)",
     bannerTextColor: "#ffffff",
     subtitleColor: "rgba(255,255,255,0.65)",
+    image: imgBuildMyStore,
   },
   {
     title: "MENTORME",
@@ -57,6 +63,7 @@ const PROJECTS: ProjectData[] = [
       "linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
     bannerTextColor: "#ffffff",
     subtitleColor: "rgba(255,255,255,0.65)",
+    image: imgMentorMe,
   },
 ];
 
@@ -79,68 +86,20 @@ function WorkCard({ project }: { project: ProjectData }) {
           height: 420,
           borderRadius: 18,
           background: project.bannerGradient,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          paddingTop: 48,
           position: "relative",
           overflow: "hidden",
         }}
       >
-        <h3
+        <img
+          src={project.image}
+          alt={`${project.title} - ${project.subtitle}`}
           style={{
-            fontFamily: "'Clash Display:Bold', sans-serif",
-            fontSize: 48,
-            color: project.bannerTextColor,
-            letterSpacing: 3,
-            marginBottom: 8,
-            position: "relative",
-            zIndex: 1,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center top",
           }}
-        >
-          {project.title}
-        </h3>
-        <p
-          style={{
-            fontFamily: "'Martel:Regular', sans-serif",
-            fontSize: 14,
-            color: project.subtitleColor,
-            letterSpacing: 2,
-            textTransform: "uppercase",
-            position: "relative",
-            zIndex: 1,
-          }}
-        >
-          {project.subtitle}
-        </p>
-        {/* Placeholder for project mockup images */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "85%",
-            height: "60%",
-            background: "rgba(128, 128, 128, 0.12)",
-            borderRadius: "12px 12px 0 0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "'Martel:Regular', sans-serif",
-              fontSize: 14,
-              color: "rgba(128, 128, 128, 0.45)",
-              letterSpacing: 1,
-            }}
-          >
-            Project Images Placeholder
-          </span>
-        </div>
+        />
       </div>
 
       {/* Info Section */}
