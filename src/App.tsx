@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import LandingFinal from "./imports/LandingFinal";
 
-const WORK_SECTION_TOP = 900;
-const ABOUT_SECTION_TOP = 1800;
+const WORK_SECTION_TOP = 700;
+const ABOUT_SECTION_TOP = 3300;
 
 export default function App() {
   const scrollTo = useCallback((top: number) => {
