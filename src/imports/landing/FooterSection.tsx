@@ -135,69 +135,71 @@ export default function FooterSection({
   onLetsTalkClick,
 }: FooterSectionProps) {
   return (
-    <div
-      className="relative sticky top-0 h-[960px] shrink-0 bg-[#fefcf4]"
-      style={{ width: "133.33vw" }}
-    >
+    <div className="relative z-20 h-[960px] w-full shrink-0">
       <div
-        className="absolute bottom-0 left-1/2 h-[1523px] w-[1920px] -translate-x-1/2"
-        data-name="b551d4405bc31b48d23669c7d041acd3 1"
-      />
-      <div className="absolute left-1/2 top-[850px] h-0 w-[1840px] -translate-x-1/2">
-        <div className="absolute inset-[-1px_0_0_0]">
-          <svg
-            className="block size-full"
-            fill="none"
-            preserveAspectRatio="none"
-            viewBox="0 0 1840 1"
-          >
-            <line
-              id="Line 1"
-              stroke="var(--stroke-0, black)"
-              x2="1840"
-              y1="0.5"
-              y2="0.5"
-            />
-          </svg>
+        className="absolute left-1/2 top-0 h-full bg-[#fefcf4]"
+        style={{ width: "133.33vw", transform: "translateX(-50%)" }}
+      >
+        <div
+          className="absolute bottom-0 left-1/2 h-[1523px] w-[1920px] -translate-x-1/2"
+          data-name="b551d4405bc31b48d23669c7d041acd3 1"
+        />
+        <div className="absolute left-1/2 top-[850px] h-0 w-[1840px] -translate-x-1/2">
+          <div className="absolute inset-[-1px_0_0_0]">
+            <svg
+              className="block size-full"
+              fill="none"
+              preserveAspectRatio="none"
+              viewBox="0 0 1840 1"
+            >
+              <line
+                id="Line 1"
+                stroke="var(--stroke-0, black)"
+                x2="1840"
+                y1="0.5"
+                y2="0.5"
+              />
+            </svg>
+          </div>
         </div>
-      </div>
-      <p className="absolute left-1/2 top-[890px] max-w-[940px] -translate-x-1/2 text-center font-['Martel:Light',sans-serif] text-[16px] not-italic leading-[normal] text-[#101010]">
-        Built on coffee, love, many iterations, and way too many open tabs.
-        Thanks for stopping by, hope to hear from you soon.
-      </p>
-      <div className="absolute left-[40px] top-[890px]">
-        <button
-          type="button"
-          onClick={onBackToTop}
-          className="flex cursor-pointer items-center gap-2 transition-opacity hover:opacity-70"
-        >
-          <p className="font-['Martel:Regular',sans-serif] text-[16px] not-italic leading-[normal] text-[#101010]">
-            Back to top
-          </p>
-          <div className="flex h-[14px] w-0 items-center justify-center">
-            <div className="-rotate-90 flex-none">
-              <div className="relative h-0 w-[14px]">
-                <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
-                  <svg
-                    className="block size-full"
-                    fill="none"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 14.5 7.36396"
-                  >
-                    <path
-                      d={svgPaths.p3b044f00}
-                      fill="var(--stroke-0, #101010)"
-                      id="Arrow 2"
-                    />
-                  </svg>
+        <p className="absolute left-1/2 top-[890px] max-w-[940px] -translate-x-1/2 text-center font-['Martel:Light',sans-serif] text-[16px] not-italic leading-[normal] text-[#101010]">
+          Built on coffee, love, many iterations, and way too many open tabs.
+          Thanks for stopping by, hope to hear from you soon.
+        </p>
+        <div className="absolute left-[40px] top-[890px]">
+          <button
+            type="button"
+            onClick={onBackToTop}
+            className="flex cursor-pointer items-center gap-2 transition-opacity hover:opacity-70"
+          >
+            <p className="font-['Martel:Regular',sans-serif] text-[16px] not-italic leading-[normal] text-[#101010]">
+              Back to top
+            </p>
+            <div className="flex h-[14px] w-0 items-center justify-center">
+              <div className="-rotate-90 flex-none">
+                <div className="relative h-0 w-[14px]">
+                  <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
+                    <svg
+                      className="block size-full"
+                      fill="none"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 14.5 7.36396"
+                    >
+                      <path
+                        d={svgPaths.p3b044f00}
+                        fill="var(--stroke-0, #101010)"
+                        id="Arrow 2"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </button>
-      </div>
-      <div className="absolute left-1/2 top-[100px] w-full -translate-x-1/2">
-        <ContactCta onLetsTalkClick={onLetsTalkClick} />
+          </button>
+        </div>
+        <div className="absolute left-1/2 top-[100px] w-full -translate-x-1/2">
+          <ContactCta onLetsTalkClick={onLetsTalkClick} />
+        </div>
       </div>
     </div>
   );
