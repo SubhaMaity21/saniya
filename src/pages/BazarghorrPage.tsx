@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CaseStudyContainer } from "@/components/ui/CaseStudyContainer";
-import NavigationBar from "@/imports/landing/NavigationBar";
-import svgPaths from "@/imports/svg-ghixc67pzt";
 
 // Section images
 import s1 from "@/assets/bazarghorr/sections/s1.png";
@@ -14,6 +12,7 @@ import s6 from "@/assets/bazarghorr/sections/s6.png";
 import s7 from "@/assets/bazarghorr/sections/s7.png";
 import s8 from "@/assets/bazarghorr/sections/s8.png";
 import s10 from "@/assets/bazarghorr/sections/s10.png";
+import s13 from "@/assets/bazarghorr/sections/s13.png";
 
 // Videos
 import vendorOnboarding from "@/assets/bazarghorr/flows/vendor-onboarding.mp4";
@@ -145,7 +144,7 @@ function VendorAppUISection() {
           padding: "60px 40px 80px",
         }}
       >
-        <SectionHeader number="03/10" title="VENDOR APP UI BREAKDOWN" />
+        <SectionHeader number="09/10" title="VENDOR APP UI BREAKDOWN" />
 
         <div
           style={{
@@ -173,39 +172,37 @@ function VendorAppUISection() {
 
           {/* Right side: text + illustration */}
           <div style={{ flex: 1 }}>
+            <h3
+              style={{
+                fontFamily: HEADING_FONT,
+                fontSize: 32,
+                color: "#101010",
+                marginBottom: 16,
+              }}
+            >
+              ONBOARDING
+            </h3>
             <div
               style={{
                 display: "flex",
-                alignItems: "center",
+                alignItems: "flex-start",
                 gap: 20,
-                marginBottom: 20,
               }}
             >
-              <div style={{ flex: 1 }}>
-                <h3
-                  style={{
-                    fontFamily: HEADING_FONT,
-                    fontSize: 32,
-                    color: "#101010",
-                    marginBottom: 16,
-                  }}
-                >
-                  ONBOARDING
-                </h3>
-                <p
-                  style={{
-                    fontFamily: BODY_FONT,
-                    fontSize: 16,
-                    lineHeight: 1.7,
-                    color: "#333",
-                  }}
-                >
-                  The Onboarding Flow Starts With A Landing Page That Sets
-                  Context For The Platform. Vendors Log In Using Their Phone
-                  Number And Complete A Two Step Onboarding With Essential
-                  Personal Details And Optional Shop Details For Faster Access.
-                </p>
-              </div>
+              <p
+                style={{
+                  fontFamily: BODY_FONT,
+                  fontSize: 16,
+                  lineHeight: 1.7,
+                  color: "#333",
+                  flex: 1,
+                }}
+              >
+                The Onboarding Flow Starts With A Landing Page That Sets
+                Context For The Platform. Vendors Log In Using Their Phone
+                Number And Complete A Two Step Onboarding With Essential
+                Personal Details And Optional Shop Details For Faster Access.
+              </p>
 
               <img
                 src={maleVendor}
@@ -299,7 +296,7 @@ function MainScreensSection() {
           overflow: "hidden",
         }}
       >
-        <SectionHeader number="09/10" title="MAIN SCREENS" />
+        <SectionHeader number="10/10" title="MAIN SCREENS" />
 
         {/* ── New Orders ── */}
         <div
@@ -619,250 +616,12 @@ function MainScreensSection() {
   );
 }
 
-// ─── S12: Footer CTA (CODED) ────────────────────────────────────────
-
-function SocialLink({
-  href,
-  label,
-  children,
-  external = false,
-}: {
-  href: string;
-  label: string;
-  children: React.ReactNode;
-  external?: boolean;
-}) {
-  return (
-    <a
-      href={href}
-      aria-label={label}
-      style={{
-        width: 46,
-        height: 46,
-        display: "block",
-        cursor: "pointer",
-        transition: "transform 0.15s",
-      }}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-    >
-      {children}
-    </a>
-  );
-}
-
-function FooterCTA() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  return (
-    <div
-      style={{
-        position: "relative",
-        zIndex: 12,
-        marginTop: SECTION_OVERLAP,
-        borderRadius: "30px 30px 0 0",
-        overflow: "hidden",
-        background:
-          "linear-gradient(180deg, #6EAED6 0%, #8FC4E0 30%, #A8D4E8 60%, #C0DFF0 100%)",
-        color: "#fff",
-      }}
-    >
-      {/* Main CTA content */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "120px 40px 60px",
-          textAlign: "center",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: BODY_FONT_SEMI,
-            fontSize: 22,
-            marginBottom: 24,
-            color: "#fff",
-          }}
-        >
-          That&apos;s a wrap. Or is it?
-        </p>
-
-        <h2
-          style={{
-            fontFamily: "'Clash Display:Semibold', sans-serif",
-            fontSize: 80,
-            lineHeight: 1.05,
-            letterSpacing: 3,
-            marginBottom: 24,
-            maxWidth: 900,
-            color: "#fff",
-          }}
-        >
-          Great design starts with a conversation!
-        </h2>
-
-        <p
-          style={{
-            fontFamily: BODY_FONT_SEMI,
-            fontSize: 18,
-            marginBottom: 40,
-            color: "rgba(255,255,255,0.9)",
-          }}
-        >
-          Open to opportunities, collabs, creative challenges, or simply a good
-          conversation.
-        </p>
-
-        <a
-          href="mailto:saniya@example.com"
-          style={{
-            display: "inline-block",
-            padding: "16px 36px",
-            borderRadius: 38,
-            border: "1.5px solid rgba(255,255,255,0.6)",
-            background: "rgba(255,255,255,0.15)",
-            backdropFilter: "blur(4px)",
-            fontFamily: "'Martel:ExtraBold', sans-serif",
-            fontSize: 20,
-            color: "#fff",
-            textDecoration: "none",
-            letterSpacing: 1,
-            marginBottom: 20,
-            cursor: "pointer",
-          }}
-        >
-          Let&apos;s Talk &rarr;
-        </a>
-
-        <p
-          style={{
-            fontFamily: BODY_FONT_SEMI,
-            fontSize: 18,
-            marginBottom: 16,
-            color: "#fff",
-          }}
-        >
-          or
-        </p>
-
-        {/* Social icons */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 18,
-          }}
-        >
-          <SocialLink
-            href="https://www.linkedin.com/in/saniya"
-            label="LinkedIn"
-            external
-          >
-            <svg
-              style={{ display: "block", width: 46, height: 46 }}
-              fill="none"
-              viewBox="0 0 46 46"
-            >
-              <path d={svgPaths.p30ba2c00} fill="#fff" />
-            </svg>
-          </SocialLink>
-          <SocialLink href="mailto:saniya@example.com" label="Email">
-            <svg
-              style={{ display: "block", width: 46, height: 46 }}
-              fill="none"
-              viewBox="0 0 46 46"
-            >
-              <path d={svgPaths.p3150bc00} fill="#fff" />
-            </svg>
-          </SocialLink>
-          <SocialLink
-            href="https://www.instagram.com/saniya"
-            label="Instagram"
-            external
-          >
-            <svg
-              style={{ display: "block", width: 46, height: 46 }}
-              fill="none"
-              viewBox="0 0 46 46"
-            >
-              <path d={svgPaths.p2bbb0d20} fill="#fff" />
-            </svg>
-          </SocialLink>
-          <SocialLink
-            href="https://www.behance.net/saniya"
-            label="Behance"
-            external
-          >
-            <svg
-              style={{ display: "block", width: 46, height: 46 }}
-              fill="none"
-              viewBox="0 0 46 46"
-            >
-              <path d={svgPaths.p2b85ed00} fill="#fff" />
-              <path d={svgPaths.p3db6fc00} fill="#fff" />
-            </svg>
-          </SocialLink>
-        </div>
-      </div>
-
-      {/* Footer bar */}
-      <div
-        style={{
-          borderTop: "1px solid rgba(255,255,255,0.3)",
-          padding: "20px 40px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <button
-          type="button"
-          onClick={scrollToTop}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            background: "none",
-            border: "none",
-            color: "#fff",
-            fontFamily: BODY_FONT,
-            fontSize: 14,
-            cursor: "pointer",
-          }}
-        >
-          Back to top &uarr;
-        </button>
-
-        <p
-          style={{
-            fontFamily: "'Martel:Light', sans-serif",
-            fontSize: 14,
-            color: "rgba(255,255,255,0.8)",
-            textAlign: "center",
-          }}
-        >
-          Built on coffee, love, many iterations, and way too many open tabs.
-          Thanks for stopping by, hope to hear from you soon.
-        </p>
-      </div>
-    </div>
-  );
-}
-
 // ─── Main Page ───────────────────────────────────────────────────────
 
 export default function BazarghorrPage() {
   const navigate = useNavigate();
 
   const goHome = () => navigate("/");
-  const goWork = () => navigate("/#work");
-  const goAbout = () => navigate("/#about");
-  const goContact = () => navigate("/#contact");
 
   return (
     <div
@@ -873,15 +632,6 @@ export default function BazarghorrPage() {
         overflowX: "hidden",
       }}
     >
-      {/* Navigation */}
-      <NavigationBar
-        onHomeClick={goHome}
-        onWorkClick={goWork}
-        onAboutClick={goAbout}
-        onContactClick={goContact}
-        isWhite={false}
-      />
-
       {/* s1: Hero — rectangular, light bg */}
       <div style={{ background: "#fefcf4", paddingTop: 80, position: "relative" }}>
         <button
@@ -889,7 +639,7 @@ export default function BazarghorrPage() {
           onClick={goHome}
           style={{
             position: "absolute",
-            top: 100,
+            top: 40,
             left: 32,
             zIndex: 20,
             display: "flex",
@@ -913,8 +663,8 @@ export default function BazarghorrPage() {
         <SectionImage src={s1} alt="Bazarghorr hero" />
       </div>
 
-      {/* s2: Design Brief — rectangular, light bg */}
-      <div style={{ background: "#fefcf4" }}>
+      {/* s2: Design Brief — rectangular, light bg, zIndex 2 */}
+      <div style={{ background: "#fefcf4", position: 'relative', zIndex: 2 }}>
         <SectionImage src={s2} alt="Design brief" />
       </div>
 
@@ -987,8 +737,10 @@ export default function BazarghorrPage() {
       {/* s11: Main Screens — light, curved top, CODED */}
       <MainScreensSection />
 
-      {/* s12: Footer CTA — blue gradient, CODED */}
-      <FooterCTA />
+      {/* s12: Footer Image — s13 */}
+      <div style={{ marginTop: SECTION_OVERLAP, position: "relative", zIndex: 12 }}>
+        <SectionImage src={s13} alt="Footer" />
+      </div>
     </div>
   );
 }

@@ -2,208 +2,58 @@ import React from "react";
 import { Link } from "react-router-dom";
 // @ts-ignore
 import imgBackground from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.png";
-import imgBazarghorr from "@/assets/landing-work/bazarghorr-landing.png"
-import imgBuildMyStore from "@/assets/landing-work/BMS-landing.png"
-import imgMentorMe from "@/assets/landing-work/mentorme-landing.png"
+import imgBazarghorr from "@/assets/work/bazarghorr.png";
+import imgBuildMyStore from "@/assets/work/buildmystore.png";
+import imgMentorMe from "@/assets/work/mentorme.png";
 
 type BackgroundSectionProps = {
   containerRef?: React.RefObject<HTMLDivElement | null>;
 };
 
 type ProjectData = {
-  title: string;
-  subtitle: string;
-  description: string;
-  tags: string[];
-  ctaText: string;
-  ctaLink?: string;
-  bannerGradient: string;
-  bannerTextColor: string;
-  subtitleColor: string;
   image: string;
+  alt: string;
+  link: string;
 };
 
 const PROJECTS: ProjectData[] = [
-  {
-    title: "BAZARGHORR",
-    subtitle: "HYPERLOCAL GROCERY APP",
-    description:
-      "A Mobile App Delivering Daily Grocery Essentials From Trusted Local Kirana Stores To Small-Town Residents. Bringing Modern Convenience To Underserved Markets.",
-    tags: ["Product Design", "Mobile App", "Handed Off To Development"],
-    ctaText: "VIEW CASE STUDY",
-    ctaLink: "/bazarghorr",
-    bannerGradient:
-      "linear-gradient(180deg, #e8f5e3 0%, #c8e6c9 40%, #a5d6a7 100%)",
-    bannerTextColor: "#101010",
-    subtitleColor: "#555555",
-    image: imgBazarghorr,
-  },
-
-  {
-    title: "BUILDMYSTORE",
-    subtitle: "ALL-IN-ONE ECOMMERCE PLATFORM",
-    description:
-      "An All-In-One Ecommerce Platform That Enables Local Businesses To Easily Set Up, Manage, And Grow Their Online Stores, From Storefront Creation To Orders, Payments, And Deliveries.",
-    tags: ["UI Design", "Ecom. Website", "Handed Off To Development"],
-    ctaText: "VIEW CASE STUDY",
-    ctaLink: "/bms",
-    bannerGradient:
-      "linear-gradient(180deg, #a0845c 0%, #7a6240 50%, #5c4a30 100%)",
-    bannerTextColor: "#ffffff",
-    subtitleColor: "rgba(255,255,255,0.65)",
-    image: imgBuildMyStore,
-  },
-  {
-    title: "MENTORME",
-    subtitle: "PURPOSE-LED BRAND IDENTITY",
-    description:
-      "A Purpose-Led Brand Identity Focused On Connecting Learners And Mentors, Enabling Meaningful Growth Through Guidance, Collaboration, And Shared Progress.",
-    tags: ["Visual Identity", "Brand Strategy", "Marketing Collaterals"],
-    ctaText: "VIEW CASE STUDY",
-    ctaLink: "/mentorme",
-    bannerGradient:
-      "linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
-    bannerTextColor: "#ffffff",
-    subtitleColor: "rgba(255,255,255,0.65)",
-    image: imgMentorMe,
-  },
+  { image: imgBazarghorr, alt: "Bazarghorr — Hyperlocal Grocery App", link: "/bazarghorr" },
+  { image: imgBuildMyStore, alt: "BuildMyStore — All-in-One Ecommerce Platform", link: "/bms" },
+  { image: imgMentorMe, alt: "MentorMe — Purpose-Led Brand Identity", link: "/mentorme" },
 ];
 
 function WorkCard({ project }: { project: ProjectData }) {
   return (
-    <div
+    <Link
+      to={project.link}
       style={{
+        display: "block",
         width: 1100,
         borderRadius: 24,
-        border: "1px solid rgba(255, 255, 255, 0.30)",
-        background: "rgba(255, 255, 255, 0.07)",
-        backdropFilter: "blur(6px)",
-        WebkitBackdropFilter: "blur(6px)",
+        overflow: "hidden",
+        cursor: "pointer",
+        textDecoration: "none",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.02)";
+        e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.25)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.boxShadow = "none";
       }}
     >
-      {/* Banner / Image Area */}
-      <div
+      <img
+        src={project.image}
+        alt={project.alt}
         style={{
-          margin: 14,
-          height: 420,
-          borderRadius: 18,
-          background: project.bannerGradient,
-          position: "relative",
-          overflow: "hidden",
+          width: "100%",
+          display: "block",
+          borderRadius: 24,
         }}
-      >
-        <img
-          src={project.image}
-          alt={`${project.title} - ${project.subtitle}`}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center top",
-          }}
-        />
-      </div>
-
-      {/* Info Section */}
-      <div style={{ padding: "20px 32px 28px" }}>
-        <h3
-          style={{
-            fontFamily: "'Clash Display:Bold', sans-serif",
-            fontSize: 36,
-            color: "#101010",
-            letterSpacing: 1,
-            marginBottom: 10,
-            lineHeight: 1.2,
-          }}
-        >
-          {project.title}
-        </h3>
-        <p
-          style={{
-            fontFamily: "'Martel:Regular', sans-serif",
-            fontSize: 16,
-            fontStyle: "italic",
-            color: "rgba(255, 255, 255, 0.85)",
-            lineHeight: 1.6,
-            marginBottom: 24,
-            maxWidth: 820,
-          }}
-        >
-          {project.description}
-        </p>
-
-        {/* Tags and CTA Row */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  padding: "8px 20px",
-                  borderRadius: 24,
-                  border: "1px solid rgba(255, 255, 255, 0.45)",
-                  fontFamily: "'Martel:Regular', sans-serif",
-                  fontSize: 14,
-                  color: "rgba(255, 255, 255, 0.9)",
-                  letterSpacing: 0.3,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {project.ctaLink ? (
-            <Link
-              to={project.ctaLink}
-              style={{
-                padding: "12px 28px",
-                borderRadius: 24,
-                border: "2px solid #2d6dc3",
-                background: "#ffffff",
-                fontFamily: "'Martel:ExtraBold', sans-serif",
-                fontSize: 14,
-                color: "#2d6dc3",
-                letterSpacing: 1.5,
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-                flexShrink: 0,
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              {project.ctaText}
-            </Link>
-          ) : (
-            <button
-              type="button"
-              style={{
-                padding: "12px 28px",
-                borderRadius: 24,
-                border: "2px solid #2d6dc3",
-                background: "#fefcf4",
-                fontFamily: "'Martel:ExtraBold', sans-serif",
-                fontSize: 14,
-                color: "#2d6dc3",
-                letterSpacing: 1.5,
-                cursor: "default",
-                whiteSpace: "nowrap",
-                flexShrink: 0,
-              }}
-            >
-              {project.ctaText}
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
+      />
+    </Link>
   );
 }
 
@@ -251,7 +101,7 @@ export default function BackgroundSection({ containerRef }: BackgroundSectionPro
         </h2>
 
         {PROJECTS.map((project) => (
-          <WorkCard key={project.title} project={project} />
+          <WorkCard key={project.link} project={project} />
         ))}
       </div>
     </div>
