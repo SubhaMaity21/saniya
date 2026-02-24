@@ -17,7 +17,7 @@ export default function NavItem({
   href,
   textLeft = false,
 }: NavItemProps) {
-  const textClasses = `flex h-[34px] items-center font-bold transition-colors duration-300 ${
+  const textClasses = `flex h-[34px] items-center font-['Martel:ExtraBold',sans-serif] text-[20px] transition-colors duration-300 ${
     isWhite ? "text-white" : "text-[#2d6dc3]"
   }`;
   const containerClassName = [
@@ -31,8 +31,8 @@ export default function NavItem({
 
   const animatedLabel = (
     <div className="transition-transform duration-300 ease-in-out group-hover:-translate-y-[34px]">
-      <p className={textClasses}>{label}</p>
-      <p className={textClasses}>{label}</p>
+      <p className={textClasses} style={{ fontWeight: 800,fontFamily: "Martel, serif" }}>{label}</p>
+      <p className={textClasses} style={{ fontWeight: 800,fontFamily: "Martel, serif" }}>{label}</p>
     </div>
   );
 

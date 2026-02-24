@@ -89,8 +89,9 @@ export default function BackgroundSection({ containerRef }: BackgroundSectionPro
       >
         <h2
           style={{
-            fontFamily: "'Clash Display:Bold', sans-serif",
+            fontFamily: "ClashDisplay, sans-serif",
             fontSize: 64,
+            fontWeight: 800,
             color: "#101010",
             letterSpacing: 4,
             textAlign: "center",

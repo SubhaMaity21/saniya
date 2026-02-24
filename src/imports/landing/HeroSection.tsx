@@ -23,12 +23,14 @@ type HeroSectionProps = {
 
 function HeroHeading() {
   return (
-    <div className="-translate-x-1/2 -translate-y-1/2 absolute contents left-1/2 top-[calc(50%-357.5px)] not-italic">
-      <div className="absolute left-[calc(50%-832px)] top-[calc(50%-312px)] font-['Clash_Display:Bold',sans-serif] text-[164.816px] leading-[1.03] tracking-[9.889px] text-[#101010]">
+    <div className="-translate-x-1/2 -translate-y-1/2 absolute contents left-1/2 top-[calc(50%-367.5px)] not-italic">
+      <div className="absolute left-[calc(50%-832px)] top-[calc(50%-312px)] font-['Clash_Display:Bold',sans-serif] text-[164.816px] leading-[1.03] tracking-[9.889px] text-[#101010] text-[164.816px]"
+      style={{ fontFamily: "ClashDisplay, sans-serif" }}>
         <p className="mb-0">DIGITAL PRODUCT</p>
         <p>DESIGNER</p>
       </div>
-      <p className="absolute left-[calc(50%-832px)] top-[calc(50%-343px)] ml-5 font-['Martel:ExtraBold',sans-serif] text-[16px] leading-[normal] tracking-[0.48px] text-[#2d6dc3]">
+      <p className="absolute left-[calc(50%-832px)] top-[calc(50%-343px)] ml-5  text-[16px] leading-[normal] tracking-[0.48px] text-[#2d6dc3] text-[16px]"
+      style={{ fontWeight: 800,fontFamily: "Martel, serif" }}>
         <span className="block px-4">
           USERINTERFACE | USEREXPERIENCE | VISUAL IDENTITY
         </span>
@@ -40,21 +42,21 @@ function HeroHeading() {
 function ProfileCard({ isActive, onHover }: ExpandableCardProps) {
   return (
     <div
-      className={`${EXPANDABLE_CARD_BASE_CLASS} relative mr-5 overflow-hidden`}
+      className={`${EXPANDABLE_CARD_BASE_CLASS} relative mr-5 overflow-visible `}
       style={{ width: isActive ? 450 : 170 }}
       onMouseEnter={onHover}
     >
-      <div className="relative flex h-full items-center justify-center">
+      <div className="relative flex h-full items-center justify-center pl-0">
         <div
           className={`relative z-10 flex shrink-0 items-center justify-center transition-all duration-500 ${
-            isActive ? "h-[135px] w-[135px]" : "h-[100px] w-[100px]"
+            isActive ? "h-[180px] w-[170px]" : "h-[110px] w-[100px]"
           }`}
-          style={{ transform: isActive ? "translateX(-110px)" : "translateX(0)" }}
+          style={{ transform: isActive ? "translateX(-170px) translateY(-10px)" : "translateX(0)" }}
           data-name="me icon"
         >
           <img
             alt="Saniya profile"
-            className="h-full w-full rounded-full object-cover"
+            className="h-full w-full rounded-full object-cover overflow"
             src={imgMeIcon1}
           />
         </div>
@@ -76,7 +78,7 @@ function LocationCard({ isActive, onHover }: ExpandableCardProps) {
       style={{ width: isActive ? 450 : 170 }}
       onMouseEnter={onHover}
     >
-      <div className="relative flex h-full items-center gap-5 pl-[10px] pr-[10px]">
+      <div className="relative flex h-full items-center gap-5 ">
         <div
           className="relative flex h-[170px] w-[170px] shrink-0 items-center justify-center"
           data-name="location png"
@@ -101,7 +103,7 @@ function ContactCard({ isActive, onHover }: ExpandableCardProps) {
       style={{ width: isActive ? 490 : 170 }}
       onMouseEnter={onHover}
     >
-      <div className="relative flex h-full items-center gap-5 pl-[27px] pr-[35px]">
+      <div className="relative flex h-full items-center gap-5 pl-[10px]">
         <div
           className="relative flex h-[135px] w-[135px] shrink-0 items-center justify-center"
           data-name="contact me"
@@ -127,7 +129,8 @@ function IntroCards() {
 
   return (
     <div
-      className="absolute left-[937px] top-[200px] flex gap-[7px]"
+      className="absolute left-[937px] flex gap-[7px] p-30"
+      style={{ top: 220 }}
       data-name="Component 1"
       onMouseLeave={activateProfile}
     >
@@ -170,7 +173,7 @@ export default function HeroSection({
         </div>
         <div
           className="absolute left-1/2 -translate-x-1/2 w-full max-w-[800px] px-4 text-center font-['Martel:ExtraBold',sans-serif] text-[22px] not-italic leading-[normal] text-[#2d6dc3]"
-          style={{ top: "550px" }}
+          style={{ top: "550px", fontWeight: 800, fontFamily: "Martel, serif" }}
         >
           <p className="mb-0">
             Designing meaningful experiences where every interaction is crafted with
