@@ -144,7 +144,7 @@ export default function FooterSection({
 }: FooterSectionProps) {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   return (
-    <div className="relative z-20 h-[960px] w-full shrink-0">
+    <div className="relative z-20 h-[960px] w-full shrink-0 " >
       <div
         className="absolute left-1/2 top-0 h-full bg-[#fefcf4]"
         style={{ width: "133.33vw", transform: "translateX(-50%)" }}
@@ -196,7 +196,7 @@ export default function FooterSection({
           Built on coffee, love, many iterations, and way too many open tabs.
           Thanks for stopping by, hope to hear from you soon.
         </p>
-        <div className="absolute left-[40px] top-[890px]">
+        <div className="absolute top-[890px]" style={{left:150}}>
           <button
             type="button"
             onClick={onBackToTop}

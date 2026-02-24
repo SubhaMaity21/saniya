@@ -24,8 +24,8 @@ type HeroSectionProps = {
 function HeroHeading() {
   return (
     <div className="-translate-x-1/2 -translate-y-1/2 absolute contents left-1/2 top-[calc(50%-367.5px)] not-italic">
-      <div className="absolute left-[calc(50%-832px)] top-[calc(50%-312px)] font-['Clash_Display:Bold',sans-serif] text-[164.816px] leading-[1.03] tracking-[9.889px] text-[#101010] text-[164.816px]"
-      style={{ fontFamily: "ClashDisplay, sans-serif" }}>
+      <div className="absolute left-[calc(50%-832px)] top-[calc(50%-312px)] whitespace-nowrap font-['Clash_Display:Bold',sans-serif] text-[164.816px] leading-[1.03] tracking-[9.889px] text-[#101010] text-[164.816px]"
+      style={{ fontFamily: "ClashDisplay, sans-serif", fontWeight: 600 }}>
         <p className="mb-0">DIGITAL PRODUCT</p>
         <p>DESIGNER</p>
       </div>
@@ -61,8 +61,8 @@ function ProfileCard({ isActive, onHover }: ExpandableCardProps) {
           />
         </div>
         <p
-          className="absolute left-[170px] whitespace-nowrap font-['Martel:ExtraBold',sans-serif] text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
-          style={{ opacity: isActive ? 1 : 0 }}
+          className="absolute left-[170px] whitespace-nowrap  text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
+          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800 }}
         >
           HELLO! I&apos;M SANIYA
         </p>
@@ -86,8 +86,8 @@ function LocationCard({ isActive, onHover }: ExpandableCardProps) {
           <img alt="" className="h-full w-full object-cover" src={imgLocationPng1} />
         </div>
         <p
-          className="whitespace-nowrap font-['Martel:ExtraBold',sans-serif] text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
-          style={{ opacity: isActive ? 1 : 0 }}
+          className="whitespace-nowrap text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
+          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800 }}
         >
           Ahmedabad | Pune
         </p>
@@ -111,8 +111,8 @@ function ContactCard({ isActive, onHover }: ExpandableCardProps) {
           <img alt="" className="h-full w-full object-contain" src={imgContactMe1} />
         </div>
         <p
-          className="whitespace-nowrap font-['Martel:ExtraBold',sans-serif] text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
-          style={{ opacity: isActive ? 1 : 0 }}
+          className="whitespace-nowrap  text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
+          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800 }}
         >
           Let&apos;s Talk Design
         </p>
@@ -129,8 +129,8 @@ function IntroCards() {
 
   return (
     <div
-      className="absolute left-[937px] flex gap-[7px] p-30"
-      style={{ top: 220 }}
+      className="absolute  flex gap-[7px] p-30"
+      style={{ top: 220,left:970 }}
       data-name="Component 1"
       onMouseLeave={activateProfile}
     >
@@ -154,7 +154,8 @@ export default function HeroSection({
   return (
     <div
       ref={containerRef}
-      className="relative sticky top-[200px] mx-auto h-[780px] w-full shrink-0 overflow-visible"
+      className="relative sticky top-[200px] h-[780px] w-full shrink-0 overflow-visible"
+      style={{top:340}}
     >
       <div
         className="relative h-full w-full"
@@ -173,13 +174,13 @@ export default function HeroSection({
         </div>
         <div
           className="absolute left-1/2 -translate-x-1/2 w-full max-w-[800px] px-4 text-center font-['Martel:ExtraBold',sans-serif] text-[22px] not-italic leading-[normal] text-[#2d6dc3]"
-          style={{ top: "550px", fontWeight: 800, fontFamily: "Martel, serif" }}
+          style={{ top: "650px", fontWeight: 800, fontFamily: "Martel, serif" }}
         >
           <p className="mb-0">
             Designing meaningful experiences where every interaction is crafted with
             purpose,
           </p>
-          <p>From head scratching moments to flows that just make sense.</p>
+          <p >From head scratching moments to flows that just make sense.</p>
         </div>
       </div>
     </div>

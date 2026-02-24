@@ -59,9 +59,9 @@ function LandingSections({
 }) {
   return (
     <div
-      className="absolute left-1/2 top-[100px] flex w-full flex-col items-center"
+      className="absolute left-1/2 top-[100px] flex w-[calc(100%/0.8)] flex-col items-center"
       style={{
-        transform: "translate(-50%, 0) scale(0.75)",
+        transform: "translate(-50%, 0) scale(0.8)",
         transformOrigin: "top center",
       }}
     >
