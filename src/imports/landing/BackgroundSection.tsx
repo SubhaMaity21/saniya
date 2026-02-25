@@ -5,7 +5,7 @@ import imgBackground from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.
 import imgBazarghorr from "@/assets/work/bazarghorr.png";
 import imgBuildMyStore from "@/assets/work/buildmystore.png";
 import imgMentorMe from "@/assets/work/mentorme.png";
-
+import newBackground from "@/assets/landing-work/blue-bg.png"
 type BackgroundSectionProps = {
   containerRef?: React.RefObject<HTMLDivElement | null>;
 };
@@ -28,7 +28,7 @@ function WorkCard({ project }: { project: ProjectData }) {
       to={project.link}
       style={{
         display: "block",
-        width: 1100,
+        width: 1500,
         borderRadius: 24,
         overflow: "hidden",
         cursor: "pointer",
@@ -59,7 +59,7 @@ function WorkCard({ project }: { project: ProjectData }) {
 
 export default function BackgroundSection({ containerRef }: BackgroundSectionProps) {
   return (
-    <div ref={containerRef} className="relative w-full shrink-0" style={{ minHeight: 2900,top:250 }}>
+    <div ref={containerRef} className="relative w-full shrink-0" style={{ minHeight: 3700,top:250 }}>
       {/* Full-width background image */}
       <div
         className="absolute left-1/2 top-0 h-full"
@@ -69,7 +69,7 @@ export default function BackgroundSection({ containerRef }: BackgroundSectionPro
           <img
             alt=""
             className="absolute left-0 top-0 h-full w-full max-w-none object-cover"
-            src={imgBackground}
+            src={newBackground}
           />
         </div>
       </div>

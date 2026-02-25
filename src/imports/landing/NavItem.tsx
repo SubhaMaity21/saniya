@@ -31,8 +31,8 @@ export default function NavItem({
 
   const animatedLabel = (
     <div className="transition-transform duration-300 ease-in-out group-hover:-translate-y-[34px]">
-      <p className={textClasses} style={{ fontWeight: 800,fontFamily: "Martel, serif" }}>{label}</p>
-      <p className={textClasses} style={{ fontWeight: 800,fontFamily: "Martel, serif" }}>{label}</p>
+      <p className={textClasses} style={{ fontWeight: 900,fontFamily: "Martel, serif" }}>{label}</p>
+      <p className={textClasses} style={{ fontWeight: 900,fontFamily: "Martel, serif" }}>{label}</p>
     </div>
   );
 

@@ -88,12 +88,25 @@ export default function LandingFinal({
     const scrollParent = findScrollParent(heroRef.current);
 
     const updatePageAnimations = () => {
-      const shouldBeWhite =
-        window.scrollY >= NAV_WHITE_SCROLL_START &&
-        window.scrollY < NAV_WHITE_SCROLL_END;
-      setIsNavWhite((current) =>
-        current === shouldBeWhite ? current : shouldBeWhite,
-      );
+      // Make nav white only while the "SELECTED WORK" heading is visible.
+      let shouldBeWhite = false;
+      if (backgroundRef.current) {
+        // Consider the heading and any project cards (links) inside the
+        // BackgroundSection. If any of these elements intersect the
+        // viewport, the nav should be white.
+        const candidates = backgroundRef.current.querySelectorAll("h2, a");
+        for (let i = 0; i < candidates.length; i++) {
+          const el = candidates[i] as HTMLElement | null;
+          if (!el) continue;
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            shouldBeWhite = true;
+            break;
+          }
+        }
+      }
+
+      setIsNavWhite((current) => (current === shouldBeWhite ? current : shouldBeWhite));
 
       const nextCoverProgress = getHeroCoverProgress(heroRef.current, backgroundRef.current);
       setHeroCoverProgress((current) =>
