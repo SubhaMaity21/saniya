@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CaseStudyContainer } from "@/components/ui/CaseStudyContainer";
+import FooterSection from "@/imports/landing/FooterSection";
 
 // Section images
 import s1 from "@/assets/bazarghorr/sections/s1.png";
@@ -13,6 +14,8 @@ import s7 from "@/assets/bazarghorr/sections/s7.png";
 import s8 from "@/assets/bazarghorr/sections/s8.png";
 import s10 from "@/assets/bazarghorr/sections/s10.png";
 import s13 from "@/assets/bazarghorr/sections/s13.png";
+import s14 from "@/assets/bazarghorr/sections/s14.png";
+
 
 // Videos
 import vendorOnboarding from "@/assets/bazarghorr/flows/vendor-onboarding.mp4";
@@ -20,9 +23,10 @@ import vendorNewOrder from "@/assets/bazarghorr/flows/vendor-new-order-flow.mp4"
 import vendorInventory from "@/assets/bazarghorr/flows/vendor-inventory-flow.mp4";
 
 // Illustrations
-import maleVendor from "@/assets/bazarghorr/illustrations/male-vendor.png";
+import maleVendor from "@/assets/bazarghorr/illustrations/excited.png";
 import maleVendorThinking from "@/assets/bazarghorr/illustrations/thinking.png";
 import newOrderIllustration from "@/assets/bazarghorr/illustrations/new-order.png";
+import screenIllustration from "@/assets/bazarghorr/illustrations/screen-illustrations.png";
 
 // Screens for s11
 import analytics1 from "@/assets/bazarghorr/screens/analytics-1.png";
@@ -328,7 +332,21 @@ function MainScreensSection() {
               marginTop:140
             }}
           >
-            <PhoneMockup width={220}>
+            <div className="absolute" style={{zIndex:-1,left:134,top:260 }}>
+              <img 
+                src={screenIllustration}
+                alt="Screen illustration"
+                style={{ width: 464, height: 416,transform:"rotate(5.85deg)",opacity:0.8 }}
+              />
+            </div>
+            <div className="absolute" style={{zIndex:-2,left:6,top:250 }}>
+              <img 
+                src={screenIllustration}
+                alt="Screen illustration"
+                style={{ width: 501, height: 448,transform:"rotate(-7.85deg)",opacity:0.8 }}
+              />
+            </div>
+            <PhoneMockup width={301}>
               <video
                 src={vendorNewOrder}
                 autoPlay
@@ -339,6 +357,7 @@ function MainScreensSection() {
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
+                  zIndex:10
                 }}
               />
             </PhoneMockup>
@@ -445,19 +464,19 @@ function MainScreensSection() {
                 flexWrap: "wrap",
               }}
             >
-              <PhoneMockup width={230}>
+              <PhoneMockup width={254}>
                 <img 
                 src={analytics1}
                 style={{objectFit:"cover",width:"100%",height:"100%"}}
                 />
               </PhoneMockup>
-              <PhoneMockup width={230}>
+              <PhoneMockup width={254}>
                 <img 
                 src={analytics2}
                 style={{objectFit:"cover",width:"100%",height:"100%"}}
                 />
               </PhoneMockup>
-              <PhoneMockup width={230}>
+              <PhoneMockup width={254}>
                 <img 
                 src={analytics3}
                 style={{objectFit:"cover",width:"100%",height:"100%"}}
@@ -481,9 +500,25 @@ function MainScreensSection() {
               display: "flex",
               gap: 48,
               alignItems: "flex-start",
+              marginLeft: "9%",
+              marginTop:190
             }}
           >
-            <PhoneMockup width={220}>
+            <div className="absolute" style={{zIndex:-1,left:134,top:230 }}>
+              <img 
+                src={screenIllustration}
+                alt="Screen illustration"
+                style={{ width: 464, height: 416,transform:"rotate(5.85deg)",opacity:0.8 }}
+              />
+            </div>
+            <div className="absolute" style={{zIndex:-2,left:6,top:210 }}>
+              <img 
+                src={screenIllustration}
+                alt="Screen illustration"
+                style={{ width: 501, height: 448,transform:"rotate(-7.85deg)",opacity:0.8 }}
+              />
+            </div>
+            <PhoneMockup width={284}>
               <video
                 src={vendorInventory}
                 autoPlay
@@ -525,31 +560,40 @@ function MainScreensSection() {
                 Edit Existing Items, And Update Stock Levels As Needed.
               </p>
 
-              <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+              {/* <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
                 <ScreenThumbnail
                   src={inventoryScreen}
                   alt="Inventory"
                   width={140}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
 
         {/* ── History ── */}
+      <div 
+        style={{position: "relative",
+            marginBottom: 80,
+            marginTop:-200,
+            marginRight:"9%"}}
+      >
         <div
           style={{
-            textAlign: "center",
-            marginBottom: 80,
-            position: "relative",
+             display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              gap: 42,
           }}
         >
+          <div style={{ alignSelf: "flex-end", textAlign: "right", flex: 1 }}>
           <h3
             style={{
               fontFamily: HEADING_FONT,
-              fontSize: 24,
-              color: "#101010",
-              marginBottom: 8,
+                  fontSize: 24,
+                  color: "#101010",
+                  marginBottom: 8,
+                  paddingRight:5
             }}
           >
             HISTORY
@@ -557,19 +601,19 @@ function MainScreensSection() {
           <p
             style={{
               fontFamily: BODY_FONT,
-              fontSize: 14,
-              lineHeight: 1.7,
-              color: "#444",
-              marginBottom: 24,
-              maxWidth: 600,
-              margin: "0 auto 24px",
+                  fontSize: 14,
+                  lineHeight: 1.7,
+                  color: "#444",
+                  maxWidth: 550,
+                  marginBottom: 0,
+                  marginLeft: "auto",
             }}
           >
             The History Page Provides Vendors With Past Order Details Including
             Order ID, Number Of Items, Payout Amount, Date And Time, Delivery
             Duration, And Customer Reviews When Available.
           </p>
-
+          </div>
           <div
             style={{
               display: "flex",
@@ -578,20 +622,33 @@ function MainScreensSection() {
               flexWrap: "wrap",
             }}
           >
-            <ScreenThumbnail src={orderHistory} alt="Order history" width={180} />
+            {/* <ScreenThumbnail src={orderHistory} alt="Order history" width={180} />
             <ScreenThumbnail
               src={orderHistoryDetails}
               alt="Order details"
               width={180}
-            />
+            /> */}
+            <PhoneMockup width={250}>
+              <img 
+              src={orderHistory}
+              style={{objectFit:"cover",width:"100%",height:"100%"}}
+              />
+            </PhoneMockup>
+            <PhoneMockup width={250}>
+              <img 
+              src={orderHistoryDetails}
+              style={{objectFit:"cover",width:"100%",height:"100%"}}
+              />
+            </PhoneMockup>
           </div>
         </div>
-
+      </div>
         {/* ── Extras ── */}
         <div
           style={{
             textAlign: "center",
             position: "relative",
+            marginTop: 160,
           }}
         >
           <GreenBlob size={100} top={-10} right={100} opacity={0.08} />
@@ -627,7 +684,7 @@ function MainScreensSection() {
               alignItems: "flex-end",
             }}
           >
-            <ScreenThumbnail
+            {/* <ScreenThumbnail
               src={dashboardActivity}
               alt="Activity dashboard"
               width={180}
@@ -651,7 +708,45 @@ function MainScreensSection() {
               src={subscriptionScreen}
               alt="Subscription"
               width={180}
+            /> */}
+
+            <PhoneMockup width={316}>
+              <img 
+              src={dashboardActivity}
+              alt="Activity dashboard"
+              style={{objectFit:"fill",width:"100%",height:"100%"}}
+              />
+            </PhoneMockup>
+             <PhoneMockup width={316}>
+              
+              <img 
+              src={profileScreen}
+              alt="Profile screen"
+              style={{objectFit:"cover",width:"100%",height:"100%"}}
+              />
+            </PhoneMockup>
+            <div className="absolute" style={{zIndex:-1,top:-100,right:400 }}>
+              <img
+              src={maleVendor}
+              alt="Vendor character"
+              style={{
+                width: 207,
+                height:293,
+                borderRadius: 40,
+                objectFit: "cover",
+                zIndex:-5
+              }}
+              loading="lazy"
             />
+            </div>
+            
+             <PhoneMockup width={316}>
+              <img 
+              src={subscriptionScreen}
+              alt="Subscription screen"
+              style={{objectFit:"fill",width:"100%",height:"100%",zIndex:10}}
+              />
+            </PhoneMockup>
           </div>
         </div>
       </div>
@@ -779,10 +874,18 @@ export default function BazarghorrPage() {
 
       {/* s11: Main Screens — light, curved top, CODED */}
       <MainScreensSection />
+           <CaseStudyContainer
+        variant="light"
+        zIndex={11}
+        style={{ marginTop: SECTION_OVERLAP, position: "relative",marginBottom:130 }}
+      >
+        <SectionImage src={s14} alt="Numbers" />
+      </CaseStudyContainer>
 
       {/* s12: Footer Image — s13 */}
-      <div style={{ marginTop: SECTION_OVERLAP, position: "relative", zIndex: 12 }}>
-        <SectionImage src={s13} alt="Footer" />
+      <div style={{marginBottom:0, position: "relative", zIndex: 12, transform: "scale(0.8)",height:900 }}>
+        {/* <SectionImage src={s13} alt="Footer" /> */}
+        <FooterSection onBackToTop={()=>{}} onLetsTalkClick={()=>{}} />
       </div>
     </div>
   );
