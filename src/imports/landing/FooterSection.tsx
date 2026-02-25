@@ -14,22 +14,40 @@ type SocialLinkProps = {
 };
 
 function SocialLink({ href, label, children, external = false }: SocialLinkProps) {
+    const [isHovered, setIsHovered] = useState(false);
   return (
     <a
       href={href}
       aria-label={label}
-      className="size-[46px] cursor-pointer transition-transform hover:scale-110"
+      className="group flex flex-col items-center  cursor-pointer transition-transform hover:scale-y-110"
+      style={{width: 60, height: 90,transform: isHovered ? "scale(1.1)" : "scale(.95)",transition: "transform 0.5s ease"}}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
+      onMouseEnter={()=>setIsHovered(true)}
+      onMouseLeave={()=>setIsHovered(false)}
     >
       {children}
+      <span
+        className="mt-2 text-[18px]"
+        style={{
+          fontFamily: "Martel, serif",
+          color: "#101010",
+          opacity: isHovered ? 1 : 0,
+          transform: isHovered ? "translateY(0)" : "translateY(8px)",
+          transition: "opacity 300ms ease, transform 200ms ease",
+          fontSize: 20,
+        }}
+      >
+        {label}
+      </span>
     </a>
   );
 }
 
 function SocialMedia() {
+  
   return (
-    <div className="flex items-center justify-center gap-[18px]">
+    <div className="flex items-center justify-center " style={{gap:32}}>
       <SocialLink href="https://www.linkedin.com/in/saniya" label="LinkedIn" external>
         <svg
           className="block size-full"
@@ -78,7 +96,7 @@ function SocialMedia() {
 function LetsTalkLabelLine() {
   return (
     <div className="relative flex h-[54px] items-center justify-center">
-      <p className="absolute left-[calc(50%-100px)] text-[32px] not-italic leading-[normal] text-[#2d6dc3]" style={{ fontFamily: "Martel, serif" }}>
+      <p className="absolute left-[calc(50%-100px)] text-[32px] not-italic leading-[normal] text-[#2d6dc3]" style={{ fontFamily: "Martel, serif",fontWeight: 800 }}>
         Let&apos;s Talk
       </p>
       <div className="absolute left-[176px] top-[27px] h-0 w-[24px]">
@@ -144,9 +162,9 @@ export default function FooterSection({
 }: FooterSectionProps) {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   return (
-    <div className="relative z-20 h-[960px] w-full shrink-0 " >
+    <div className="relative z-20  w-full shrink-0 " style={{height:1230}} >
       <div
-        className="absolute left-1/2 top-0 h-full bg-[#fefcf4]"
+        className="absolute left-1/2  h-full bg-[#fefcf4]"
         style={{ width: "133.33vw", transform: "translateX(-50%)" }}
       >
         <div
@@ -157,7 +175,7 @@ export default function FooterSection({
           className="absolute z-10 overflow-hidden"
           style={{
             right: 220,
-            top: 325,
+            bottom:72,
             height: 523,
             width: 407,
           }}
@@ -174,7 +192,7 @@ export default function FooterSection({
           />
         </div>
         
-        <div className="absolute left-1/2 top-[850px] h-0 w-[1840px] -translate-x-1/2">
+        <div className="absolute left-1/2  h-0  -translate-x-1/2" style={{bottom:70,width:2100}}>
           <div className="absolute inset-[-1px_0_0_0]">
             <svg
               className="block size-full"
@@ -192,17 +210,17 @@ export default function FooterSection({
             </svg>
           </div>
         </div>
-        <p className="absolute left-1/2 top-[890px] max-w-[100px] -translate-x-1/2 text-center text-[14px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif" }}>
+        <p className="absolute left-1/2  max-w-[100px] -translate-x-1/2 text-center text-[14px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif",bottom:22,fontSize:18,letterSpacing:0.5 }}>
           Built on coffee, love, many iterations, and way too many open tabs.
           Thanks for stopping by, hope to hear from you soon.
         </p>
-        <div className="absolute top-[890px]" style={{left:150}}>
+        <div className="absolute " style={{left:150, bottom:22}}>
           <button
             type="button"
             onClick={onBackToTop}
             className="flex cursor-pointer items-center gap-2 transition-opacity hover:opacity-70"
           >
-            <p className="text-[16px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif" }}>
+            <p className="text-[16px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif",fontSize:18,letterSpacing:0.5 }}>
               Back to top
             </p>
             <div className="flex h-[14px] w-0 items-center justify-center">
@@ -227,7 +245,7 @@ export default function FooterSection({
             </div>
           </button>
         </div>
-        <div className="absolute left-1/2 top-[100px] w-full -translate-x-1/2">
+        <div className="absolute left-1/2 w-full -translate-x-1/2" style={{bottom:245}}>
           <ContactCta onLetsTalkClick={onLetsTalkClick} onButtonHover={setIsButtonHovered} />
         </div>
     

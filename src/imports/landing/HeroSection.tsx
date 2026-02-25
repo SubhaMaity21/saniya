@@ -24,9 +24,9 @@ type HeroSectionProps = {
 function HeroHeading() {
   return (
     <div className="-translate-x-1/2 -translate-y-1/2 absolute contents left-1/2 top-[calc(50%-367.5px)] not-italic">
-      <div className="absolute left-[calc(50%-832px)] top-[calc(50%-312px)] whitespace-nowrap font-['Clash_Display:Bold',sans-serif] text-[164.816px] leading-[1.03] tracking-[9.889px] text-[#101010] text-[164.816px]"
-      style={{ fontFamily: "ClashDisplay, sans-serif", fontWeight: 600 }}>
-        <p className="mb-0">DIGITAL PRODUCT</p>
+      <div className="absolute left-[calc(50%-832px)] top-[calc(50%-312px)] whitespace-nowrap font-['Clash_Display:Bold',sans-serif]  leading-[1.03] tracking-[9.889px] text-[#101010] text-[100.816px]"
+      style={{ fontFamily: "ClashDisplay, sans-serif", fontWeight: 600,fontSize:160.6 }}>
+        <p className="" >DIGITAL PRODUCT</p>
         <p>DESIGNER</p>
       </div>
       <p className="absolute left-[calc(50%-832px)] top-[calc(50%-343px)] ml-5  text-[16px] leading-[normal] tracking-[0.48px] text-[#2d6dc3] text-[16px]"
@@ -130,7 +130,7 @@ function IntroCards() {
   return (
     <div
       className="absolute  flex gap-[7px] p-30"
-      style={{ top: 220,left:970 }}
+      style={{ top: 210,left:855, transform: "scale(0.85)" }}
       data-name="Component 1"
       onMouseLeave={activateProfile}
     >
@@ -146,10 +146,8 @@ export default function HeroSection({
   containerRef,
 }: HeroSectionProps) {
   const clampedCoverProgress = Math.min(1, Math.max(0, coverProgress));
-  const contentScale = 1 - clampedCoverProgress * 0.16;
   const contentOpacity = 1 - clampedCoverProgress * 0.35;
   const contentBlur = clampedCoverProgress * 2;
-  const contentLift = clampedCoverProgress * -36;
 
   return (
     <div
@@ -160,12 +158,12 @@ export default function HeroSection({
       <div
         className="relative h-full w-full"
         style={{
-          transform: `translate3d(0, ${contentLift}px, 0) scale(${contentScale})`,
+          transform: "scale(1)",
           transformOrigin: "50% 35%",
           opacity: contentOpacity,
           filter: `blur(${contentBlur}px)`,
-          willChange: "transform, opacity, filter",
-          transition: "transform 80ms linear, opacity 80ms linear, filter 80ms linear",
+          willChange: "opacity, filter",
+          transition: "opacity 80ms linear, filter 80ms linear",
         }}
       >
         <div className="-translate-x-1/2 absolute left-[calc(50%+8.5px)] top-40 mt-5 h-[686px] w-[1664px]">

@@ -21,6 +21,7 @@ import vendorInventory from "@/assets/bazarghorr/flows/vendor-inventory-flow.mp4
 
 // Illustrations
 import maleVendor from "@/assets/bazarghorr/illustrations/male-vendor.png";
+import maleVendorThinking from "@/assets/bazarghorr/illustrations/thinking.png";
 import newOrderIllustration from "@/assets/bazarghorr/illustrations/new-order.png";
 
 // Screens for s11
@@ -35,6 +36,7 @@ import subscriptionScreen from "@/assets/bazarghorr/screens/subscription-page.pn
 import inventoryScreen from "@/assets/bazarghorr/screens/product-page.png";
 import vendorDashboard from "@/assets/bazarghorr/screens/vendordashboard.png";
 import maleVendorStanding from "@/assets/bazarghorr/illustrations/male-vendor-standing.jpeg";
+
 
 // ─── Shared constants ────────────────────────────────────────────────
 
@@ -139,7 +141,7 @@ function VendorAppUISection() {
     >
       <div
         style={{
-          maxWidth: MAX_WIDTH,
+          maxWidth: 1800,
           margin: "0 auto",
           padding: "60px 40px 80px",
         }}
@@ -151,7 +153,9 @@ function VendorAppUISection() {
             display: "flex",
             alignItems: "center",
             gap: 80,
-            marginTop: 40,
+            marginTop: 70,
+            margin:"18%",
+            marginBottom:60
           }}
         >
           {/* Phone mockup with onboarding video */}
@@ -171,7 +175,36 @@ function VendorAppUISection() {
           </PhoneMockup>
 
           {/* Right side: text + illustration */}
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, alignSelf: "flex-end", position: "relative", overflow: "visible" }}>
+            {/* Image container with bg color */}
+            <div
+              style={{
+                position: "absolute",
+                top: -70,
+                right: 0,
+                width: 130,
+                height: 130,
+                borderRadius: "50%",
+                background: "#e0e0e0",
+                overflow: "visible",
+                zIndex: 2,
+              }}
+            >
+              <img
+                src={maleVendorThinking}
+                alt="Vendor illustration"
+                style={{
+                  width: 150,
+                  height: 150,
+                  transform: "scaleX(-1)",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  position: "absolute",
+                  top: -21,
+                  left: -4,
+                }}
+              />
+            </div>
             <h3
               style={{
                 fontFamily: HEADING_FONT,
@@ -182,41 +215,19 @@ function VendorAppUISection() {
             >
               ONBOARDING
             </h3>
-            <div
+            <p
               style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 20,
+                fontFamily: BODY_FONT,
+                fontSize: 16,
+                lineHeight: 1.7,
+                color: "#333",
               }}
             >
-              <p
-                style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 16,
-                  lineHeight: 1.7,
-                  color: "#333",
-                  flex: 1,
-                }}
-              >
-                The Onboarding Flow Starts With A Landing Page That Sets
-                Context For The Platform. Vendors Log In Using Their Phone
-                Number And Complete A Two Step Onboarding With Essential
-                Personal Details And Optional Shop Details For Faster Access.
-              </p>
-
-              <img
-                src={maleVendor}
-                alt="Vendor illustration"
-                style={{
-                  width: 100,
-                  height: 100,
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  flexShrink: 0,
-                  background: "#e0e0e0",
-                }}
-              />
-            </div>
+              The Onboarding Flow Starts With A Landing Page That Sets
+              Context For The Platform. Vendors Log In Using Their Phone
+              Number And Complete A Two Step Onboarding With Essential
+              Personal Details And Optional Shop Details For Faster Access.
+            </p>
           </div>
         </div>
       </div>
@@ -289,7 +300,7 @@ function MainScreensSection() {
     >
       <div
         style={{
-          maxWidth: MAX_WIDTH,
+          maxWidth: 1800,
           margin: "0 auto",
           padding: "60px 40px 80px",
           position: "relative",
@@ -313,6 +324,8 @@ function MainScreensSection() {
               display: "flex",
               gap: 48,
               alignItems: "flex-start",
+              marginLeft: "9%",
+              marginTop:140
             }}
           >
             <PhoneMockup width={220}>
@@ -357,7 +370,7 @@ function MainScreensSection() {
                 Order Is Completed While Continuing On The Dashboard.
               </p>
 
-              <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+              {/* <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
                 <ScreenThumbnail
                   src={newOrderIllustration}
                   alt="New order"
@@ -368,7 +381,7 @@ function MainScreensSection() {
                   alt="Vendor dashboard"
                   width={140}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -376,51 +389,81 @@ function MainScreensSection() {
         {/* ── Analytics ── */}
         <div
           style={{
-            textAlign: "center",
-            marginBottom: 80,
             position: "relative",
+            marginBottom: 80,
+            marginTop:-200,
+            marginRight:"9%"
           }}
         >
           <GreenBlob size={160} top={-20} left={-40} opacity={0.1} />
 
-          <h3
-            style={{
-              fontFamily: HEADING_FONT,
-              fontSize: 24,
-              color: "#101010",
-              marginBottom: 8,
-            }}
-          >
-            ANALYTICS
-          </h3>
-          <p
-            style={{
-              fontFamily: BODY_FONT,
-              fontSize: 14,
-              lineHeight: 1.7,
-              color: "#444",
-              marginBottom: 24,
-              maxWidth: 600,
-              margin: "0 auto 24px",
-            }}
-          >
-            The Screen Provides Vendors With Clear Insights Through Sales
-            Reports, Top Selling Products, And Inventory Performance, Helping
-            Them Understand What Is Working, What Is Not, And Make Informed
-            Stocking Decisions.
-          </p>
-
           <div
             style={{
               display: "flex",
-              justifyContent: "center",
-              gap: 20,
-              flexWrap: "wrap",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              gap: 42,
             }}
           >
-            <ScreenThumbnail src={analytics1} alt="Analytics 1" width={180} />
-            <ScreenThumbnail src={analytics2} alt="Analytics 2" width={180} />
-            <ScreenThumbnail src={analytics3} alt="Analytics 3" width={180} />
+            {/* Heading + paragraph right beside mockups */}
+            <div style={{ alignSelf: "flex-end", textAlign: "right", flex: 1 }}>
+              <h3
+                style={{
+                  fontFamily: HEADING_FONT,
+                 
+                  fontSize: 24,
+                  color: "#101010",
+                  marginBottom: 8,
+                  paddingRight:5
+                }}
+              >
+                ANALYTICS
+              </h3>
+              <p
+                style={{
+                  fontFamily: BODY_FONT,
+                  fontSize: 14,
+                  lineHeight: 1.7,
+                  color: "#444",
+                  maxWidth: 550,
+                  marginBottom: 0,
+                  marginLeft: "auto",
+                }}
+              >
+                The Screen Provides Vendors With Clear Insights Through Sales
+                Reports, Top Selling Products, And Inventory Performance, Helping
+                Them Understand What Is Working, What Is Not, And Make Informed
+                Stocking Decisions.
+              </p>
+            </div>
+
+            {/* Phone mockups */}
+            <div
+              style={{
+                display: "flex",
+                gap: 20,
+                flexWrap: "wrap",
+              }}
+            >
+              <PhoneMockup width={230}>
+                <img 
+                src={analytics1}
+                style={{objectFit:"cover",width:"100%",height:"100%"}}
+                />
+              </PhoneMockup>
+              <PhoneMockup width={230}>
+                <img 
+                src={analytics2}
+                style={{objectFit:"cover",width:"100%",height:"100%"}}
+                />
+              </PhoneMockup>
+              <PhoneMockup width={230}>
+                <img 
+                src={analytics3}
+                style={{objectFit:"cover",width:"100%",height:"100%"}}
+                />
+              </PhoneMockup>
+            </div>
           </div>
         </div>
 
