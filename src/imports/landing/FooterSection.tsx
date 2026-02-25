@@ -1,6 +1,6 @@
-import React, { type ReactNode } from "react";
+import React, { useState, type ReactNode } from "react";
 import svgPaths from "../svg-ghixc67pzt";
-
+import footerImage from "figma:asset/thumbs-up-final.png";
 type FooterSectionProps = {
   onBackToTop: () => void;
   onLetsTalkClick: () => void;
@@ -78,7 +78,7 @@ function SocialMedia() {
 function LetsTalkLabelLine() {
   return (
     <div className="relative flex h-[54px] items-center justify-center">
-      <p className="absolute left-[calc(50%-100px)] font-['Martel:ExtraBold',sans-serif] text-[32px] not-italic leading-[normal] text-[#2d6dc3]">
+      <p className="absolute left-[calc(50%-100px)] text-[32px] not-italic leading-[normal] text-[#2d6dc3]" style={{ fontFamily: "Martel, serif" }}>
         Let&apos;s Talk
       </p>
       <div className="absolute left-[176px] top-[27px] h-0 w-[24px]">
@@ -97,22 +97,30 @@ function LetsTalkLabelLine() {
   );
 }
 
-function ContactCta({ onLetsTalkClick }: { onLetsTalkClick: () => void }) {
+function ContactCta({ onLetsTalkClick, onButtonHover }: { onLetsTalkClick: () => void; onButtonHover: (hovered: boolean) => void }) {
   return (
-    <div className="flex w-full flex-col items-center justify-center">
-      <p className="mb-12 font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]">
+    <div className="flex w-full flex-col items-center justify-center"
+    
+    >
+      <p className="mb-12  text-[28px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif" }}>
         That&apos;s a wrap. Or is it?
       </p>
-      <h1 className="mb-8 max-w-[1640px] text-center font-['Clash_Display:Semibold',sans-serif] text-[128px] not-italic leading-[1.03] tracking-[7.68px] text-[#101010]">
+      <h1 className="mb-8 max-w-[1640px] text-center text-[128px] not-italic leading-[1.03] tracking-[7.68px] text-[#101010]" 
+      style={{ 
+        fontFamily: "ClashDisplay, sans-serif",
+        fontWeight: 600
+        }}>
         Great design starts with a conversation!
       </h1>
-      <p className="mb-12 text-center font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]">
+      <p className="mb-12 text-center font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif" }}>
         Open to opportunities, collabs, creative challenges, or simply a good
         conversation.
       </p>
       <button
         type="button"
         onClick={onLetsTalkClick}
+        onMouseEnter={() => onButtonHover(true)}
+        onMouseLeave={() => onButtonHover(false)}
         className="group relative mb-4 h-[95px] w-[312px] cursor-pointer overflow-hidden rounded-[38px] border border-solid border-[#2d6dc3] bg-[rgba(226,226,226,0.2)] px-12 py-6 transition-all hover:scale-105 hover:bg-[rgba(226,226,226,0.4)]"
       >
         <div className="absolute left-[65px] top-[20.5px] h-[54px] w-[200px] overflow-clip">
@@ -134,8 +142,9 @@ export default function FooterSection({
   onBackToTop,
   onLetsTalkClick,
 }: FooterSectionProps) {
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
   return (
-    <div className="relative z-20 h-[960px] w-full shrink-0">
+    <div className="relative z-20 h-[960px] w-full shrink-0 " >
       <div
         className="absolute left-1/2 top-0 h-full bg-[#fefcf4]"
         style={{ width: "133.33vw", transform: "translateX(-50%)" }}
@@ -144,6 +153,27 @@ export default function FooterSection({
           className="absolute bottom-0 left-1/2 h-[1523px] w-[1920px] -translate-x-1/2"
           data-name="b551d4405bc31b48d23669c7d041acd3 1"
         />
+        <div
+          className="absolute z-10 overflow-hidden"
+          style={{
+            right: 220,
+            top: 325,
+            height: 523,
+            width: 407,
+          }}
+        >
+          <img
+            className="absolute bottom-0 left-0 object-cover transition-transform duration-500 ease-out"
+            style={{
+              height: 523,
+              width: 407,
+              transform: isButtonHovered ? 'translateY(35%)' : 'translateY(100%)',
+            }}
+            src={footerImage}
+            alt=""
+          />
+        </div>
+        
         <div className="absolute left-1/2 top-[850px] h-0 w-[1840px] -translate-x-1/2">
           <div className="absolute inset-[-1px_0_0_0]">
             <svg
@@ -162,17 +192,17 @@ export default function FooterSection({
             </svg>
           </div>
         </div>
-        <p className="absolute left-1/2 top-[890px] max-w-[940px] -translate-x-1/2 text-center font-['Martel:Light',sans-serif] text-[16px] not-italic leading-[normal] text-[#101010]">
+        <p className="absolute left-1/2 top-[890px] max-w-[100px] -translate-x-1/2 text-center text-[14px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif" }}>
           Built on coffee, love, many iterations, and way too many open tabs.
           Thanks for stopping by, hope to hear from you soon.
         </p>
-        <div className="absolute left-[40px] top-[890px]">
+        <div className="absolute top-[890px]" style={{left:150}}>
           <button
             type="button"
             onClick={onBackToTop}
             className="flex cursor-pointer items-center gap-2 transition-opacity hover:opacity-70"
           >
-            <p className="font-['Martel:Regular',sans-serif] text-[16px] not-italic leading-[normal] text-[#101010]">
+            <p className="text-[16px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif" }}>
               Back to top
             </p>
             <div className="flex h-[14px] w-0 items-center justify-center">
@@ -198,8 +228,9 @@ export default function FooterSection({
           </button>
         </div>
         <div className="absolute left-1/2 top-[100px] w-full -translate-x-1/2">
-          <ContactCta onLetsTalkClick={onLetsTalkClick} />
+          <ContactCta onLetsTalkClick={onLetsTalkClick} onButtonHover={setIsButtonHovered} />
         </div>
+    
       </div>
     </div>
   );
