@@ -1743,53 +1743,97 @@ export default function BazarghorrPage() {
 
   const goHome = () => navigate("/");
 
+  // const handleModeChange = () => {
+  //   const nextMode = !vendorMode;
+  //   // decide horizontal slide direction
+  //   setModeDirection(nextMode ? "left" : "right");
+  //   setModeAnimating(true);
+  //   // slide-out duration ~= 350ms, then toggle mode and scroll, then slide back in
+  //   setTimeout(() => {
+  //     setVendorMode(nextMode);
+  //     // small delay to allow DOM to update then scroll
+  //     setTimeout(() => {
+  //       if (nextMode && vendorRef.current) {
+  //         vendorRef.current.scrollIntoView({
+  //           behavior: "smooth",
+  //           block: "start",
+  //         });
+  //       } else if (!nextMode && customerRef.current) {
+  //         customerRef.current.scrollIntoView({
+  //           behavior: "smooth",
+  //           block: "start",
+  //         });
+  //       }
+  //     }, 120);
+  //     // reset animation state to slide back in
+  //     setModeAnimating(false);
+  //     setModeDirection(null);
+  //   }, 350);
+  // };
+
+  // const getModeButtonTransform = () => {
+  //   const base = buttonAnimating
+  //     ? "translateY(-120%) scaleY(0.7)"
+  //     : "translateY(0) scaleY(1)";
+  //   if (modeAnimating && modeDirection === "right")
+  //     return `${base} translateX(100vw)`;
+  //   if (modeAnimating && modeDirection === "left")
+  //     return `${base} translateX(-100vw)`;
+  //   return base;
+  // };
+
+  // const getInnerButtonTransform = () => {
+  //   // counter-translate horizontal movement so inner content appears static
+  //   if (modeAnimating && modeDirection === "right") return "translateX(-100vw)";
+  //   if (modeAnimating && modeDirection === "left") return "translateX(100vw)";
+  //   return "translateX(0)";
+  // };
   const handleModeChange = () => {
-    const nextMode = !vendorMode;
-    // decide horizontal slide direction
-    setModeDirection(nextMode ? "left" : "right");
-    setModeAnimating(true);
-    // slide-out duration ~= 350ms, then toggle mode and scroll, then slide back in
-    setTimeout(() => {
-      setVendorMode(nextMode);
-      // small delay to allow DOM to update then scroll
+    setVendorMode((prev) => {
+      const nextMode = !prev;
       setTimeout(() => {
         if (nextMode && vendorRef.current) {
-          vendorRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
+          vendorRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
         } else if (!nextMode && customerRef.current) {
-          customerRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
+          customerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-      }, 120);
-      // reset animation state to slide back in
-      setModeAnimating(false);
-      setModeDirection(null);
-    }, 350);
+      }, 100);
+      return nextMode;
+    });
   };
+  
+  // useEffect(() => {
+  //   const observer = new window.IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+  //         setButtonAnimating(true);
+  //         setTimeout(() => {
+  //           setShowButton(false);
+  //           setButtonAnimating(false);
+  //         }, 350); // match animation duration
+  //       } else {
+  //         setShowButton(true);
+  //         setButtonVisible(true);
+  //       }
+  //     },
+  //     {
+  //       root: null,
+  //       threshold: 0.9,
+  //     },
+  //   );
+  //   if (numbersSectionRef.current) {
+  //     observer.observe(numbersSectionRef.current);
+  //   }
+  //   return () => {
+  //     if (numbersSectionRef.current) {
+  //       observer.unobserve(numbersSectionRef.current);
+  //     }
+  //   };
+  // }, []);
 
-  const getModeButtonTransform = () => {
-    const base = buttonAnimating
-      ? "translateY(-120%) scaleY(0.7)"
-      : "translateY(0) scaleY(1)";
-    if (modeAnimating && modeDirection === "right")
-      return `${base} translateX(100vw)`;
-    if (modeAnimating && modeDirection === "left")
-      return `${base} translateX(-100vw)`;
-    return base;
-  };
-
-  const getInnerButtonTransform = () => {
-    // counter-translate horizontal movement so inner content appears static
-    if (modeAnimating && modeDirection === "right") return "translateX(-100vw)";
-    if (modeAnimating && modeDirection === "left") return "translateX(100vw)";
-    return "translateX(0)";
-  };
-
-  useEffect(() => {
+  // When showButton becomes true, make button visible again
+  
+   useEffect(() => {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -1806,7 +1850,9 @@ export default function BazarghorrPage() {
       {
         root: null,
         threshold: 0.9,
-      },
+        
+
+      }
     );
     if (numbersSectionRef.current) {
       observer.observe(numbersSectionRef.current);
@@ -1818,10 +1864,9 @@ export default function BazarghorrPage() {
     };
   }, []);
 
-  // When showButton becomes true, make button visible again
   useEffect(() => {
     if (showButton) setButtonVisible(true);
-  }, [showButton]);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -1940,47 +1985,44 @@ export default function BazarghorrPage() {
 
         {/* Mode changing Button */}
 
-        {showButton && buttonVisible && (
+        {showButton && (
           <div
-            style={{
-              position: "sticky",
-              top: 20,
-              zIndex: 20,
-              display: "flex",
-              justifyContent: "flex-end",
-              paddingRight: 40,
-              transition:
-                "transform 0.35s cubic-bezier(.4,1.6,.6,1), opacity 0.35s cubic-bezier(.4,1.6,.6,1)",
-              transform: buttonAnimating
-                ? "translateY(-120%) scaleY(0.7)"
-                : "translateY(0) scaleY(1)",
-              opacity: buttonAnimating ? 0 : 1,
-              pointerEvents: buttonAnimating ? "none" : "auto",
-            }}
-            onTransitionEnd={() => {
-              if (buttonAnimating) setButtonVisible(false);
-            }}
+             style={{
+            position: "sticky",
+            top: 20,
+            zIndex: 20,
+            display: "flex",
+            justifyContent: "flex-end",
+            paddingRight: 40,
+            transition: "transform 0.35s cubic-bezier(.4,1.6,.6,1), opacity 0.35s cubic-bezier(.4,1.6,.6,1)",
+            transform: buttonAnimating ? "translateY(-120%) scaleY(0.7)" : "translateY(0) scaleY(1)",
+            opacity: buttonAnimating ? 0 : 1,
+            pointerEvents: buttonAnimating ? "none" : "auto",
+          }}
+          onTransitionEnd={() => {
+            if (buttonAnimating) setButtonVisible(false);
+          }}
           >
             <button
-              onClick={handleModeChange}
-              className=""
-              style={{
-                width: 226,
-                height: "auto",
-                backgroundColor: vendorMode ? "#0C582B" : "#33302F",
-                color: "white",
-                padding: 10,
-                display: "flex",
-                gap: 0,
-                zIndex: 15,
-                marginBottom: 0,
-                marginLeft: 230,
-                fontSize: 20,
-                borderRadius: 40,
-                position: "relative",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-                transition: "background 0.2s",
-              }}
+                onClick={handleModeChange}
+            className=""
+            style={{
+              width: 226,
+              height: "auto",
+              backgroundColor: vendorMode ? "#0C582B" : "#33302F",
+              color: "white",
+              padding: 10,
+              display: "flex",
+              gap: 0,
+              zIndex: 15,
+              marginBottom: 0,
+              marginLeft: 230,
+              fontSize: 20,
+              borderRadius: 40,
+              position: "relative",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+              transition: "background 0.2s",
+            }}
             >
               {vendorMode ? (
                 <div
@@ -2063,6 +2105,7 @@ export default function BazarghorrPage() {
           {vendorMode ? <VendorSection /> : <CustomerSection />}
         </div>
 
+        <div  ref={numbersSectionRef}>        
         <CaseStudyContainer
           variant="light"
           zIndex={11}
@@ -2074,6 +2117,7 @@ export default function BazarghorrPage() {
         >
           <SectionImage src={s14} alt="Numbers" />
         </CaseStudyContainer>
+        </div>
 
         {/* s12: Footer Image — s13 */}
         <div
@@ -2083,7 +2127,7 @@ export default function BazarghorrPage() {
             position: "relative",
             zIndex: 12,
             transform: "scale(0.8)",
-            height: 10,
+            height:1000,
           }}
         >
           {/* <SectionImage src={s13} alt="Footer" /> */}
