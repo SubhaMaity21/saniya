@@ -1,9 +1,11 @@
 import React, { useState, type ReactNode } from "react";
 import svgPaths from "../svg-ghixc67pzt";
 import footerImage from "figma:asset/thumbs-up-final.png";
+import bgImage from "@/assets/landing-work/blue-bg.png";
 type FooterSectionProps = {
   onBackToTop: () => void;
   onLetsTalkClick: () => void;
+  useBgImage?: boolean;
 };
 
 type SocialLinkProps = {
@@ -13,18 +15,28 @@ type SocialLinkProps = {
   external?: boolean;
 };
 
-function SocialLink({ href, label, children, external = false }: SocialLinkProps) {
-    const [isHovered, setIsHovered] = useState(false);
+function SocialLink({
+  href,
+  label,
+  children,
+  external = false,
+}: SocialLinkProps) {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <a
       href={href}
       aria-label={label}
       className="group flex flex-col items-center  cursor-pointer transition-transform hover:scale-y-110"
-      style={{width: 60, height: 90,transform: isHovered ? "scale(1.1)" : "scale(.95)",transition: "transform 0.5s ease"}}
+      style={{
+        width: 60,
+        height: 90,
+        transform: isHovered ? "scale(1.1)" : "scale(.95)",
+        transition: "transform 0.5s ease",
+      }}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      onMouseEnter={()=>setIsHovered(true)}
-      onMouseLeave={()=>setIsHovered(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {children}
       <span
@@ -45,10 +57,16 @@ function SocialLink({ href, label, children, external = false }: SocialLinkProps
 }
 
 function SocialMedia() {
-  
   return (
-    <div className="flex items-center justify-center " style={{gap:32}}>
-      <SocialLink href="https://www.linkedin.com/in/saniya" label="LinkedIn" external>
+    <div
+      className="flex items-center justify-center "
+      style={{ gap: 32, marginTop: 10 }}
+    >
+      <SocialLink
+        href="https://www.linkedin.com/in/saniya"
+        label="LinkedIn"
+        external
+      >
         <svg
           className="block size-full"
           fill="none"
@@ -68,7 +86,11 @@ function SocialMedia() {
           <path d={svgPaths.p3150bc00} fill="var(--fill-0, #101010)" />
         </svg>
       </SocialLink>
-      <SocialLink href="https://www.instagram.com/saniya" label="Instagram" external>
+      <SocialLink
+        href="https://www.instagram.com/saniya"
+        label="Instagram"
+        external
+      >
         <svg
           className="block size-full"
           fill="none"
@@ -78,7 +100,11 @@ function SocialMedia() {
           <path d={svgPaths.p2bbb0d20} fill="var(--fill-0, #101010)" />
         </svg>
       </SocialLink>
-      <SocialLink href="https://www.behance.net/saniya" label="Behance" external>
+      <SocialLink
+        href="https://www.behance.net/saniya"
+        label="Behance"
+        external
+      >
         <svg
           className="block size-full"
           fill="none"
@@ -96,7 +122,10 @@ function SocialMedia() {
 function LetsTalkLabelLine() {
   return (
     <div className="relative flex h-[54px] items-center justify-center">
-      <p className="absolute left-[calc(50%-100px)] text-[32px] not-italic leading-[normal] text-[#2d6dc3]" style={{ fontFamily: "Martel, serif",fontWeight: 800 }}>
+      <p
+        className="absolute left-[calc(50%-100px)] text-[32px] not-italic leading-[normal] text-[#2d6dc3]"
+        style={{ fontFamily: "Martel, serif", fontWeight: 800 }}
+      >
         Let&apos;s Talk
       </p>
       <div className="absolute left-[176px] top-[27px] h-0 w-[24px]">
@@ -115,22 +144,34 @@ function LetsTalkLabelLine() {
   );
 }
 
-function ContactCta({ onLetsTalkClick, onButtonHover }: { onLetsTalkClick: () => void; onButtonHover: (hovered: boolean) => void }) {
+function ContactCta({
+  onLetsTalkClick,
+  onButtonHover,
+}: {
+  onLetsTalkClick: () => void;
+  onButtonHover: (hovered: boolean) => void;
+}) {
   return (
-    <div className="flex w-full flex-col items-center justify-center"
-    
-    >
-      <p className="mb-12  text-[28px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif" }}>
+    <div className="flex w-full flex-col items-center justify-center">
+      <p
+        className="mb-12  text-[28px] not-italic leading-[normal] text-[#101010]"
+        style={{ fontFamily: "Martel, serif" }}
+      >
         That&apos;s a wrap. Or is it?
       </p>
-      <h1 className="mb-8 max-w-[1640px] text-center text-[128px] not-italic leading-[1.03] tracking-[7.68px] text-[#101010]" 
-      style={{ 
-        fontFamily: "ClashDisplay, sans-serif",
-        fontWeight: 600
-        }}>
+      <h1
+        className="mb-8 max-w-[1640px] text-center text-[128px] not-italic leading-[1.03] tracking-[7.68px] text-[#101010]"
+        style={{
+          fontFamily: "ClashDisplay, sans-serif",
+          fontWeight: 600,
+        }}
+      >
         Great design starts with a conversation!
       </h1>
-      <p className="mb-12 text-center font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif" }}>
+      <p
+        className="mb-12 text-center font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]"
+        style={{ fontFamily: "Martel, serif" }}
+      >
         Open to opportunities, collabs, creative challenges, or simply a good
         conversation.
       </p>
@@ -148,7 +189,10 @@ function ContactCta({ onLetsTalkClick, onButtonHover }: { onLetsTalkClick: () =>
           </div>
         </div>
       </button>
-      <p className="mb-1 font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]">
+      <p
+        className="mb-5 font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]"
+        style={{ margin: 20, fontFamily: "Martel, serif" }}
+      >
         or
       </p>
       <SocialMedia />
@@ -159,14 +203,24 @@ function ContactCta({ onLetsTalkClick, onButtonHover }: { onLetsTalkClick: () =>
 export default function FooterSection({
   onBackToTop,
   onLetsTalkClick,
+  useBgImage = false,
 }: FooterSectionProps) {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const innerStyle: React.CSSProperties = {
+    width: "133.33vw",
+    transform: "translateX(-50%)",
+    ...(useBgImage
+      ? {
+          backgroundImage: `url(${bgImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center bottom",
+        }
+      : { backgroundColor: "#fefcf4" }),
+  };
   return (
-    <div className="relative z-20  w-full shrink-0 " style={{height:1230}} >
-      <div
-        className="absolute left-1/2  h-full bg-[#fefcf4]"
-        style={{ width: "133.33vw", transform: "translateX(-50%)" }}
-      >
+    <div className="relative z-50  w-full shrink-0 " style={{ height: 1230 }}>
+      <div className="absolute left-1/2  h-full" style={innerStyle}>
         <div
           className="absolute bottom-0 left-1/2 h-[1523px] w-[1920px] -translate-x-1/2"
           data-name="b551d4405bc31b48d23669c7d041acd3 1"
@@ -175,7 +229,7 @@ export default function FooterSection({
           className="absolute z-10 overflow-hidden"
           style={{
             right: 220,
-            bottom:72,
+            bottom: 72,
             height: 523,
             width: 407,
           }}
@@ -185,14 +239,19 @@ export default function FooterSection({
             style={{
               height: 523,
               width: 407,
-              transform: isButtonHovered ? 'translateY(35%)' : 'translateY(100%)',
+              transform: isButtonHovered
+                ? "translateY(35%)"
+                : "translateY(100%)",
             }}
             src={footerImage}
             alt=""
           />
         </div>
-        
-        <div className="absolute left-1/2  h-0  -translate-x-1/2" style={{bottom:70,width:2100}}>
+
+        <div
+          className="absolute left-1/2  h-0  -translate-x-1/2"
+          style={{ bottom: 70, width: 2050 }}
+        >
           <div className="absolute inset-[-1px_0_0_0]">
             <svg
               className="block size-full"
@@ -210,17 +269,32 @@ export default function FooterSection({
             </svg>
           </div>
         </div>
-        <p className="absolute left-1/2  max-w-[100px] -translate-x-1/2 text-center text-[14px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif",bottom:22,fontSize:18,letterSpacing:0.5 }}>
+        <p
+          className="absolute left-1/2  max-w-[100px] -translate-x-1/2 text-center text-[14px] not-italic leading-[normal] text-[#101010]"
+          style={{
+            fontFamily: "Martel, serif",
+            bottom: 22,
+            fontSize: 18,
+            letterSpacing: 0.5,
+          }}
+        >
           Built on coffee, love, many iterations, and way too many open tabs.
           Thanks for stopping by, hope to hear from you soon.
         </p>
-        <div className="absolute " style={{left:150, bottom:22}}>
+        <div className="absolute " style={{ left: 150, bottom: 22 }}>
           <button
             type="button"
             onClick={onBackToTop}
             className="flex cursor-pointer items-center gap-2 transition-opacity hover:opacity-70"
           >
-            <p className="text-[16px] not-italic leading-[normal] text-[#101010]" style={{ fontFamily: "Martel, serif",fontSize:18,letterSpacing:0.5 }}>
+            <p
+              className="text-[16px] not-italic leading-[normal] text-[#101010]"
+              style={{
+                fontFamily: "Martel, serif",
+                fontSize: 18,
+                letterSpacing: 0.5,
+              }}
+            >
               Back to top
             </p>
             <div className="flex h-[14px] w-0 items-center justify-center">
@@ -245,10 +319,15 @@ export default function FooterSection({
             </div>
           </button>
         </div>
-        <div className="absolute left-1/2 w-full -translate-x-1/2" style={{bottom:245}}>
-          <ContactCta onLetsTalkClick={onLetsTalkClick} onButtonHover={setIsButtonHovered} />
+        <div
+          className="absolute left-1/2 w-full -translate-x-1/2"
+            style={{ bottom: 180 }}
+        >
+          <ContactCta
+            onLetsTalkClick={onLetsTalkClick}
+            onButtonHover={setIsButtonHovered}
+          />
         </div>
-    
       </div>
     </div>
   );

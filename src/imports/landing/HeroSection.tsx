@@ -61,7 +61,7 @@ function ProfileCard({ isActive, onHover }: ExpandableCardProps) {
           />
         </div>
         <p
-          className="absolute left-[170px] whitespace-nowrap  text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
+          className="absolute left-[170px] whitespace-nowrap  text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-100"
           style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800 }}
         >
           HELLO! I&apos;M SANIYA
