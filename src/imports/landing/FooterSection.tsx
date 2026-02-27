@@ -321,7 +321,7 @@ export default function FooterSection({
         </div>
         <div
           className="absolute left-1/2 w-full -translate-x-1/2"
-            style={{ bottom: 180 }}
+          style={{ bottom: 180 }}
         >
           <ContactCta
             onLetsTalkClick={onLetsTalkClick}
