@@ -14,7 +14,7 @@ export default function NavigationBar({
   isWhite,
 }: NavigationBarProps) {
   return (
-    <div className="fixed left-1/2 top-[20px] z-50 flex -translate-x-1/2 items-center justify-center gap-[50px] font-['Martel:ExtraBold',sans-serif]  not-italic leading-[normal] transition-colors duration-300">
+    <div className="fixed left-1/2 top-[20px] z-50 flex -translate-x-1/2 items-center justify-center gap-[50px] font-['Martel:ExtraBold',sans-serif]  not-italic leading-[normal] transition-colors duration-300" style={{gap:70}}>
       <NavItem
         
         label="Home"

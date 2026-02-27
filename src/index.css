@@ -1,4 +1,7 @@
 /*! tailwindcss v4.1.3 | MIT License | https://tailwindcss.com */
+html, body {
+  overflow-x: clip;
+}
 @font-face {
   font-family: 'ClashDisplay';
   src: url('./assets/fonts/ClashDisplay-Medium.otf') format('opentype');

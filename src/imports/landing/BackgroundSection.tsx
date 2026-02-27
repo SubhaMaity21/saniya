@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // @ts-ignore
-import imgBackground from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.png";
+// import imgBackground from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.png";
 import imgBazarghorr from "@/assets/work/bazarghorr.png";
-import imgBuildMyStore from "@/assets/work/buildmystore.png";
+import imgBuildMyStore from "@/assets/work/buildmystore1.png";
 import imgMentorMe from "@/assets/work/mentorme.png";
 import newBackground from "@/assets/landing-work/blue-bg.png"
 type BackgroundSectionProps = {
