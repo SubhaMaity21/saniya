@@ -553,7 +553,7 @@ function MainScreensSection() {
             marginBottom: 80,
           }}
         >
-          <GreenBlob size={180} top={20} right={-30} opacity={0.1} />
+         
 
           <div
             style={{
@@ -732,7 +732,7 @@ function MainScreensSection() {
             marginTop: 160,
           }}
         >
-          <GreenBlob size={100} top={-10} right={100} opacity={0.08} />
+         
 
           <h3
             style={{
@@ -1220,7 +1220,7 @@ function CustomerMainScreensSection() {
             marginRight: "-10%",
           }}
         >
-          <GreenBlob size={160} top={-20} left={-40} opacity={0.1} />
+         
 
           <div
             style={{
@@ -1298,7 +1298,7 @@ function CustomerMainScreensSection() {
             marginBottom: 80,
           }}
         >
-          <GreenBlob size={180} top={20} right={-30} opacity={0.1} />
+        
 
           <div
             style={{
