@@ -28,7 +28,7 @@ function WorkCard({ project }: { project: ProjectData }) {
       to={project.link}
       style={{
         display: "block",
-        width: 1500,
+        width: 1450,
         borderRadius: 24,
         overflow: "hidden",
         cursor: "pointer",
@@ -36,7 +36,7 @@ function WorkCard({ project }: { project: ProjectData }) {
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.02)";
+        e.currentTarget.style.transform = "scale(1.06)";
         e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.25)";
       }}
       onMouseLeave={(e) => {
@@ -59,17 +59,18 @@ function WorkCard({ project }: { project: ProjectData }) {
 
 export default function BackgroundSection({ containerRef }: BackgroundSectionProps) {
   return (
-    <div ref={containerRef} className="relative w-full shrink-0" style={{ minHeight: 3700,top:250 }}>
+    <div ref={containerRef} className="relative w-full shrink-0" style={{ minHeight: 3700,top:250,}}>
       {/* Full-width background image */}
       <div
         className="absolute left-1/2 top-0 h-full"
         style={{ width: "133.33vw", transform: "translateX(-50%)" }}
       >
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" >
           <img
             alt=""
             className="absolute left-0 top-0 h-full w-full max-w-none object-cover"
             src={newBackground}
+            style={{ borderBottomLeftRadius: "48px", borderBottomRightRadius: "48px" }}
           />
         </div>
       </div>

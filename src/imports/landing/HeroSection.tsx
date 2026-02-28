@@ -26,8 +26,8 @@ function HeroHeading() {
     <div className="-translate-x-1/2 -translate-y-1/2 absolute contents left-1/2 top-[calc(50%-367.5px)] not-italic">
       <div className="absolute left-[calc(50%-832px)] top-[calc(50%-312px)] whitespace-nowrap font-['Clash_Display:Bold',sans-serif]  leading-[1.03] tracking-[9.889px] text-[#101010] text-[100.816px]"
       style={{ fontFamily: "ClashDisplay, sans-serif", fontWeight: 600,fontSize:160.6 }}>
-        <p className="" >DIGITAL PRODUCT</p>
-        <p>DESIGNER</p>
+        <p className="" style={{wordSpacing:16}}>DIGITAL  PRODUCT</p>
+        <p style={{wordSpacing:24,marginRight:5}}>DESIGNER</p>
       </div>
       <p className="absolute left-[calc(50%-832px)] top-[calc(50%-343px)] ml-5  text-[16px] leading-[normal] tracking-[0.48px] text-[#2d6dc3] text-[16px]"
       style={{ fontWeight: 800,fontFamily: "Martel, serif" }}>
@@ -62,7 +62,7 @@ function ProfileCard({ isActive, onHover }: ExpandableCardProps) {
         </div>
         <p
           className="absolute left-[170px] whitespace-nowrap  text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-100"
-          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800 }}
+          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800,marginLeft:-18 }}
         >
           HELLO! I&apos;M SANIYA
         </p>
@@ -81,13 +81,13 @@ function LocationCard({ isActive, onHover }: ExpandableCardProps) {
       <div className="relative flex h-full items-center gap-5 ">
         <div
           className="relative flex h-[170px] w-[170px] shrink-0 items-center justify-center"
-          data-name="location png"
+          data-name="location png" 
         >
-          <img alt="" className="h-full w-full object-cover" src={imgLocationPng1} />
+          <img alt="" className="h-full w-full object-cover" src={imgLocationPng1} style={{transform:"scale(1.1"}} />
         </div>
         <p
           className="whitespace-nowrap text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
-          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800 }}
+          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800,marginLeft:-25 }}
         >
           Ahmedabad | Pune
         </p>
@@ -100,7 +100,7 @@ function ContactCard({ isActive, onHover }: ExpandableCardProps) {
   return (
     <div
       className={EXPANDABLE_CARD_BASE_CLASS}
-      style={{ width: isActive ? 490 : 170 }}
+      style={{ width: isActive ? 465 : 170 }}
       onMouseEnter={onHover}
     >
       <div className="relative flex h-full items-center gap-5 pl-[10px]">
@@ -108,11 +108,11 @@ function ContactCard({ isActive, onHover }: ExpandableCardProps) {
           className="relative flex h-[135px] w-[135px] shrink-0 items-center justify-center"
           data-name="contact me"
         >
-          <img alt="" className="h-full w-full object-contain" src={imgContactMe1} />
+          <img alt="" className="h-full w-full object-contain" src={imgContactMe1} style={{transform:"scale(1.1)"}} />
         </div>
         <p
           className="whitespace-nowrap  text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"
-          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800 }}
+          style={{ opacity: isActive ? 1 : 0,fontFamily: "Martel, serif", fontWeight: 800, marginLeft:22 }}
         >
           Let&apos;s Talk Design
         </p>
@@ -130,7 +130,7 @@ function IntroCards() {
   return (
     <div
       className="absolute  flex gap-[7px] p-30"
-      style={{ top: 210,left:855, transform: "scale(0.85)" }}
+      style={{ top: 210,left:885, transform: "scale(0.85)" }}
       data-name="Component 1"
       onMouseLeave={activateProfile}
     >

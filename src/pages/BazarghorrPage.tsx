@@ -15,6 +15,12 @@ import yourOrders from "@/assets/bazarghorr/screens/your-orders.png";
 import yourFav from "@/assets/bazarghorr/screens/your-favourites-3.png";
 import storePage from "@/assets/bazarghorr/screens/store-page.png";
 import savedAdress from "@/assets/bazarghorr/screens/saved-addresses-v2.png";
+// iphone images
+
+import ip18 from "@/assets/bazarghorr/screens/iphone 18.png";
+import ip19 from "@/assets/bazarghorr/screens/iphone 19.png";
+import ip20 from "@/assets/bazarghorr/screens/iphone 20.png";
+
 import arrow from "@/assets/bazarghorr/arrow.png";
 // Section images
 import s1 from "@/assets/bazarghorr/sections/s1.png";
@@ -26,6 +32,8 @@ import s6 from "@/assets/bazarghorr/sections/s6.png";
 import s7 from "@/assets/bazarghorr/sections/s7.png";
 import s8 from "@/assets/bazarghorr/sections/s8.png";
 import s10 from "@/assets/bazarghorr/sections/s10.png";
+import s10a from "@/assets/bazarghorr/sections/s10a.png";
+import s10aBg from "@/assets/bazarghorr/sections/s10a-bg.png";
 import s13 from "@/assets/bazarghorr/sections/s13.png";
 import s14 from "@/assets/bazarghorr/sections/s14.png";
 
@@ -58,12 +66,13 @@ import subscriptionScreen from "@/assets/bazarghorr/screens/subscription-page.pn
 import inventoryScreen from "@/assets/bazarghorr/screens/product-page.png";
 import vendorDashboard from "@/assets/bazarghorr/screens/vendordashboard.png";
 import maleVendorStanding from "@/assets/bazarghorr/illustrations/male-vendor-standing.jpeg";
+import { markAsUntransferable } from "worker_threads";
 
 // ─── Shared constants ────────────────────────────────────────────────
 
 const SECTION_OVERLAP = -30;
 const MAX_WIDTH = 1200;
-const HEADING_FONT = "'Clash Display:Bold', sans-serif";
+const HEADING_FONT = "Alexandria, sans-serif";
 const BODY_FONT = "'Martel:Regular', sans-serif";
 const BODY_FONT_SEMI = "'Martel:SemiBold', sans-serif";
 
@@ -126,8 +135,9 @@ function SectionHeader({
       />
       <h2
         style={{
-          fontFamily: HEADING_FONT,
-          fontSize: 48,
+          fontFamily: "Alexandria, serif",
+          fontSize: 64,
+          fontWeight: 400,
           lineHeight: 1.1,
           color: dark ? "#fff" : "#101010",
         }}
@@ -145,113 +155,11 @@ function SectionImage({ src, alt }: { src: string; alt: string }) {
     <img
       src={src}
       alt={alt}
-      style={{ width: "100%", display: "block" }}
+      style={{ width: "100%", display: "block", overflow: "visible" }}
       loading="lazy"
     />
   );
 }
-
-// Button
-
-// function ModeButton(){
-
-//   return (
-//        <div
-//       style={{
-//         position: "sticky",
-//         top: 20,
-//         zIndex: 15,
-//         display: "flex",
-//         justifyContent: "flex-end",
-//         paddingRight: 40, // adjust horizontal offset
-//       }}
-//     >
-//     <button
-//       onClick={() => setVendorMode(!vendorMode)}
-//       className=""
-//       style={{
-//         width: 226,
-//         height: "auto",
-//         backgroundColor: vendorMode ? "#0C582B" : "#33302F",
-//         color: "white",
-//         padding: 10,
-//         display: "flex",
-//         // alignItems: "center",
-//         // justifyContent: "space-between",
-//         gap: 0,
-//         zIndex: 15,
-//         marginBottom:30,
-//         marginLeft:230,
-//         fontSize:20,
-//         borderRadius:40,
-//         position:"sticky",
-//         top:20,
-//         // left:"90%",
-//         // transform: "translateX(-90%)",
-//       }}
-//     >
-//       {vendorMode ? (
-//         <div style={{ display: "flex", alignItems: "center",justifyContent:"space-between", gap: 18,marginLeft:9 }}>
-//           <h3 style={{ margin: 0 }}>Customer App</h3>
-//           <svg
-//             style={{ transform: "scale(-1)" }}
-//             width="44"
-//             height="44"
-//             viewBox="0 0 44 44"
-//             fill="none"
-//             xmlns="http://www.w3.org/2000/svg"
-//           >
-//             <circle
-//               cx="21.8457"
-//               cy="21.8458"
-//               r="21.2553"
-//               stroke="#F9F9F9"
-//               stroke-width="1.18085"
-//             />
-//             <path
-//               d="M33.8987 22.0909C34.3598 21.6298 34.3598 20.8821 33.8987 20.421L26.3838 12.9061C25.9226 12.4449 25.1749 12.4449 24.7138 12.9061C24.2526 13.3672 24.2526 14.1149 24.7138 14.576L31.3937 21.2559L24.7138 27.9358C24.2526 28.397 24.2526 29.1447 24.7138 29.6058C25.1749 30.067 25.9226 30.067 26.3838 29.6058L33.8987 22.0909ZM31.8828 21.2559L31.8828 22.4368L33.0637 22.4368L33.0637 21.2559L33.0637 20.0751L31.8828 20.0751L31.8828 21.2559Z"
-//               fill="#F9F9F9"
-//             />
-//             <path
-//               d="M22.0901 22.0909C22.5512 21.6298 22.5512 20.8821 22.0901 20.421L14.5752 12.9061C14.114 12.4449 13.3663 12.4449 12.9052 12.9061C12.444 13.3672 12.444 14.1149 12.9052 14.576L19.5851 21.2559L12.9052 27.9358C12.444 28.397 12.444 29.1447 12.9052 29.6058C13.3663 30.067 14.114 30.067 14.5752 29.6058L22.0901 22.0909ZM20.0742 21.2559L20.0742 22.4368L21.2551 22.4368L21.2551 21.2559L21.2551 20.0751L20.0742 20.0751L20.0742 21.2559Z"
-//               fill="#F9F9F9"
-//             />
-//           </svg>
-//         </div>
-//       ) : (
-//                 <div style={{ display: "flex", alignItems: "center",justifyContent:"space-between", gap: 18,marginLeft:9 }}>
-
-//           <svg
-//             style={{ transform: "scale(-1)" }}
-//             width="44"
-//             height="44"
-//             viewBox="0 0 44 44"
-//             fill="none"
-//             xmlns="http://www.w3.org/2000/svg"
-//           >
-//             <circle
-//               cx="21.8457"
-//               cy="21.8458"
-//               r="21.2553"
-//               stroke="#F9F9F9"
-//               stroke-width="1.18085"
-//             />
-//             <path
-//               d="M33.8987 22.0909C34.3598 21.6298 34.3598 20.8821 33.8987 20.421L26.3838 12.9061C25.9226 12.4449 25.1749 12.4449 24.7138 12.9061C24.2526 13.3672 24.2526 14.1149 24.7138 14.576L31.3937 21.2559L24.7138 27.9358C24.2526 28.397 24.2526 29.1447 24.7138 29.6058C25.1749 30.067 25.9226 30.067 26.3838 29.6058L33.8987 22.0909ZM31.8828 21.2559L31.8828 22.4368L33.0637 22.4368L33.0637 21.2559L33.0637 20.0751L31.8828 20.0751L31.8828 21.2559Z"
-//               fill="#F9F9F9"
-//             />
-//             <path
-//               d="M22.0901 22.0909C22.5512 21.6298 22.5512 20.8821 22.0901 20.421L14.5752 12.9061C14.114 12.4449 13.3663 12.4449 12.9052 12.9061C12.444 13.3672 12.444 14.1149 12.9052 14.576L19.5851 21.2559L12.9052 27.9358C12.444 28.397 12.444 29.1447 12.9052 29.6058C13.3663 30.067 14.114 30.067 14.5752 29.6058L22.0901 22.0909ZM20.0742 21.2559L20.0742 22.4368L21.2551 22.4368L21.2551 21.2559L21.2551 20.0751L20.0742 20.0751L20.0742 21.2559Z"
-//               fill="#F9F9F9"
-//             />
-//           </svg>
-//           <h3 style={{ marginLeft: 5 }}>Vendor App</h3>
-//         </div>
-//       )}
-//     </button>
-//     </div>
-//   );
-// }
 
 // ─── S9: Vendor App UI Breakdown (CODED) ─────────────────────────────
 
@@ -276,14 +184,14 @@ function VendorAppUISection() {
             display: "flex",
             alignItems: "center",
             gap: 80,
-            
-            margin: "18%",
+
+            margin: "5% 18%",
             marginTop: "10%",
-            marginBottom: 60,
+            marginBottom: 40,
           }}
         >
           {/* Phone mockup with onboarding video */}
-          <PhoneMockup width={300}>
+          <PhoneMockup width={340}>
             <video
               src={vendorOnboarding}
               autoPlay
@@ -311,7 +219,7 @@ function VendorAppUISection() {
             <div
               style={{
                 position: "absolute",
-                top: -70,
+                top: -90,
                 right: 0,
                 width: 130,
                 height: 130,
@@ -319,6 +227,7 @@ function VendorAppUISection() {
                 background: "#e0e0e0",
                 overflow: "visible",
                 zIndex: 2,
+                transform: "scale(1.1)",
               }}
             >
               <img
@@ -348,8 +257,9 @@ function VendorAppUISection() {
             </h3>
             <p
               style={{
-                fontFamily: BODY_FONT,
-                fontSize: 16,
+                fontFamily: "Alike, serif",
+                fontWeight: 400,
+                fontSize: 20,
                 lineHeight: 1.7,
                 color: "#333",
               }}
@@ -427,7 +337,16 @@ function MainScreensSection() {
     <CaseStudyContainer
       variant="light"
       zIndex={11}
-      style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+      style={{
+        position: "relative",
+        marginTop: -120, // negative margin to overlap
+        zIndex: 20, // higher z-index
+        borderTopLeftRadius: 48,
+        borderTopRightRadius: 48,
+        boxShadow: "0 -8px 32px rgba(0,0,0,0.08)",
+        background: "#fff",
+        overflow: "visible",
+      }}
     >
       <div
         style={{
@@ -435,7 +354,6 @@ function MainScreensSection() {
           margin: "0 auto",
           padding: "60px 40px 80px",
           position: "relative",
-          // overflow: "hidden",
         }}
       >
         <SectionHeader number="10/10" title="MAIN SCREENS" />
@@ -447,9 +365,6 @@ function MainScreensSection() {
             marginBottom: 80,
           }}
         >
-          <GreenBlob size={200} top={-40} right={60} opacity={0.12} />
-          <GreenBlob size={120} top={180} right={-20} opacity={0.1} />
-
           <div
             style={{
               display: "flex",
@@ -506,7 +421,9 @@ function MainScreensSection() {
               <h3
                 style={{
                   fontFamily: HEADING_FONT,
-                  fontSize: 24,
+                  fontSize: 35,
+                  fontWeight: 400,
+                  letterSpacing: "6%",
                   color: "#101010",
                   marginBottom: 12,
                 }}
@@ -515,12 +432,13 @@ function MainScreensSection() {
               </h3>
               <p
                 style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 14,
+                  fontFamily: "Alike, serif",
+                  fontWeight: 400,
+                  fontSize: 18,
                   lineHeight: 1.7,
                   color: "#444",
                   marginBottom: 24,
-                  maxWidth: 500,
+                  maxWidth: 700,
                 }}
               >
                 Once The Shop Is Online, Vendors Accept New Orders, Pack Items
@@ -551,11 +469,9 @@ function MainScreensSection() {
             position: "relative",
             marginBottom: 80,
             marginTop: -200,
-            marginRight: "9%",
+            marginRight: "7%",
           }}
         >
-          <GreenBlob size={160} top={-20} left={-40} opacity={0.1} />
-
           <div
             style={{
               display: "flex",
@@ -569,8 +485,9 @@ function MainScreensSection() {
               <h3
                 style={{
                   fontFamily: HEADING_FONT,
-
-                  fontSize: 24,
+                  fontSize: 35,
+                  fontWeight: 400,
+                  letterSpacing: "6%",
                   color: "#101010",
                   marginBottom: 8,
                   paddingRight: 5,
@@ -580,11 +497,12 @@ function MainScreensSection() {
               </h3>
               <p
                 style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 14,
+                  fontFamily: "Alike, serif",
+                  fontWeight: 400,
+                  fontSize: 18,
                   lineHeight: 1.7,
                   color: "#444",
-                  maxWidth: 550,
+                  maxWidth: 650,
                   marginBottom: 0,
                   marginLeft: "auto",
                 }}
@@ -604,19 +522,19 @@ function MainScreensSection() {
                 flexWrap: "wrap",
               }}
             >
-              <PhoneMockup width={254}>
+              <PhoneMockup width={244}>
                 <img
                   src={analytics1}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-              <PhoneMockup width={254}>
+              <PhoneMockup width={244}>
                 <img
                   src={analytics2}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-              <PhoneMockup width={254}>
+              <PhoneMockup width={244}>
                 <img
                   src={analytics3}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
@@ -690,7 +608,9 @@ function MainScreensSection() {
               <h3
                 style={{
                   fontFamily: HEADING_FONT,
-                  fontSize: 24,
+                  fontSize: 35,
+                  fontWeight: 400,
+                  letterSpacing: "6%",
                   color: "#101010",
                   marginBottom: 12,
                 }}
@@ -699,12 +619,13 @@ function MainScreensSection() {
               </h3>
               <p
                 style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 14,
+                  fontFamily: "Alike, serif",
+                  fontWeight: 400,
+                  fontSize: 18,
                   lineHeight: 1.7,
                   color: "#444",
                   marginBottom: 24,
-                  maxWidth: 500,
+                  maxWidth: 700,
                 }}
               >
                 The Inventory Management Section Allows Vendors To Review Their
@@ -745,7 +666,9 @@ function MainScreensSection() {
               <h3
                 style={{
                   fontFamily: HEADING_FONT,
-                  fontSize: 24,
+                  fontSize: 35,
+                  fontWeight: 400,
+                  letterSpacing: "6%",
                   color: "#101010",
                   marginBottom: 8,
                   paddingRight: 5,
@@ -755,8 +678,9 @@ function MainScreensSection() {
               </h3>
               <p
                 style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 14,
+                  fontFamily: "Alike, serif",
+                  fontWeight: 400,
+                  fontSize: 18,
                   lineHeight: 1.7,
                   color: "#444",
                   maxWidth: 550,
@@ -811,7 +735,9 @@ function MainScreensSection() {
           <h3
             style={{
               fontFamily: HEADING_FONT,
-              fontSize: 24,
+              fontSize: 35,
+              fontWeight: 400,
+              letterSpacing: "6%",
               color: "#101010",
               marginBottom: 8,
             }}
@@ -820,11 +746,12 @@ function MainScreensSection() {
           </h3>
           <p
             style={{
-              fontFamily: BODY_FONT,
-              fontSize: 14,
+              fontFamily: "Alike, serif",
+              fontWeight: 400,
+              fontSize: 18,
               lineHeight: 1.7,
               color: "#444",
-              marginBottom: 24,
+              marginBottom: 70,
             }}
           >
             0 Activity Dashboard, Profile, Subscription.
@@ -834,7 +761,7 @@ function MainScreensSection() {
             style={{
               display: "flex",
               justifyContent: "center",
-              gap: 20,
+              gap: 50,
               flexWrap: "wrap",
               alignItems: "flex-end",
             }}
@@ -865,7 +792,7 @@ function MainScreensSection() {
               width={180}
             /> */}
 
-            <PhoneMockup width={316}>
+            {/* <PhoneMockup width={316}>
               <img
                 src={dashboardActivity}
                 alt="Activity dashboard"
@@ -878,10 +805,12 @@ function MainScreensSection() {
                 alt="Profile screen"
                 style={{ objectFit: "cover", width: "100%", height: "100%" }}
               />
-            </PhoneMockup>
+            </PhoneMockup> */}
+            <img src={ip19} style={{ objectFit: "cover", height: 770 }} />
+            <img src={ip18} style={{ objectFit: "cover", height: 770 }} />
             <div
               className="absolute"
-              style={{ zIndex: -1, top: -100, right: 400 }}
+              style={{ zIndex: -1, top: -50, right: 370 }}
             >
               <img
                 src={maleVendor}
@@ -897,7 +826,7 @@ function MainScreensSection() {
               />
             </div>
 
-            <PhoneMockup width={316}>
+            {/* <PhoneMockup width={316}>
               <img
                 src={subscriptionScreen}
                 alt="Subscription screen"
@@ -908,7 +837,8 @@ function MainScreensSection() {
                   zIndex: 10,
                 }}
               />
-            </PhoneMockup>
+            </PhoneMockup> */}
+            <img src={ip20} style={{ objectFit: "fill", height: 770 }} />
           </div>
         </div>
       </div>
@@ -921,7 +851,7 @@ function VendorSection() {
   // const [showButton, setShowButton] = React.useState(true);
 
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       {/* {showButton && (
         <div
           style={{
@@ -1033,7 +963,11 @@ function VendorSection() {
       <CaseStudyContainer
         variant="dark"
         zIndex={10}
-        style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+        style={{
+          marginTop: SECTION_OVERLAP,
+          position: "relative",
+          overflow: "visible",
+        }}
       >
         <SectionImage src={s10} alt="Dashboard" />
       </CaseStudyContainer>
@@ -1064,14 +998,14 @@ function CustomerAppUISection() {
             display: "flex",
             alignItems: "center",
             gap: 80,
-            
-            margin: "18%",
+
+            margin: "5% 18%",
             marginTop: "10%",
-            marginBottom: 60,
+            marginBottom: 40,
           }}
         >
           {/* Phone mockup with onboarding video */}
-          <PhoneMockup width={300}>
+          <PhoneMockup width={340}>
             <video
               src={customerOnboarding}
               autoPlay
@@ -1107,6 +1041,7 @@ function CustomerAppUISection() {
                 background: "#e0e0e0",
                 overflow: "visible",
                 zIndex: 2,
+                transform: "scale(1.1)",
               }}
             >
               <img
@@ -1129,6 +1064,7 @@ function CustomerAppUISection() {
               style={{
                 fontFamily: HEADING_FONT,
                 fontSize: 32,
+                letterSpacing: "6%",
                 color: "#101010",
                 marginBottom: 16,
               }}
@@ -1137,8 +1073,9 @@ function CustomerAppUISection() {
             </h3>
             <p
               style={{
-                fontFamily: BODY_FONT,
-                fontSize: 16,
+                fontFamily: "Alike, serif",
+                fontWeight: 400,
+                fontSize: 20,
                 lineHeight: 1.7,
                 color: "#333",
               }}
@@ -1158,7 +1095,16 @@ function CustomerMainScreensSection() {
     <CaseStudyContainer
       variant="light"
       zIndex={11}
-      style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+      style={{
+        position: "relative",
+        marginTop: -120, // negative margin to overlap
+        zIndex: 20, // higher z-index
+        borderTopLeftRadius: 48,
+        borderTopRightRadius: 48,
+        boxShadow: "0 -8px 32px rgba(0,0,0,0.08)",
+        background: "#fff",
+        overflow: "visible",
+      }}
     >
       <div
         style={{
@@ -1178,9 +1124,6 @@ function CustomerMainScreensSection() {
             marginBottom: 80,
           }}
         >
-          <GreenBlob size={200} top={-40} right={60} opacity={0.12} />
-          <GreenBlob size={120} top={180} right={-20} opacity={0.1} />
-
           <div
             style={{
               display: "flex",
@@ -1237,7 +1180,9 @@ function CustomerMainScreensSection() {
               <h3
                 style={{
                   fontFamily: HEADING_FONT,
-                  fontSize: 24,
+                  fontSize: 35,
+                  fontWeight: 400,
+                  letterSpacing: "6%",
                   color: "#101010",
                   marginBottom: 12,
                 }}
@@ -1246,12 +1191,13 @@ function CustomerMainScreensSection() {
               </h3>
               <p
                 style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 14,
+                  fontFamily: "Alike, serif",
+                  fontWeight: 400,
+                  fontSize: 18,
                   lineHeight: 1.7,
                   color: "#444",
                   marginBottom: 24,
-                  maxWidth: 500,
+                  maxWidth: 700,
                 }}
               >
                 Once The Shop Is Online, Vendors Accept New Orders, Pack Items
@@ -1296,8 +1242,9 @@ function CustomerMainScreensSection() {
               <h3
                 style={{
                   fontFamily: HEADING_FONT,
-
-                  fontSize: 24,
+                  fontSize: 35,
+                  fontWeight: 400,
+                  letterSpacing: "6%",
                   color: "#101010",
                   marginBottom: 8,
                   paddingRight: 5,
@@ -1307,11 +1254,12 @@ function CustomerMainScreensSection() {
               </h3>
               <p
                 style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 14,
+                  fontFamily: "Alike, serif",
+                  fontWeight: 400,
+                  fontSize: 18,
                   lineHeight: 1.7,
                   color: "#444",
-                  maxWidth: 450,
+                  maxWidth: 600,
                   marginBottom: 0,
                   marginLeft: "auto",
                 }}
@@ -1386,7 +1334,7 @@ function CustomerMainScreensSection() {
                 }}
               />
             </div>
-            <PhoneMockup width={284}>
+            <PhoneMockup width={320}>
               <video
                 src={customerFlow}
                 autoPlay
@@ -1405,7 +1353,9 @@ function CustomerMainScreensSection() {
               <h3
                 style={{
                   fontFamily: HEADING_FONT,
-                  fontSize: 24,
+                  fontSize: 35,
+                  fontWeight: 400,
+                  letterSpacing: "6%",
                   color: "#101010",
                   marginBottom: 12,
                 }}
@@ -1414,12 +1364,13 @@ function CustomerMainScreensSection() {
               </h3>
               <p
                 style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 14,
+                  fontFamily: "Alike, serif",
+                  fontWeight: 400,
+                  fontSize: 18,
                   lineHeight: 1.7,
                   color: "#444",
                   marginBottom: 24,
-                  maxWidth: 500,
+                  maxWidth: 700,
                 }}
               >
                 The Cart Flow Allows Customers To Review Selected Items, Choose
@@ -1446,7 +1397,7 @@ function CustomerMainScreensSection() {
             position: "relative",
             marginBottom: 80,
             marginTop: -200,
-            marginRight: "9%",
+            marginRight: "7%",
             zIndex: 9,
           }}
         >
@@ -1462,7 +1413,9 @@ function CustomerMainScreensSection() {
               <h3
                 style={{
                   fontFamily: HEADING_FONT,
-                  fontSize: 24,
+                  fontSize: 35,
+                  fontWeight: 400,
+                  letterSpacing: "6%",
                   color: "#101010",
                   marginBottom: 8,
                   paddingRight: 5,
@@ -1472,11 +1425,12 @@ function CustomerMainScreensSection() {
               </h3>
               <p
                 style={{
-                  fontFamily: BODY_FONT,
-                  fontSize: 14,
+                  fontFamily: "Alike, serif",
+                  fontWeight: 400,
+                  fontSize: 18,
                   lineHeight: 1.7,
                   color: "#444",
-                  maxWidth: 550,
+                  maxWidth: 620,
                   marginBottom: 0,
                   marginLeft: "auto",
                 }}
@@ -1518,6 +1472,33 @@ function CustomerMainScreensSection() {
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
+                        <div
+              className="absolute"
+              style={{ zIndex: -1, left: 134, top: 230 }}
+            >
+              <img
+                src={screenIllustration}
+                alt="Screen illustration"
+                style={{
+                  width: 64,
+                  height: 38,
+                  transform: "rotate(-176.85deg)",
+                  opacity: 0.8,
+                }}
+              />
+            </div>
+            <div className="absolute" style={{ zIndex: -2, left: 6, top: 210 }}>
+              <img
+                src={screenIllustration}
+                alt="Screen illustration"
+                style={{
+                  width: 64,
+                  height: 38,
+                  transform: "rotate(-27.85deg)",
+                  opacity: 0.8,
+                }}
+              />
+            </div>
             </div>
           </div>
         </div>
@@ -1531,12 +1512,12 @@ function CustomerMainScreensSection() {
             zIndex: 9,
           }}
         >
-          <GreenBlob size={100} top={-10} right={100} opacity={0.08} />
-
           <h3
             style={{
               fontFamily: HEADING_FONT,
-              fontSize: 24,
+              fontSize: 35,
+              fontWeight: 400,
+              letterSpacing: "6%",
               color: "#101010",
               marginBottom: 8,
             }}
@@ -1545,11 +1526,12 @@ function CustomerMainScreensSection() {
           </h3>
           <p
             style={{
-              fontFamily: BODY_FONT,
-              fontSize: 14,
+              fontFamily: "Alike, serif",
+              fontWeight: 400,
+              fontSize: 18,
               lineHeight: 1.7,
               color: "#444",
-              marginBottom: 24,
+              marginBottom: 64,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -1612,32 +1594,6 @@ function CustomerMainScreensSection() {
               alignItems: "flex-end",
             }}
           >
-            {/* <ScreenThumbnail
-              src={dashboardActivity}
-              alt="Activity dashboard"
-              width={180}
-            />
-            <img
-              src={maleVendorStanding}
-              alt="Vendor character"
-              style={{
-                width: 80,
-                borderRadius: 40,
-                objectFit: "cover",
-              }}
-              loading="lazy"
-            />
-            <ScreenThumbnail
-              src={profileScreen}
-              alt="Profile"
-              width={180}
-            />
-            <ScreenThumbnail
-              src={subscriptionScreen}
-              alt="Subscription"
-              width={180}
-            /> */}
-
             <PhoneMockup width={250}>
               <img
                 src={profilePage}
@@ -1654,7 +1610,7 @@ function CustomerMainScreensSection() {
             </PhoneMockup>
             <div
               className="absolute"
-              style={{ zIndex: -1, top: -50, right: "8%" }}
+              style={{ zIndex: -1, top: 10, right: "8%" }}
             >
               <img
                 src={exitedAunty}
@@ -1718,6 +1674,67 @@ function CustomerSection() {
   return (
     <div>
       <CustomerAppUISection />
+      <CaseStudyContainer
+        variant="dark"
+        zIndex={10}
+        style={{
+          marginTop: SECTION_OVERLAP,
+          position: "relative",
+          overflow: "visible",
+          backgroundImage: `url(${s10aBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: 2250,
+        }}
+      >
+        {" "}
+        <div style={{ padding: 50, top: 50 }}>
+          <SectionHeader dark={true} number="06/10" title="DASHBOARD" />
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              marginTop: -95,
+            }}
+          >
+            <p
+              style={{
+                maxWidth: 850,
+                textAlign: "left",
+                margin: 0,
+                fontFamily: "Alike, serif",
+                fontWeight: 400,
+                fontSize: 22,
+                lineHeight: 1.4,
+              }}
+            >
+              The customer dashboard is designed for quick discovery and easy
+              access, featuring pinned stores for faster reordering, category
+              shortcuts at the top, nearby stores based on location, and a
+              product listing to browse essentials seamlessly.
+            </p>
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "start",
+            position: "relative",
+          }}
+        >
+          <div style={{ width: "70%", left: "-50%" }}>
+            <img
+              src={s10a}
+              alt="Dashboard"
+              style={{ width: "100%", height: "100%", objectFit: "fill" }}
+            />
+          </div>
+        </div>
+        {/* <SectionImage src={s10aBg} alt="Dashboard" /> */}
+      </CaseStudyContainer>
       <CustomerMainScreensSection />
     </div>
   );
@@ -1731,6 +1748,7 @@ export default function BazarghorrPage() {
   const [buttonVisible, setButtonVisible] = React.useState(true);
   const [showStickyButton, setShowStickyButton] = useState(false);
   const [buttonAnimating, setButtonAnimating] = React.useState(false);
+  const [footerIntersecting, setFooterIntersecting] = React.useState(false);
   const [modeDirection, setModeDirection] = useState<"left" | "right" | null>(
     null,
   );
@@ -1740,6 +1758,7 @@ export default function BazarghorrPage() {
   const vendorRef = React.useRef<HTMLDivElement>(null);
   const customerRef = React.useRef<HTMLDivElement>(null);
   const numbersSectionRef = React.useRef<HTMLDivElement>(null);
+  const footerRef = React.useRef<HTMLDivElement>(null);
 
   const goHome = () => navigate("/");
 
@@ -1793,15 +1812,21 @@ export default function BazarghorrPage() {
       const nextMode = !prev;
       setTimeout(() => {
         if (nextMode && vendorRef.current) {
-          vendorRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+          vendorRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         } else if (!nextMode && customerRef.current) {
-          customerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+          customerRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         }
       }, 100);
       return nextMode;
     });
   };
-  
+
   // useEffect(() => {
   //   const observer = new window.IntersectionObserver(
   //     ([entry]) => {
@@ -1832,16 +1857,17 @@ export default function BazarghorrPage() {
   // }, []);
 
   // When showButton becomes true, make button visible again
-  
-   useEffect(() => {
+
+  useEffect(() => {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setButtonAnimating(true);
-          setTimeout(() => {
-            setShowButton(false);
-            setButtonAnimating(false);
-          }, 350); // match animation duration
+        const isIntersecting = entry.isIntersecting;
+        setFooterIntersecting(isIntersecting);
+        if (isIntersecting) {
+          // ensure button is hidden immediately while footer is visible
+          setButtonAnimating(false);
+          setShowButton(false);
+          setButtonVisible(false);
         } else {
           setShowButton(true);
           setButtonVisible(true);
@@ -1850,9 +1876,7 @@ export default function BazarghorrPage() {
       {
         root: null,
         threshold: 0.9,
-        
-
-      }
+      },
     );
     if (numbersSectionRef.current) {
       observer.observe(numbersSectionRef.current);
@@ -1864,9 +1888,15 @@ export default function BazarghorrPage() {
     };
   }, []);
 
+  // useEffect(() => {
+  //   if (showButton) setButtonVisible(true);
+  // }, [showButton]);
+
   useEffect(() => {
-    if (showButton) setButtonVisible(true);
-  }, []);
+    // only make visible when not inside footer
+    if (showButton && !footerIntersecting) setButtonVisible(true);
+    else setButtonVisible(false);
+  }, [showButton, footerIntersecting]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -1941,8 +1971,17 @@ export default function BazarghorrPage() {
         {/* s4: SWOT Analysis — light, curved top */}
         <CaseStudyContainer
           variant="light"
-          zIndex={4}
-          style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+          zIndex={11}
+          style={{
+            position: "relative",
+            marginTop: -120, // negative margin to overlap
+            zIndex: 4, // higher z-index
+            borderTopLeftRadius: 48,
+            borderTopRightRadius: 48,
+            boxShadow: "0 -8px 32px rgba(0,0,0,0.08)",
+            background: "#fff",
+            overflow: "visible",
+          }}
         >
           <SectionImage src={s4} alt="SWOT analysis" />
         </CaseStudyContainer>
@@ -1951,7 +1990,7 @@ export default function BazarghorrPage() {
         <CaseStudyContainer
           variant="dark"
           zIndex={5}
-          style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+          style={{ marginTop: 0, position: "relative", zIndex: 5 }}
         >
           <SectionImage src={s5} alt="User personas" />
         </CaseStudyContainer>
@@ -1959,8 +1998,17 @@ export default function BazarghorrPage() {
         {/* s6: Quantitative Research — light, curved top */}
         <CaseStudyContainer
           variant="light"
-          zIndex={6}
-          style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+          zIndex={11}
+          style={{
+            position: "relative",
+            marginTop: -120, // negative margin to overlap
+            zIndex: 20, // higher z-index
+            borderTopLeftRadius: 48,
+            borderTopRightRadius: 48,
+            boxShadow: "0 -8px 32px rgba(0,0,0,0.08)",
+            background: "#fff",
+            overflow: "visible",
+          }}
         >
           <SectionImage src={s6} alt="Quantitative research" />
         </CaseStudyContainer>
@@ -1969,7 +2017,7 @@ export default function BazarghorrPage() {
         <CaseStudyContainer
           variant="dark"
           zIndex={7}
-          style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+          style={{ marginTop: 0, position: "relative" }}
         >
           <SectionImage src={s7} alt="User flows" />
         </CaseStudyContainer>
@@ -1977,52 +2025,64 @@ export default function BazarghorrPage() {
         {/* s8: Mid-Fidelity — light, curved top */}
         <CaseStudyContainer
           variant="light"
-          zIndex={8}
-          style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+          zIndex={11}
+          style={{
+            position: "relative",
+            marginTop: -120, // negative margin to overlap
+            zIndex: 20, // higher z-index
+            borderTopLeftRadius: 48,
+            borderTopRightRadius: 48,
+            boxShadow: "0 -8px 32px rgba(0,0,0,0.08)",
+            background: "#fff",
+            overflow: "visible",
+          }}
         >
           <SectionImage src={s8} alt="Mid-fidelity wireframes" />
         </CaseStudyContainer>
 
         {/* Mode changing Button */}
 
-        {showButton && (
+        {buttonVisible && (
           <div
-             style={{
-            position: "sticky",
-            top: 20,
-            zIndex: 20,
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingRight: 40,
-            transition: "transform 0.35s cubic-bezier(.4,1.6,.6,1), opacity 0.35s cubic-bezier(.4,1.6,.6,1)",
-            transform: buttonAnimating ? "translateY(-120%) scaleY(0.7)" : "translateY(0) scaleY(1)",
-            opacity: buttonAnimating ? 0 : 1,
-            pointerEvents: buttonAnimating ? "none" : "auto",
-          }}
-          onTransitionEnd={() => {
-            if (buttonAnimating) setButtonVisible(false);
-          }}
+            style={{
+              position: "sticky",
+              top: 20,
+              zIndex: 20,
+              display: "flex",
+              justifyContent: "flex-end",
+              paddingRight: 40,
+              transition:
+                "transform 0.35s cubic-bezier(.4,1.6,.6,1), opacity 0.35s cubic-bezier(.4,1.6,.6,1)",
+              transform: buttonAnimating
+                ? "translateY(-120%) scaleY(0.7)"
+                : "translateY(0) scaleY(1)",
+              opacity: buttonAnimating ? 0 : 1,
+              pointerEvents: buttonAnimating ? "none" : "auto",
+            }}
+            onTransitionEnd={() => {
+              if (buttonAnimating) setButtonVisible(false);
+            }}
           >
             <button
-                onClick={handleModeChange}
-            className=""
-            style={{
-              width: 226,
-              height: "auto",
-              backgroundColor: vendorMode ? "#0C582B" : "#33302F",
-              color: "white",
-              padding: 10,
-              display: "flex",
-              gap: 0,
-              zIndex: 15,
-              marginBottom: 0,
-              marginLeft: 230,
-              fontSize: 20,
-              borderRadius: 40,
-              position: "relative",
-              boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-              transition: "background 0.2s",
-            }}
+              onClick={handleModeChange}
+              className=""
+              style={{
+                width: 240,
+                height: "auto",
+                backgroundColor: vendorMode ? "#0C582B" : "#33302F",
+                color: "white",
+                padding: 10,
+                display: "flex",
+                gap: 0,
+                zIndex: 15,
+                marginBottom: 10,
+                marginLeft: 230,
+                fontSize: 20,
+                borderRadius: 40,
+                position: "relative",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+                transition: "background 0.2s",
+              }}
             >
               {vendorMode ? (
                 <div
@@ -2034,7 +2094,16 @@ export default function BazarghorrPage() {
                     marginLeft: 9,
                   }}
                 >
-                  <h3 style={{ margin: 0 }}>Customer App</h3>
+                  <h3
+                    style={{
+                      margin: 0,
+                      fontFamily: "Alexandria",
+                      fontSize: 19.16,
+                      fontWeight: 500,
+                    }}
+                  >
+                    Customer App
+                  </h3>
                   <svg
                     style={{ transform: "scale(-1)" }}
                     width="44"
@@ -2093,7 +2162,16 @@ export default function BazarghorrPage() {
                       fill="#F9F9F9"
                     />
                   </svg>
-                  <h3 style={{ marginLeft: 5 }}>Vendor App</h3>
+                  <h3
+                    style={{
+                      marginLeft: 5,
+                      fontFamily: "Alexandria",
+                      fontSize: 19.16,
+                      fontWeight: 500,
+                    }}
+                  >
+                    Vendor App
+                  </h3>
                 </div>
               )}
             </button>
@@ -2105,18 +2183,25 @@ export default function BazarghorrPage() {
           {vendorMode ? <VendorSection /> : <CustomerSection />}
         </div>
 
-        <div  ref={numbersSectionRef}>        
-        <CaseStudyContainer
-          variant="light"
-          zIndex={11}
-          style={{
-            marginTop: SECTION_OVERLAP,
-            position: "relative",
-            marginBottom: 130,
-          }}
-        >
-          <SectionImage src={s14} alt="Numbers" />
-        </CaseStudyContainer>
+        <div style={{ position: "relative" }}>
+          <div>
+            <CaseStudyContainer
+              variant="light"
+              zIndex={13}
+              style={{
+                marginTop: SECTION_OVERLAP,
+                position: "relative",
+                marginBottom: 0,
+                borderBottomLeftRadius: 48,
+                borderBottomRightRadius: 48,
+                // overflow: "hidden",
+                // subtle shadow to lift it above the footer
+                boxShadow: "0 24px 40px rgba(0,0,0,0.08)",
+              }}
+            >
+              <SectionImage src={s14} alt="Numbers" />
+            </CaseStudyContainer>
+          </div>
         </div>
 
         {/* s12: Footer Image — s13 */}
@@ -2125,13 +2210,19 @@ export default function BazarghorrPage() {
           style={{
             marginBottom: 0,
             position: "relative",
-            zIndex: 12,
+            zIndex: 10,
+            marginTop: -150,
+            overflow: "visible",
             transform: "scale(0.8)",
-            height:1000,
+            height: 1000,
           }}
         >
           {/* <SectionImage src={s13} alt="Footer" /> */}
-          <FooterSection useBgImage={true} onBackToTop={() => {}} onLetsTalkClick={() => {}} />
+          <FooterSection
+            useBgImage={true}
+            onBackToTop={() => {}}
+            onLetsTalkClick={() => {}}
+          />
         </div>
       </div>
     </div>
