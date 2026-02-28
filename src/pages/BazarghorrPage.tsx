@@ -23,7 +23,9 @@ import ip20 from "@/assets/bazarghorr/screens/iphone 20.png";
 
 import arrow from "@/assets/bazarghorr/arrow.png";
 // Section images
-import s1 from "@/assets/bazarghorr/sections/s1.png";
+// import s1 from "@/assets/bazarghorr/sections/s1.png";
+import s1a from "@/assets/bazarghorr/sections/s1a.png";
+
 import s2 from "@/assets/bazarghorr/sections/s2.png";
 import s3 from "@/assets/bazarghorr/sections/s3.png";
 import s4 from "@/assets/bazarghorr/sections/s4.png";
@@ -1952,7 +1954,7 @@ export default function BazarghorrPage() {
           </button>
         )}
 
-        <SectionImage src={s1} alt="Bazarghorr hero" />
+        <SectionImage src={s1a} alt="Bazarghorr hero" />
 
         {/* s2: Design Brief — rectangular, light bg, zIndex 2 */}
         <div style={{ background: "#fefcf4", position: "relative", zIndex: 2 }}>
