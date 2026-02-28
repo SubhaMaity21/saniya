@@ -1,7 +1,8 @@
-import React, { useState, type ReactNode } from "react";
+import React, { use, useState, type ReactNode } from "react";
 import svgPaths from "../svg-ghixc67pzt";
 import footerImage from "figma:asset/thumbs-up-final.png";
 import bgImage from "@/assets/landing-work/blue-bg.png";
+import footerBg from "@/assets/landing-work/footer bg.png";
 type FooterSectionProps = {
   onBackToTop: () => void;
   onLetsTalkClick: () => void;
@@ -20,7 +21,8 @@ function SocialLink({
   label,
   children,
   external = false,
-}: SocialLinkProps) {
+  useBgImage,
+}: SocialLinkProps & { useBgImage: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <a
@@ -43,7 +45,7 @@ function SocialLink({
         className="mt-2 text-[18px]"
         style={{
           fontFamily: "Martel, serif",
-          color: "#101010",
+          color: useBgImage ? "#fefcf4" : "#101010",
           opacity: isHovered ? 1 : 0,
           transform: isHovered ? "translateY(0)" : "translateY(8px)",
           transition: "opacity 300ms ease, transform 200ms ease",
@@ -56,16 +58,17 @@ function SocialLink({
   );
 }
 
-function SocialMedia() {
+function SocialMedia({ useBgImage }: { useBgImage: boolean }) {
   return (
     <div
       className="flex items-center justify-center "
-      style={{ gap: 32, marginTop: 10 }}
+      style={{ gap: 22, marginTop: 10 }}
     >
       <SocialLink
         href="https://www.linkedin.com/in/saniya"
         label="LinkedIn"
         external
+        useBgImage={useBgImage}
       >
         <svg
           className="block size-full"
@@ -73,23 +76,38 @@ function SocialMedia() {
           preserveAspectRatio="none"
           viewBox="0 0 46 46"
         >
-          <path d={svgPaths.p30ba2c00} fill="var(--fill-0, #101010)" />
+          <path
+            d={svgPaths.p30ba2c00}
+            fill={
+              useBgImage ? "var(--fill-0, #ffffff)" : "var(--fill-0, #101010)"
+            }
+          />
         </svg>
       </SocialLink>
-      <SocialLink href="mailto:saniya@example.com" label="Email">
+      <SocialLink
+        href="mailto:saniya@example.com"
+        label="Email"
+        useBgImage={useBgImage}
+      >
         <svg
           className="block size-full"
           fill="none"
           preserveAspectRatio="none"
           viewBox="0 0 46 46"
         >
-          <path d={svgPaths.p3150bc00} fill="var(--fill-0, #101010)" />
+          <path
+            d={svgPaths.p3150bc00}
+            fill={
+              useBgImage ? "var(--fill-0, #ffffff)" : "var(--fill-0, #101010)"
+            }
+          />
         </svg>
       </SocialLink>
       <SocialLink
         href="https://www.instagram.com/saniya"
         label="Instagram"
         external
+        useBgImage={useBgImage}
       >
         <svg
           className="block size-full"
@@ -97,13 +115,19 @@ function SocialMedia() {
           preserveAspectRatio="none"
           viewBox="0 0 46 46"
         >
-          <path d={svgPaths.p2bbb0d20} fill="var(--fill-0, #101010)" />
+          <path
+            d={svgPaths.p2bbb0d20}
+            fill={
+              useBgImage ? "var(--fill-0, #ffffff)" : "var(--fill-0, #101010)"
+            }
+          />
         </svg>
       </SocialLink>
       <SocialLink
         href="https://www.behance.net/saniya"
         label="Behance"
         external
+        useBgImage={useBgImage}
       >
         <svg
           className="block size-full"
@@ -111,19 +135,29 @@ function SocialMedia() {
           preserveAspectRatio="none"
           viewBox="0 0 46 46"
         >
-          <path d={svgPaths.p2b85ed00} fill="var(--fill-0, #101010)" />
-          <path d={svgPaths.p3db6fc00} fill="var(--fill-0, #101010)" />
+          <path
+            d={svgPaths.p2b85ed00}
+            fill={
+              useBgImage ? "var(--fill-0, #ffffff)" : "var(--fill-0, #101010)"
+            }
+          />
+          <path
+            d={svgPaths.p3db6fc00}
+            fill={
+              useBgImage ? "var(--fill-0, #ffffff)" : "var(--fill-0, #101010)"
+            }
+          />
         </svg>
       </SocialLink>
     </div>
   );
 }
 
-function LetsTalkLabelLine() {
+function LetsTalkLabelLine({ useBgImage }: { useBgImage: boolean }) {
   return (
     <div className="relative flex h-[54px] items-center justify-center">
       <p
-        className="absolute left-[calc(50%-100px)] text-[32px] not-italic leading-[normal] text-[#2d6dc3]"
+        className="absolute left-[calc(50%-100px)] text-[32px] not-italic leading-[normal]"
         style={{ fontFamily: "Martel, serif", fontWeight: 800 }}
       >
         Let&apos;s Talk
@@ -136,7 +170,10 @@ function LetsTalkLabelLine() {
             preserveAspectRatio="none"
             viewBox="0 0 25 14.7279"
           >
-            <path d={svgPaths.p3a9c1f00} fill="var(--stroke-0, #2D6DC3)" />
+            <path
+              d={svgPaths.p3a9c1f00}
+              fill={useBgImage ? "#fefcf4" : "#2D6DC3"}
+            />
           </svg>
         </div>
       </div>
@@ -147,20 +184,24 @@ function LetsTalkLabelLine() {
 function ContactCta({
   onLetsTalkClick,
   onButtonHover,
+  useBgImage,
+  isButtonHovered,
 }: {
   onLetsTalkClick: () => void;
   onButtonHover: (hovered: boolean) => void;
+  useBgImage: boolean;
+  isButtonHovered: boolean;
 }) {
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <p
-        className="mb-12  text-[28px] not-italic leading-[normal] text-[#101010]"
+        className="mb-12  text-[28px] not-italic leading-[normal]"
         style={{ fontFamily: "Martel, serif" }}
       >
         That&apos;s a wrap. Or is it?
       </p>
       <h1
-        className="mb-8 max-w-[1640px] text-center text-[128px] not-italic leading-[1.03] tracking-[7.68px] text-[#101010]"
+        className="mb-8 max-w-[1640px] text-center text-[128px] not-italic leading-[1.03] tracking-[7.68px] "
         style={{
           fontFamily: "ClashDisplay, sans-serif",
           fontWeight: 600,
@@ -169,7 +210,7 @@ function ContactCta({
         Great design starts with a conversation!
       </h1>
       <p
-        className="mb-12 text-center font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]"
+        className="mb-12 text-center font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] "
         style={{ fontFamily: "Martel, serif" }}
       >
         Open to opportunities, collabs, creative challenges, or simply a good
@@ -180,22 +221,33 @@ function ContactCta({
         onClick={onLetsTalkClick}
         onMouseEnter={() => onButtonHover(true)}
         onMouseLeave={() => onButtonHover(false)}
-        className="group relative mb-4 h-[95px] w-[312px] cursor-pointer overflow-hidden rounded-[38px] border border-solid border-[#2d6dc3] bg-[rgba(226,226,226,0.2)] px-12 py-6 transition-all hover:scale-105 hover:bg-[rgba(226,226,226,0.4)]"
+        className="group relative mb-4 h-[95px] w-[312px] cursor-pointer overflow-hidden rounded-[38px] border border-solid px-12 py-6"
+        style={{
+          border: useBgImage ? "solid 1px #ffffff" : "solid 1px #2d6dc3",
+          background: isButtonHovered
+            ? useBgImage
+              ? "rgba(255,255,255,0.18)"
+              : "rgba(226,226,226,0.4)"
+            : useBgImage
+              ? "rgba(255,255,255,0.08)"
+              : "rgba(226,226,226,0.2)",
+          transition: "background-color 200ms ease",
+        }}
       >
         <div className="absolute left-[65px] top-[20.5px] h-[54px] w-[200px] overflow-clip">
           <div className="transition-transform duration-300 ease-in-out group-hover:-translate-y-[54px]">
-            <LetsTalkLabelLine />
-            <LetsTalkLabelLine />
+            <LetsTalkLabelLine useBgImage={useBgImage} />
+            <LetsTalkLabelLine useBgImage={useBgImage} />
           </div>
         </div>
       </button>
       <p
-        className="mb-5 font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] text-[#101010]"
+        className="mb-5 font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] "
         style={{ margin: 20, fontFamily: "Martel, serif" }}
       >
         or
       </p>
-      <SocialMedia />
+      <SocialMedia useBgImage={useBgImage} />
     </div>
   );
 }
@@ -211,7 +263,7 @@ export default function FooterSection({
     transform: "translateX(-50%)",
     ...(useBgImage
       ? {
-          backgroundImage: `url(${bgImage})`,
+          backgroundImage: `url(${footerBg})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center bottom",
@@ -219,7 +271,10 @@ export default function FooterSection({
       : { backgroundColor: "#fefcf4" }),
   };
   return (
-    <div className="relative z-50  w-full shrink-0 " style={{ height: 1230 }}>
+    <div
+      className="relative z-50  w-full shrink-0 "
+      style={{ height: 1300, color: useBgImage ? "#fefcf4" : "#101010" }}
+    >
       <div className="absolute left-1/2  h-full" style={innerStyle}>
         <div
           className="absolute bottom-0 left-1/2 h-[1523px] w-[1920px] -translate-x-1/2"
@@ -261,7 +316,11 @@ export default function FooterSection({
             >
               <line
                 id="Line 1"
-                stroke="var(--stroke-0, black)"
+                stroke={
+                  useBgImage
+                    ? "var(--stroke-0, #ffffff)"
+                    : "var(--stroke-0, #101010)"
+                }
                 x2="1840"
                 y1="0.5"
                 y2="0.5"
@@ -276,6 +335,7 @@ export default function FooterSection({
             bottom: 22,
             fontSize: 18,
             letterSpacing: 0.5,
+            color: useBgImage ? "#fefcf4" : "#101010",
           }}
         >
           Built on coffee, love, many iterations, and way too many open tabs.
@@ -293,6 +353,7 @@ export default function FooterSection({
                 fontFamily: "Martel, serif",
                 fontSize: 18,
                 letterSpacing: 0.5,
+                color: useBgImage ? "#fefcf4" : "#101010",
               }}
             >
               Back to top
@@ -309,7 +370,11 @@ export default function FooterSection({
                     >
                       <path
                         d={svgPaths.p3b044f00}
-                        fill="var(--stroke-0, #101010)"
+                        fill={
+                          useBgImage
+                            ? "var(--stroke-0, #ffffff)"
+                            : "var(--stroke-0, #101010)"
+                        }
                         id="Arrow 2"
                       />
                     </svg>
@@ -321,11 +386,13 @@ export default function FooterSection({
         </div>
         <div
           className="absolute left-1/2 w-full -translate-x-1/2"
-          style={{ bottom: 180 }}
+          style={{ bottom: 150 }}
         >
           <ContactCta
             onLetsTalkClick={onLetsTalkClick}
             onButtonHover={setIsButtonHovered}
+            useBgImage={useBgImage}
+            isButtonHovered={isButtonHovered}
           />
         </div>
       </div>

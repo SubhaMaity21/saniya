@@ -14,9 +14,18 @@ export default function NavigationBar({
   isWhite,
 }: NavigationBarProps) {
   return (
-    <div className="fixed left-1/2 top-[20px] z-50 flex -translate-x-1/2 items-center justify-center gap-[50px] font-['Martel:ExtraBold',sans-serif]  not-italic leading-[normal] transition-colors duration-300" style={{gap:70}}>
+    <div
+      className="fixed left-1/2 top-[20px] z-50 flex -translate-x-1/2 items-center justify-center gap-[50px] font-['Martel:ExtraBold',sans-serif]  not-italic leading-[normal] transition-colors duration-300"
+      style={{
+        gap: 70,
+        background: isWhite ? "rgba(12,12,12,0.64)" : "rgba(255,255,255,0.92)",
+        padding: "10px 26px",
+        borderRadius: 28,
+        boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
+        backdropFilter: "blur(6px)",
+      }}
+    >
       <NavItem
-        
         label="Home"
         widthClass="w-[64px]"
         onClick={onHomeClick}
