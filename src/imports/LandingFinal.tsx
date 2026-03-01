@@ -61,7 +61,7 @@ function LandingSections({
     <div
       className="absolute left-1/2 top-[100px] flex w-[calc(100%/0.8)] flex-col items-center"
       style={{
-        transform: "translate(-50%, 0) scale(0.8)",
+        transform: "translate(-50%, 0) scale(0.8) ",
         transformOrigin: "top center",
       }}
     >
@@ -82,6 +82,16 @@ export default function LandingFinal({
   const [heroCoverProgress, setHeroCoverProgress] = useState(0);
   const heroRef = useRef<HTMLDivElement | null>(null);
   const backgroundRef = useRef<HTMLDivElement | null>(null);
+
+    const goTop = () => {
+    const el = document.getElementById("top");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      
+      window.location.hash = "#top";
+    }
+  };
 
   useEffect(() => {
     let frameId: number | null = null;
@@ -138,7 +148,7 @@ export default function LandingFinal({
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-[#fefcf4]" data-name="Landing final">
+    <div id="top" className="relative min-h-screen w-full bg-[#fefcf4]" data-name="Landing final">
       <NavigationBar
         onHomeClick={onHomeClick}
         onWorkClick={onWorkClick}
@@ -147,7 +157,7 @@ export default function LandingFinal({
         isWhite={isNavWhite}
       />
       <LandingSections
-        onBackToTop={onHomeClick}
+        onBackToTop={goTop}
         onLetsTalkClick={onContactClick}
         heroRef={heroRef}
         backgroundRef={backgroundRef}

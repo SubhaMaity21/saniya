@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CaseStudyContainer } from "@/components/ui/CaseStudyContainer";
 import FooterSection from "@/imports/landing/FooterSection";
 
@@ -24,7 +24,7 @@ import ip20 from "@/assets/bazarghorr/screens/iphone 20.png";
 import arrow from "@/assets/bazarghorr/arrow.png";
 // Section images
 // import s1 from "@/assets/bazarghorr/sections/s1.png";
-import s1a from "@/assets/bazarghorr/sections/s1a.png";
+import s1a from "@/assets/bazarghorr/sections/s1b.png";
 
 import s2 from "@/assets/bazarghorr/sections/s2.png";
 import s3 from "@/assets/bazarghorr/sections/s3.png";
@@ -83,15 +83,17 @@ const BODY_FONT_SEMI = "'Martel:SemiBold', sans-serif";
 function PhoneMockup({
   children,
   width = 280,
+  aspectRatio = "9 / 19.5",
 }: {
   children: React.ReactNode;
   width?: number;
+  aspectRatio?: string;
 }) {
   return (
     <div
       style={{
         width,
-        aspectRatio: "9 / 19.5",
+        aspectRatio: aspectRatio,
         borderRadius: width * 0.13,
         border: `${Math.max(6, width * 0.028)}px solid #1a1a1a`,
         overflow: "hidden",
@@ -170,7 +172,7 @@ function VendorAppUISection() {
     <CaseStudyContainer
       variant="light"
       zIndex={9}
-      style={{ marginTop: SECTION_OVERLAP, position: "relative" }}
+      style={{ marginTop: SECTION_OVERLAP, position: "relative",backgroundColor:"#FEF9F6" }}
     >
       <div
         style={{
@@ -188,12 +190,12 @@ function VendorAppUISection() {
             gap: 80,
 
             margin: "5% 18%",
-            marginTop: "10%",
+            marginTop: "7%",
             marginBottom: 40,
           }}
         >
           {/* Phone mockup with onboarding video */}
-          <PhoneMockup width={340}>
+          <PhoneMockup width={340} aspectRatio="9 / 18.5">
             <video
               src={vendorOnboarding}
               autoPlay
@@ -237,7 +239,7 @@ function VendorAppUISection() {
                 alt="Vendor illustration"
                 style={{
                   width: 150,
-                  height: 150,
+                  height: 170,
                   transform: "scaleX(-1)",
                   borderRadius: "50%",
                   objectFit: "cover",
@@ -261,9 +263,10 @@ function VendorAppUISection() {
               style={{
                 fontFamily: "Alike, serif",
                 fontWeight: 400,
-                fontSize: 20,
+                fontSize: 16,
                 lineHeight: 1.7,
                 color: "#333",
+                width:710
               }}
             >
               The Onboarding Flow Starts With A Landing Page That Sets Context
@@ -346,7 +349,7 @@ function MainScreensSection() {
         borderTopLeftRadius: 48,
         borderTopRightRadius: 48,
         boxShadow: "0 -8px 32px rgba(0,0,0,0.08)",
-        background: "#fff",
+        background: "#FEF9F6",
         overflow: "visible",
       }}
     >
@@ -372,7 +375,7 @@ function MainScreensSection() {
               display: "flex",
               gap: 48,
               alignItems: "flex-start",
-              marginLeft: "9%",
+              marginLeft: "7%",
               marginTop: 140,
             }}
           >
@@ -403,7 +406,7 @@ function MainScreensSection() {
                 }}
               />
             </div>
-            <PhoneMockup width={301}>
+            <PhoneMockup width={300}>
               <video
                 src={vendorNewOrder}
                 autoPlay
@@ -436,7 +439,7 @@ function MainScreensSection() {
                 style={{
                   fontFamily: "Alike, serif",
                   fontWeight: 400,
-                  fontSize: 18,
+                  fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
                   marginBottom: 24,
@@ -469,9 +472,9 @@ function MainScreensSection() {
         <div
           style={{
             position: "relative",
-            marginBottom: 80,
+            marginBottom: 250,
             marginTop: -200,
-            marginRight: "7%",
+            marginRight: "6%",
           }}
         >
           <div
@@ -501,10 +504,10 @@ function MainScreensSection() {
                 style={{
                   fontFamily: "Alike, serif",
                   fontWeight: 400,
-                  fontSize: 18,
+                  fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
-                  maxWidth: 650,
+                  maxWidth: 570,
                   marginBottom: 0,
                   marginLeft: "auto",
                 }}
@@ -524,19 +527,19 @@ function MainScreensSection() {
                 flexWrap: "wrap",
               }}
             >
-              <PhoneMockup width={244}>
+              <PhoneMockup width={230}>
                 <img
                   src={analytics1}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-              <PhoneMockup width={244}>
+              <PhoneMockup width={230}>
                 <img
                   src={analytics2}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-              <PhoneMockup width={244}>
+              <PhoneMockup width={230}>
                 <img
                   src={analytics3}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
@@ -553,20 +556,18 @@ function MainScreensSection() {
             marginBottom: 80,
           }}
         >
-         
-
           <div
             style={{
               display: "flex",
               gap: 48,
               alignItems: "flex-start",
-              marginLeft: "9%",
+              marginLeft: "7%",
               marginTop: 190,
             }}
           >
             <div
               className="absolute"
-              style={{ zIndex: -1, left: 134, top: 230 }}
+              style={{ zIndex: -1, left: 134, top: 251 }}
             >
               <img
                 src={screenIllustration}
@@ -579,7 +580,7 @@ function MainScreensSection() {
                 }}
               />
             </div>
-            <div className="absolute" style={{ zIndex: -2, left: 6, top: 210 }}>
+            <div className="absolute" style={{ zIndex: -2, left: 6, top: 251 }}>
               <img
                 src={screenIllustration}
                 alt="Screen illustration"
@@ -591,7 +592,7 @@ function MainScreensSection() {
                 }}
               />
             </div>
-            <PhoneMockup width={284}>
+            <PhoneMockup width={300}>
               <video
                 src={vendorInventory}
                 autoPlay
@@ -623,7 +624,7 @@ function MainScreensSection() {
                 style={{
                   fontFamily: "Alike, serif",
                   fontWeight: 400,
-                  fontSize: 18,
+                  fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
                   marginBottom: 24,
@@ -653,7 +654,7 @@ function MainScreensSection() {
             position: "relative",
             marginBottom: 80,
             marginTop: -200,
-            marginRight: "9%",
+            marginRight: "7%",
           }}
         >
           <div
@@ -682,7 +683,7 @@ function MainScreensSection() {
                 style={{
                   fontFamily: "Alike, serif",
                   fontWeight: 400,
-                  fontSize: 18,
+                  fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
                   maxWidth: 550,
@@ -709,13 +710,13 @@ function MainScreensSection() {
               alt="Order details"
               width={180}
             /> */}
-              <PhoneMockup width={250}>
+              <PhoneMockup width={230}>
                 <img
                   src={orderHistory}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-              <PhoneMockup width={250}>
+              <PhoneMockup width={230}>
                 <img
                   src={orderHistoryDetails}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
@@ -732,8 +733,6 @@ function MainScreensSection() {
             marginTop: 160,
           }}
         >
-         
-
           <h3
             style={{
               fontFamily: HEADING_FONT,
@@ -812,7 +811,7 @@ function MainScreensSection() {
             <img src={ip18} style={{ objectFit: "cover", height: 770 }} />
             <div
               className="absolute"
-              style={{ zIndex: -1, top: -50, right: 370 }}
+              style={{ zIndex: -1, top: -50, right: "19%" }}
             >
               <img
                 src={maleVendor}
@@ -1002,12 +1001,12 @@ function CustomerAppUISection() {
             gap: 80,
 
             margin: "5% 18%",
-            marginTop: "10%",
+            marginTop: "7%",
             marginBottom: 40,
           }}
         >
           {/* Phone mockup with onboarding video */}
-          <PhoneMockup width={340}>
+          <PhoneMockup width={340} aspectRatio="9/18.5">
             <video
               src={customerOnboarding}
               autoPlay
@@ -1035,7 +1034,7 @@ function CustomerAppUISection() {
             <div
               style={{
                 position: "absolute",
-                top: -70,
+                top: -90,
                 right: 0,
                 width: 130,
                 height: 130,
@@ -1077,7 +1076,7 @@ function CustomerAppUISection() {
               style={{
                 fontFamily: "Alike, serif",
                 fontWeight: 400,
-                fontSize: 20,
+                fontSize: 18,
                 lineHeight: 1.7,
                 color: "#333",
               }}
@@ -1104,7 +1103,7 @@ function CustomerMainScreensSection() {
         borderTopLeftRadius: 48,
         borderTopRightRadius: 48,
         boxShadow: "0 -8px 32px rgba(0,0,0,0.08)",
-        background: "#fff",
+        background: "#FEF9F6",
         overflow: "visible",
       }}
     >
@@ -1162,7 +1161,7 @@ function CustomerMainScreensSection() {
                 }}
               />
             </div>
-            <PhoneMockup width={301}>
+            <PhoneMockup width={300}>
               <video
                 src={categoriesNavigation}
                 autoPlay
@@ -1195,7 +1194,7 @@ function CustomerMainScreensSection() {
                 style={{
                   fontFamily: "Alike, serif",
                   fontWeight: 400,
-                  fontSize: 18,
+                  fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
                   marginBottom: 24,
@@ -1217,11 +1216,9 @@ function CustomerMainScreensSection() {
             position: "relative",
             marginBottom: 80,
             marginTop: -600,
-            marginRight: "-10%",
+            marginRight: "-15%",
           }}
         >
-         
-
           <div
             style={{
               display: "flex",
@@ -1258,10 +1255,10 @@ function CustomerMainScreensSection() {
                 style={{
                   fontFamily: "Alike, serif",
                   fontWeight: 400,
-                  fontSize: 18,
+                  fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
-                  maxWidth: 600,
+                  maxWidth: 450,
                   marginBottom: 0,
                   marginLeft: "auto",
                 }}
@@ -1298,8 +1295,6 @@ function CustomerMainScreensSection() {
             marginBottom: 80,
           }}
         >
-        
-
           <div
             style={{
               display: "flex",
@@ -1311,7 +1306,7 @@ function CustomerMainScreensSection() {
           >
             <div
               className="absolute"
-              style={{ zIndex: -1, left: 134, top: 230 }}
+              style={{ zIndex: -1, left: 134, top: 250 }}
             >
               <img
                 src={screenIllustration}
@@ -1324,7 +1319,7 @@ function CustomerMainScreensSection() {
                 }}
               />
             </div>
-            <div className="absolute" style={{ zIndex: -2, left: 6, top: 210 }}>
+            <div className="absolute" style={{ zIndex: -2, left: 6, top: 230 }}>
               <img
                 src={screenIllustration}
                 alt="Screen illustration"
@@ -1336,7 +1331,7 @@ function CustomerMainScreensSection() {
                 }}
               />
             </div>
-            <PhoneMockup width={320}>
+            <PhoneMockup width={300}>
               <video
                 src={customerFlow}
                 autoPlay
@@ -1368,7 +1363,7 @@ function CustomerMainScreensSection() {
                 style={{
                   fontFamily: "Alike, serif",
                   fontWeight: 400,
-                  fontSize: 18,
+                  fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
                   marginBottom: 24,
@@ -1399,7 +1394,7 @@ function CustomerMainScreensSection() {
             position: "relative",
             marginBottom: 80,
             marginTop: -200,
-            marginRight: "7%",
+            marginRight: "6%",
             zIndex: 9,
           }}
         >
@@ -1429,10 +1424,10 @@ function CustomerMainScreensSection() {
                 style={{
                   fontFamily: "Alike, serif",
                   fontWeight: 400,
-                  fontSize: 18,
+                  fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
-                  maxWidth: 620,
+                  maxWidth: 570,
                   marginBottom: 0,
                   marginLeft: "auto",
                 }}
@@ -1456,51 +1451,54 @@ function CustomerMainScreensSection() {
               alt="Order details"
               width={180}
             /> */}
-              <PhoneMockup width={250}>
+              <PhoneMockup width={240}>
                 <img
                   src={dashboardPage}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-              <PhoneMockup width={250}>
+              <PhoneMockup width={240}>
                 <img
                   src={searchPage}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-              <PhoneMockup width={250}>
+              <PhoneMockup width={240}>
                 <img
                   src={productPage}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-                        <div
-              className="absolute"
-              style={{ zIndex: -1, left: 134, top: 230 }}
-            >
-              <img
-                src={screenIllustration}
-                alt="Screen illustration"
-                style={{
-                  width: 64,
-                  height: 38,
-                  transform: "rotate(-176.85deg)",
-                  opacity: 0.8,
-                }}
-              />
-            </div>
-            <div className="absolute" style={{ zIndex: -2, left: 6, top: 210 }}>
-              <img
-                src={screenIllustration}
-                alt="Screen illustration"
-                style={{
-                  width: 64,
-                  height: 38,
-                  transform: "rotate(-27.85deg)",
-                  opacity: 0.8,
-                }}
-              />
-            </div>
+              {/* <div
+                className="absolute"
+                style={{ zIndex: -1, left: 134, top: 230 }}
+              >
+                <img
+                  src={screenIllustration}
+                  alt="Screen illustration"
+                  style={{
+                    width: 64,
+                    height: 38,
+                    transform: "rotate(-176.85deg)",
+                    opacity: 0.8,
+                  }}
+                />
+              </div>
+              <div
+                className="absolute"
+                style={{ zIndex: -2, left: 6, top: 210 }}
+              >
+                <img
+                  src={screenIllustration}
+                  alt="Screen illustration"
+                  style={{
+                    width: 64,
+                    height: 38,
+                    transform: "rotate(-27.85deg)",
+                    opacity: 0.8,
+                  }}
+                />
+              </div> */}
             </div>
           </div>
         </div>
@@ -1708,7 +1706,7 @@ function CustomerSection() {
                 margin: 0,
                 fontFamily: "Alike, serif",
                 fontWeight: 400,
-                fontSize: 22,
+                fontSize: 20,
                 lineHeight: 1.4,
               }}
             >
@@ -1727,7 +1725,7 @@ function CustomerSection() {
             position: "relative",
           }}
         >
-          <div style={{ width: "70%", left: "-50%" }}>
+          <div style={{ width: "70%", left: "-50%",marginLeft:50 }}>
             <img
               src={s10a}
               alt="Dashboard"
@@ -1763,52 +1761,15 @@ export default function BazarghorrPage() {
   const footerRef = React.useRef<HTMLDivElement>(null);
 
   const goHome = () => navigate("/");
+  const goTop = () => {
+    const el = document.getElementById("top");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.location.hash = "#top";
+    }
+  };
 
-  // const handleModeChange = () => {
-  //   const nextMode = !vendorMode;
-  //   // decide horizontal slide direction
-  //   setModeDirection(nextMode ? "left" : "right");
-  //   setModeAnimating(true);
-  //   // slide-out duration ~= 350ms, then toggle mode and scroll, then slide back in
-  //   setTimeout(() => {
-  //     setVendorMode(nextMode);
-  //     // small delay to allow DOM to update then scroll
-  //     setTimeout(() => {
-  //       if (nextMode && vendorRef.current) {
-  //         vendorRef.current.scrollIntoView({
-  //           behavior: "smooth",
-  //           block: "start",
-  //         });
-  //       } else if (!nextMode && customerRef.current) {
-  //         customerRef.current.scrollIntoView({
-  //           behavior: "smooth",
-  //           block: "start",
-  //         });
-  //       }
-  //     }, 120);
-  //     // reset animation state to slide back in
-  //     setModeAnimating(false);
-  //     setModeDirection(null);
-  //   }, 350);
-  // };
-
-  // const getModeButtonTransform = () => {
-  //   const base = buttonAnimating
-  //     ? "translateY(-120%) scaleY(0.7)"
-  //     : "translateY(0) scaleY(1)";
-  //   if (modeAnimating && modeDirection === "right")
-  //     return `${base} translateX(100vw)`;
-  //   if (modeAnimating && modeDirection === "left")
-  //     return `${base} translateX(-100vw)`;
-  //   return base;
-  // };
-
-  // const getInnerButtonTransform = () => {
-  //   // counter-translate horizontal movement so inner content appears static
-  //   if (modeAnimating && modeDirection === "right") return "translateX(-100vw)";
-  //   if (modeAnimating && modeDirection === "left") return "translateX(100vw)";
-  //   return "translateX(0)";
-  // };
   const handleModeChange = () => {
     setVendorMode((prev) => {
       const nextMode = !prev;
@@ -1828,35 +1789,6 @@ export default function BazarghorrPage() {
       return nextMode;
     });
   };
-
-  // useEffect(() => {
-  //   const observer = new window.IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         setButtonAnimating(true);
-  //         setTimeout(() => {
-  //           setShowButton(false);
-  //           setButtonAnimating(false);
-  //         }, 350); // match animation duration
-  //       } else {
-  //         setShowButton(true);
-  //         setButtonVisible(true);
-  //       }
-  //     },
-  //     {
-  //       root: null,
-  //       threshold: 0.9,
-  //     },
-  //   );
-  //   if (numbersSectionRef.current) {
-  //     observer.observe(numbersSectionRef.current);
-  //   }
-  //   return () => {
-  //     if (numbersSectionRef.current) {
-  //       observer.unobserve(numbersSectionRef.current);
-  //     }
-  //   };
-  // }, []);
 
   // When showButton becomes true, make button visible again
 
@@ -1914,12 +1846,14 @@ export default function BazarghorrPage() {
 
   return (
     <div
+      id="top"
       style={{
         // width: "100%",
         maxWidth: "100%",
         minHeight: "100vh",
         background: "#fefcf4",
         marginTop: 0,
+
         // overflowX: "hidden",
       }}
     >
@@ -1939,14 +1873,15 @@ export default function BazarghorrPage() {
               gap: 10,
               padding: "12px 28px",
               borderRadius: 40,
-              border: "2px solid #2d6dc3",
-              background: "rgba(226, 226, 226, 0.35)",
+              border: "1px solid rgba(58, 122, 254, 0.65)",
+              background: "rgba(58, 122, 254, 0.65)",
               backdropFilter: "blur(4px)",
               WebkitBackdropFilter: "blur(4px)",
               cursor: "pointer",
-              fontFamily: "'Martel:ExtraBold', sans-serif",
+              fontFamily: "Alexandria, sans-serif",
               fontSize: 18,
-              color: "#2d6dc3",
+              fontWeight: 500,
+              color: "#FEF9F6",
               letterSpacing: 0.5,
             }}
           >
@@ -1957,8 +1892,180 @@ export default function BazarghorrPage() {
         <SectionImage src={s1a} alt="Bazarghorr hero" />
 
         {/* s2: Design Brief — rectangular, light bg, zIndex 2 */}
-        <div style={{ background: "#fefcf4", position: "relative", zIndex: 2 }}>
-          <SectionImage src={s2} alt="Design brief" />
+        <div
+          style={{
+            background: "#fefcf4",
+            position: "relative",
+            zIndex: 2,
+            margin: "50px  40px",
+            marginTop: 100,
+          }}
+        >
+          <div style={{ marginBottom: 0 }}>
+            <div
+              style={{
+                fontFamily: "Alexandria, sans-serif",
+                fontWeight: 300,
+                fontSize: 18,
+                color: "#888",
+                marginBottom: 12,
+                display: "flex",
+                justifyContent: "space-around",
+                gap: 30,
+              }}
+            >
+              <p style={{ marginLeft: -260 }}> 01/10</p>
+              <p style={{marginRight:-170}}>PROJECT OVERVIEW</p>
+              <p>OBJECTIVE</p>
+            </div>
+            <div
+              style={{
+                height: 1,
+                background: "black",
+                marginBottom: 20,
+              }}
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              fontSize: 14,
+              marginBottom: 80,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginTop:-20,
+                maxWidth: "33%",
+              }}
+            >
+              <div>
+                <h2
+                  style={{
+                    fontFamily: "Alexandria,serif",
+                    fontWeight: 400,
+                    fontSize: 64,
+                    marginBottom: 20,
+                  }}
+                >
+                  DESIGN BRIEF
+                </h2>
+              </div>
+              <p
+                style={{
+                  fontFamily: "Alexandria,serif",
+                  fontWeight: 500,
+                  fontSize: 24,
+                  color: "#2d2d2d91",
+                  width: "85%",
+                }}
+              >
+                {" "}
+                A hyperlocal grocery app connecting small-town users with their
+                trusted neighborhood kirana stores.
+              </p>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: 35,
+                  fontFamily: "Alexandria, sans-serif",
+                  fontWeight: 500,
+                  fontSize: 18,
+                  marginTop: 30,
+                  color: "#2d2d2dbf",
+                  textDecoration: "underline",
+                }}
+              >
+                <style>{`
+                .bazar-link {
+                  color: #2d2d2d;
+                  text-decoration: none;
+                  transition: color .15s ease, transform .12s ease ;
+                  padding-bottom: 2px;
+                }
+                .bazar-link:hover,
+                .bazar-link:focus {
+                  color: #2d2d2d91; /* slightly different color on hover */
+                  
+                  outline: none;
+                }
+              `}</style>
+                <Link to="/bazarghorr-vendor" className="bazar-link">
+                  VIEW PROTOTYPE
+                </Link>
+                <Link to="/bazarghorr-vendor" className="bazar-link">
+                  VIEW ON PLAY STORE
+                </Link>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "33%",
+                gap: 30,
+                marginLeft: -60,
+                fontFamily: "Alike,serif",
+                fontWeight: 400,
+                fontSize: 16,
+                color: "#2D2D2D",
+                lineHeight: 1.6,
+                letterSpacing: 0.5,
+              }}
+            >
+              <p>
+                Bazarghorr is a mobile app delivering daily grocery essentials
+                from trusted local kirana stores to small-town residents. It
+                preserves the local shopping experience while enabling shop
+                owners to manage listings, inventory, and their digital presence
+                through simple onboarding and training—bringing modern
+                convenience to underserved markets
+              </p>
+
+              <p>
+                The app launches in a small town in Bengal, with plans to expand
+                to other small towns and similar regions based on early
+                learnings. Currently under development
+              </p>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "30%",
+                fontFamily: "Alike,serif",
+                fontWeight: 400,
+                fontSize: 16,
+                color: "#2D2D2D",
+                gap:20
+              }}
+            >
+              <p>
+                • Offer small-town users a familiar and reliable digital way to
+                order groceries
+              </p>
+
+              <p>
+                • Equip kirana shop owners with simple tools for listings,
+                inventory, and customer reach
+              </p>
+              <p>
+                • Maintain transparency by clearly showing store names and
+                locations
+              </p>
+              <p>
+                • Support local trust by letting users choose specific shops for
+                everyday essentials
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* s3: Design Process — dark, curved top */}
@@ -2222,7 +2329,7 @@ export default function BazarghorrPage() {
           {/* <SectionImage src={s13} alt="Footer" /> */}
           <FooterSection
             useBgImage={true}
-            onBackToTop={() => {}}
+            onBackToTop={goTop}
             onLetsTalkClick={() => {}}
           />
         </div>

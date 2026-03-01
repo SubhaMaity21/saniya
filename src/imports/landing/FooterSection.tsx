@@ -49,7 +49,7 @@ function SocialLink({
           opacity: isHovered ? 1 : 0,
           transform: isHovered ? "translateY(0)" : "translateY(8px)",
           transition: "opacity 300ms ease, transform 200ms ease",
-          fontSize: 20,
+          fontSize: 16,
         }}
       >
         {label}
@@ -74,7 +74,7 @@ function SocialMedia({ useBgImage }: { useBgImage: boolean }) {
           className="block size-full"
           fill="none"
           preserveAspectRatio="none"
-          viewBox="0 0 46 46"
+          viewBox="0 0 50 50"
         >
           <path
             d={svgPaths.p30ba2c00}
@@ -93,7 +93,7 @@ function SocialMedia({ useBgImage }: { useBgImage: boolean }) {
           className="block size-full"
           fill="none"
           preserveAspectRatio="none"
-          viewBox="0 0 46 46"
+          viewBox="0 0 50 50"
         >
           <path
             d={svgPaths.p3150bc00}
@@ -113,7 +113,7 @@ function SocialMedia({ useBgImage }: { useBgImage: boolean }) {
           className="block size-full"
           fill="none"
           preserveAspectRatio="none"
-          viewBox="0 0 46 46"
+          viewBox="0 0 50 50"
         >
           <path
             d={svgPaths.p2bbb0d20}
@@ -133,7 +133,7 @@ function SocialMedia({ useBgImage }: { useBgImage: boolean }) {
           className="block size-full"
           fill="none"
           preserveAspectRatio="none"
-          viewBox="0 0 46 46"
+          viewBox="0 0 50 50"
         >
           <path
             d={svgPaths.p2b85ed00}
@@ -158,7 +158,7 @@ function LetsTalkLabelLine({ useBgImage }: { useBgImage: boolean }) {
     <div className="relative flex h-[54px] items-center justify-center">
       <p
         className="absolute left-[calc(50%-100px)] text-[32px] not-italic leading-[normal]"
-        style={{ fontFamily: "Martel, serif", fontWeight: 800 }}
+        style={{ fontFamily: "Martel, serif", fontWeight: 800, color: useBgImage ? "#fefcf4" : "#2D6DC3" }}
       >
         Let&apos;s Talk
       </p>
@@ -211,7 +211,7 @@ function ContactCta({
       </h1>
       <p
         className="mb-12 text-center font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] "
-        style={{ fontFamily: "Martel, serif" }}
+        style={{ fontFamily: "Martel, serif",marginTop:30 }}
       >
         Open to opportunities, collabs, creative challenges, or simply a good
         conversation.
@@ -243,7 +243,7 @@ function ContactCta({
       </button>
       <p
         className="mb-5 font-['Martel:DemiBold',sans-serif] text-[28px] not-italic leading-[normal] "
-        style={{ margin: 20, fontFamily: "Martel, serif" }}
+        style={{ margin: 10, fontFamily: "Martel, serif" }}
       >
         or
       </p>
@@ -305,7 +305,7 @@ export default function FooterSection({
 
         <div
           className="absolute left-1/2  h-0  -translate-x-1/2"
-          style={{ bottom: 70, width: 2050 }}
+          style={{ bottom: 70, width: 1920 }}
         >
           <div className="absolute inset-[-1px_0_0_0]">
             <svg
@@ -333,9 +333,10 @@ export default function FooterSection({
           style={{
             fontFamily: "Martel, serif",
             bottom: 22,
-            fontSize: 18,
+            fontSize: 15,
             letterSpacing: 0.5,
             color: useBgImage ? "#fefcf4" : "#101010",
+            maxWidth: 1400,
           }}
         >
           Built on coffee, love, many iterations, and way too many open tabs.
@@ -351,7 +352,7 @@ export default function FooterSection({
               className="text-[16px] not-italic leading-[normal] text-[#101010]"
               style={{
                 fontFamily: "Martel, serif",
-                fontSize: 18,
+                fontSize: 15,
                 letterSpacing: 0.5,
                 color: useBgImage ? "#fefcf4" : "#101010",
               }}
@@ -386,7 +387,7 @@ export default function FooterSection({
         </div>
         <div
           className="absolute left-1/2 w-full -translate-x-1/2"
-          style={{ bottom: 150 }}
+          style={{ bottom: 120 }}
         >
           <ContactCta
             onLetsTalkClick={onLetsTalkClick}
