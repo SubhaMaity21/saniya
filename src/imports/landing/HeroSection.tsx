@@ -108,7 +108,7 @@ function ContactCard({ isActive, onHover }: ExpandableCardProps) {
           className="relative flex h-[135px] w-[135px] shrink-0 items-center justify-center"
           data-name="contact me"
         >
-          <img alt="" className="h-full w-full object-contain" src={imgContactMe1} style={{transform:"scale(1.1)"}} />
+          <img alt="" className="h-full w-full object-contain" src={imgContactMe1} style={{transform:"scale(1.2)"}} />
         </div>
         <p
           className="whitespace-nowrap  text-[24px] not-italic leading-[normal] text-[#2d6dc3] transition-opacity duration-300"

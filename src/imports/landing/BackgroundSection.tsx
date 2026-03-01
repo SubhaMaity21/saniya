@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 // @ts-ignore
 // import imgBackground from "figma:asset/59441181721f9ec0057cf0ca5351b45db44c073a.png";
-import imgBazarghorr from "@/assets/work/bazarghorr.png";
-import imgBuildMyStore from "@/assets/work/buildmystore1.png";
-import imgMentorMe from "@/assets/work/mentorme.png";
+import imgBazarghorr from "@/assets/work/bazarghorr1.png";
+import imgBuildMyStore from "@/assets/work/bms1.png";
+import imgMentorMe from "@/assets/work/mentorme1.png";
 import newBackground from "@/assets/landing-work/blue-bg.png"
 type BackgroundSectionProps = {
   containerRef?: React.RefObject<HTMLDivElement | null>;
@@ -35,14 +35,14 @@ function WorkCard({ project }: { project: ProjectData }) {
         textDecoration: "none",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
       }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.06)";
-        e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.25)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
+      // onMouseEnter={(e) => {
+      //   e.currentTarget.style.transform = "scale(1.06)";
+      //   e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.25)";
+      // }}
+      // onMouseLeave={(e) => {
+      //   e.currentTarget.style.transform = "scale(1)";
+      //   e.currentTarget.style.boxShadow = "none";
+      // }}
     >
       <img
         src={project.image}
@@ -59,7 +59,7 @@ function WorkCard({ project }: { project: ProjectData }) {
 
 export default function BackgroundSection({ containerRef }: BackgroundSectionProps) {
   return (
-    <div ref={containerRef} className="relative w-full shrink-0" style={{ minHeight: 3700,top:250,}}>
+    <div ref={containerRef} className="relative w-full shrink-0" style={{ minHeight: 3700,top:250}}>
       {/* Full-width background image */}
       <div
         className="absolute left-1/2 top-0 h-full"
@@ -93,7 +93,7 @@ export default function BackgroundSection({ containerRef }: BackgroundSectionPro
             fontFamily: "ClashDisplay, sans-serif",
             fontSize: 64,
             fontWeight: 800,
-            color: "#101010",
+            color: "#ffffff",
             letterSpacing: 4,
             textAlign: "center",
             marginBottom: 16,
