@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CaseStudyContainer } from "@/components/ui/CaseStudyContainer";
 import FooterSection from "@/imports/landing/FooterSection";
-import s1 from "@/assets/mentorme/s1.png";
+import s1 from "@/assets/mentorme/t1.png";
+import t2 from "@/assets/mentorme/t2.png";
+import s3 from "@/assets/mentorme/mm2.png";
 import s2 from "@/assets/mentorme/s2.png";
+import mmvideo from "@/assets/mentorme/mentormeVideo.mp4";
 
 function SectionImage({ src, alt }: { src: string; alt: string }) {
   return (
@@ -18,8 +21,17 @@ function SectionImage({ src, alt }: { src: string; alt: string }) {
 
 export default function MentorMePage() {
   const [showStickyButton, setShowStickyButton] = useState(false);
+  const [linkHovered, setLinkHovered] = useState(false);
   const navigate = useNavigate();
   const goHome = () => navigate("/");
+    const goTop = () => {
+    const el = document.getElementById("top");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.location.hash = "#top";
+    }
+  };
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 80) {
@@ -55,14 +67,15 @@ export default function MentorMePage() {
               gap: 10,
               padding: "12px 28px",
               borderRadius: 40,
-              border: "2px solid #2d6dc3",
-              background: "rgba(226, 226, 226, 0.35)",
+               border: "1px solid rgba(58, 122, 254, 0.65)",
+              background: "rgba(58, 122, 254, 0.65)",
+              color: "#FEF9F6",
               backdropFilter: "blur(4px)",
               WebkitBackdropFilter: "blur(4px)",
               cursor: "pointer",
               fontFamily: "'Martel:ExtraBold', sans-serif",
               fontSize: 18,
-              color: "#2d6dc3",
+             
               letterSpacing: 0.5,
             }}
           >
@@ -71,7 +84,38 @@ export default function MentorMePage() {
         )}
 
         {/* Section 1 */}
-        <SectionImage src={s1} alt="MentorMe Case Study - Section 1" />
+        <div id="top" style={{ position: "relative" }}>
+          <SectionImage src={s1} alt="MentorMe Case Study - Section 1" />
+          <a
+            href="https://www.mentorme.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => setLinkHovered(true)}
+            onMouseLeave={() => setLinkHovered(false)}
+            style={{
+              position: "absolute",
+              bottom: 330,
+              left: "50%",
+              transform: "translateX(-50%)",
+              color: linkHovered ? "#9e9e9eff" : "white",
+              background: "transparent",
+              border: "none",
+              textDecoration: "underline",
+              padding: 0,
+              margin: 0,
+              zIndex: 20,
+              fontFamily: "Alexandria, sans-serif",
+              fontSize: 20,
+              fontWeight: 500,
+              letterSpacing: 0.5,
+            }}
+          >
+            View Brand Book
+          </a>
+        </div>
+        
+        <SectionImage src={t2} alt="MentorMe Case Study - Section 3" />
+
 
         {/* Section 2 */}
 
@@ -80,7 +124,7 @@ export default function MentorMePage() {
             display: "flex",
             position: "relative",
             margin: "30px 70px",
-            height: 400,
+            // height: 400,
             backgroundColor: "rgba(0, 0, 0, .15)",
           }}
         >
@@ -88,13 +132,24 @@ export default function MentorMePage() {
             style={{
               width: "100%",
               objectFit: "fill",
-              backgroundColor: "#ffffffff",
+              backgroundColor: "rgba(0, 0, 0, .15)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-
+            <video
+                src={mmvideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
           </div>
         </div>
 
@@ -134,7 +189,7 @@ export default function MentorMePage() {
                   {/* <SectionImage src={s13} alt="Footer" /> */}
                   <FooterSection
                     useBgImage={true}
-                    onBackToTop={() => {}}
+                    onBackToTop={goTop}
                     onLetsTalkClick={() => {}}
                   />
                 </div>
