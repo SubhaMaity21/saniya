@@ -123,16 +123,18 @@ export default function MentorMePage() {
           style={{
             display: "flex",
             position: "relative",
-            margin: "30px 70px",
+            margin: "30px 0px",
+            marginTop:60,
             // height: 400,
-            backgroundColor: "rgba(0, 0, 0, .15)",
+            backgroundColor: "rgba(0, 0, 0, 0.87)",
           }}
         >
           <div
             style={{
               width: "100%",
+              height: 620,
               objectFit: "fill",
-              backgroundColor: "rgba(0, 0, 0, .15)",
+              // backgroundColor: "rgba(0, 0, 0, 0.87)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
