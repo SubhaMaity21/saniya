@@ -21,6 +21,8 @@ import ip18 from "@/assets/bazarghorr/screens/iphone 18.png";
 import ip19 from "@/assets/bazarghorr/screens/iphone 19.png";
 import ip20 from "@/assets/bazarghorr/screens/iphone 20.png";
 
+import vendorGroup from "@/assets/bazarghorr/illustrations/vendorGroup.png";
+
 import arrow from "@/assets/bazarghorr/arrow.png";
 // Section images
 // import s1 from "@/assets/bazarghorr/sections/s1.png";
@@ -69,7 +71,7 @@ import subscriptionScreen from "@/assets/bazarghorr/screens/subscription-page.pn
 import inventoryScreen from "@/assets/bazarghorr/screens/product-page.png";
 import vendorDashboard from "@/assets/bazarghorr/screens/vendordashboard.png";
 import maleVendorStanding from "@/assets/bazarghorr/illustrations/male-vendor-standing.jpeg";
-import { markAsUntransferable } from "worker_threads";
+import auntyGroup from "@/assets/bazarghorr/illustrations/auntyGroup.png";
 
 // ─── Shared constants ────────────────────────────────────────────────
 
@@ -548,14 +550,14 @@ function MainScreensSection() {
               </PhoneMockup>
                             <div
                 className="absolute"
-                style={{ zIndex: -1, right: -84, top: 420 }}
+                style={{ zIndex: -1, right: -70, top: 420 }}
               >
                 <img
                   src={sparkle}
                   alt="Screen illustration"
                   style={{
-                    width: 94,
-                    height: 94,
+                    width: 74,
+                    height: 74,
                     transform: "rotate(0deg)",
                     opacity: 0.8,
                   }}
@@ -740,14 +742,14 @@ function MainScreensSection() {
               </PhoneMockup>
                             <div
                 className="absolute"
-                style={{ zIndex: -1, right: -84, top: 420 }}
+                style={{ zIndex: -1, right: -70, top: 420 }}
               >
                 <img
                   src={sparkle}
                   alt="Screen illustration"
                   style={{
-                    width: 94,
-                    height: 94,
+                    width: 74,
+                    height: 74,
                     transform: "rotate(0deg)",
                     opacity: 0.8,
                   }}
@@ -761,7 +763,7 @@ function MainScreensSection() {
           style={{
             textAlign: "center",
             position: "relative",
-            marginTop: 160,
+            marginTop: 150,
           }}
         >
           <h3
@@ -783,7 +785,7 @@ function MainScreensSection() {
               fontSize: 18,
               lineHeight: 1.7,
               color: "#444",
-              marginBottom: 70,
+              marginBottom: 0,
             }}
           >
             0 Activity Dashboard, Profile, Subscription.
@@ -793,9 +795,8 @@ function MainScreensSection() {
             style={{
               display: "flex",
               justifyContent: "center",
-              gap: 50,
-              flexWrap: "wrap",
-              alignItems: "flex-end",
+             
+              alignItems: "center",
             }}
           >
             {/* <ScreenThumbnail
@@ -838,7 +839,7 @@ function MainScreensSection() {
                 style={{ objectFit: "cover", width: "100%", height: "100%" }}
               />
             </PhoneMockup> */}
-            <img src={ip19} style={{ objectFit: "cover", height: 770 }} />
+            {/* <img src={ip19} style={{ objectFit: "cover", height: 770 }} />
             <img src={ip18} style={{ objectFit: "cover", height: 770 }} />
             <div
               className="absolute"
@@ -856,7 +857,7 @@ function MainScreensSection() {
                 }}
                 loading="lazy"
               />
-            </div>
+            </div> */}
 
             {/* <PhoneMockup width={316}>
               <img
@@ -870,7 +871,7 @@ function MainScreensSection() {
                 }}
               />
             </PhoneMockup> */}
-            <img src={ip20} style={{ objectFit: "fill", height: 770 }} />
+            <img src={vendorGroup} style={{ objectFit: "cover", width: "68%" }} />
           </div>
         </div>
       </div>
@@ -1067,7 +1068,7 @@ function CustomerAppUISection() {
                 position: "absolute",
                 top: -140,
                 right: 0,
-                width: 180,
+                width: 200,
                 height: 250,
                 
                 overflow: "visible",
@@ -1079,7 +1080,7 @@ function CustomerAppUISection() {
                 src={thinkingWoman}
                 alt="Customer illustration"
                 style={{
-                  width: 159,
+                  width: 180,
                   height: 220,
                   transform: "scaleX(1)",
                   borderRadius: "50%",
@@ -1245,7 +1246,7 @@ function CustomerMainScreensSection() {
           style={{
             position: "relative",
             marginBottom: 80,
-            marginTop: -600,
+            marginTop: -400,
             marginRight: "-15%",
           }}
         >
@@ -1501,14 +1502,14 @@ function CustomerMainScreensSection() {
               </PhoneMockup>
               <div
                 className="absolute"
-                style={{ zIndex: -1, right: -84, top: 420 }}
+                style={{ zIndex: -1, right: -74, top: 420 }}
               >
                 <img
                   src={sparkle}
                   alt="Screen illustration"
                   style={{
-                    width: 94,
-                    height: 94,
+                    width: 74,
+                    height: 74,
                     transform: "rotate(0deg)",
                     opacity: 0.8,
                   }}
@@ -1523,7 +1524,7 @@ function CustomerMainScreensSection() {
           style={{
             textAlign: "center",
             position: "relative",
-            marginTop: 160,
+            marginTop: 200,
             overflow: "visible",
             zIndex: 9,
           }}
@@ -1605,12 +1606,11 @@ function CustomerMainScreensSection() {
             style={{
               display: "flex",
               justifyContent: "center",
-              gap: 30,
-              flexWrap: "wrap",
-              alignItems: "flex-end",
+            
+              alignItems: "center",
             }}
           >
-            <PhoneMockup width={250}>
+            {/* <PhoneMockup width={250}>
               <img
                 src={profilePage}
                 alt="Activity dashboard"
@@ -1678,7 +1678,8 @@ function CustomerMainScreensSection() {
                   zIndex: 10,
                 }}
               />
-            </PhoneMockup>
+            </PhoneMockup> */}
+            <img src={auntyGroup} style={{ objectFit: "cover", width: "91%",marginTop:-100 }} />
           </div>
         </div>
       </div>
@@ -1741,7 +1742,7 @@ function CustomerSection() {
             position: "relative",
           }}
         >
-          <div style={{ width: "70%", left: "-50%",marginLeft:50 }}>
+          <div style={{ width: "70%", left: "-50%",marginLeft:100 }}>
             <img
               src={s10a}
               alt="Dashboard"
