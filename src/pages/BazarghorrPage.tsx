@@ -49,12 +49,13 @@ import categoriesNavigation from "@/assets/bazarghorr/flows/categories-navigatio
 
 // Illustrations
 import maleVendor from "@/assets/bazarghorr/illustrations/excited.png";
-import maleVendorThinking from "@/assets/bazarghorr/illustrations/thinking.png";
+import maleVendorThinking from "@/assets/bazarghorr/illustrations/vendorThinking.png";
 import newOrderIllustration from "@/assets/bazarghorr/illustrations/new-order.png";
 import screenIllustration from "@/assets/bazarghorr/illustrations/screen-illustrations.png";
-import thinkingWoman from "@/assets/bazarghorr/illustrations/thinking-women.png";
+import thinkingWoman from "@/assets/bazarghorr/illustrations/AuntyThinking.png";
 import customerOrder from "@/assets/bazarghorr/illustrations/phone-long.png";
 import exitedAunty from "@/assets/bazarghorr/illustrations/excited-aunty.png";
+import sparkle from "@/assets/bazarghorr/illustrations/sparkle.png";
 
 // Screens for s11
 import analytics1 from "@/assets/bazarghorr/screens/analytics-1.png";
@@ -223,12 +224,12 @@ function VendorAppUISection() {
             <div
               style={{
                 position: "absolute",
-                top: -90,
+                top: -100,
                 right: 0,
-                width: 130,
-                height: 130,
-                borderRadius: "50%",
-                background: "#e0e0e0",
+                width: 160,
+                height: 180,
+               
+                
                 overflow: "visible",
                 zIndex: 2,
                 transform: "scale(1.1)",
@@ -240,7 +241,7 @@ function VendorAppUISection() {
                 style={{
                   width: 150,
                   height: 170,
-                  transform: "scaleX(-1)",
+                  transform: "scaleX(1)",
                   borderRadius: "50%",
                   objectFit: "cover",
                   position: "absolute",
@@ -507,7 +508,7 @@ function MainScreensSection() {
                   fontSize: 16,
                   lineHeight: 1.7,
                   color: "#444",
-                  maxWidth: 570,
+                  maxWidth: 500,
                   marginBottom: 0,
                   marginLeft: "auto",
                 }}
@@ -545,6 +546,21 @@ function MainScreensSection() {
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
+                            <div
+                className="absolute"
+                style={{ zIndex: -1, right: -84, top: 420 }}
+              >
+                <img
+                  src={sparkle}
+                  alt="Screen illustration"
+                  style={{
+                    width: 94,
+                    height: 94,
+                    transform: "rotate(0deg)",
+                    opacity: 0.8,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -653,7 +669,7 @@ function MainScreensSection() {
           style={{
             position: "relative",
             marginBottom: 80,
-            marginTop: -200,
+            marginTop: -300,
             marginRight: "7%",
           }}
         >
@@ -722,6 +738,21 @@ function MainScreensSection() {
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
+                            <div
+                className="absolute"
+                style={{ zIndex: -1, right: -84, top: 420 }}
+              >
+                <img
+                  src={sparkle}
+                  alt="Screen illustration"
+                  style={{
+                    width: 94,
+                    height: 94,
+                    transform: "rotate(0deg)",
+                    opacity: 0.8,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -811,7 +842,7 @@ function MainScreensSection() {
             <img src={ip18} style={{ objectFit: "cover", height: 770 }} />
             <div
               className="absolute"
-              style={{ zIndex: -1, top: -50, right: "19%" }}
+              style={{ zIndex: -1, top: -50, right: "17%" }}
             >
               <img
                 src={maleVendor}
@@ -1034,12 +1065,11 @@ function CustomerAppUISection() {
             <div
               style={{
                 position: "absolute",
-                top: -90,
+                top: -140,
                 right: 0,
-                width: 130,
-                height: 130,
-                borderRadius: "50%",
-                background: "#e0e0e0",
+                width: 180,
+                height: 250,
+                
                 overflow: "visible",
                 zIndex: 2,
                 transform: "scale(1.1)",
@@ -1049,8 +1079,8 @@ function CustomerAppUISection() {
                 src={thinkingWoman}
                 alt="Customer illustration"
                 style={{
-                  width: 400,
-                  height: 400,
+                  width: 159,
+                  height: 220,
                   transform: "scaleX(1)",
                   borderRadius: "50%",
                   objectFit: "cover",
@@ -1469,36 +1499,22 @@ function CustomerMainScreensSection() {
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-              {/* <div
+              <div
                 className="absolute"
-                style={{ zIndex: -1, left: 134, top: 230 }}
+                style={{ zIndex: -1, right: -84, top: 420 }}
               >
                 <img
-                  src={screenIllustration}
+                  src={sparkle}
                   alt="Screen illustration"
                   style={{
-                    width: 64,
-                    height: 38,
-                    transform: "rotate(-176.85deg)",
+                    width: 94,
+                    height: 94,
+                    transform: "rotate(0deg)",
                     opacity: 0.8,
                   }}
                 />
               </div>
-              <div
-                className="absolute"
-                style={{ zIndex: -2, left: 6, top: 210 }}
-              >
-                <img
-                  src={screenIllustration}
-                  alt="Screen illustration"
-                  style={{
-                    width: 64,
-                    height: 38,
-                    transform: "rotate(-27.85deg)",
-                    opacity: 0.8,
-                  }}
-                />
-              </div> */}
+
             </div>
           </div>
         </div>
@@ -1610,7 +1626,7 @@ function CustomerMainScreensSection() {
             </PhoneMockup>
             <div
               className="absolute"
-              style={{ zIndex: -1, top: 10, right: "8%" }}
+              style={{ zIndex: -1, top: 30, right: "2%" }}
             >
               <img
                 src={exitedAunty}
@@ -1743,7 +1759,7 @@ function CustomerSection() {
 // ─── Main Page ───────────────────────────────────────────────────────
 
 export default function BazarghorrPage() {
-  const [vendorMode, setVendorMode] = React.useState(true);
+  const [vendorMode, setVendorMode] = React.useState(false);
   const [showButton, setShowButton] = React.useState(true);
   const [buttonVisible, setButtonVisible] = React.useState(true);
   const [showStickyButton, setShowStickyButton] = useState(false);
@@ -1875,13 +1891,14 @@ export default function BazarghorrPage() {
               borderRadius: 40,
               border: "1px solid rgba(58, 122, 254, 0.65)",
               background: "rgba(58, 122, 254, 0.65)",
+              color: "#FEF9F6",
+
               backdropFilter: "blur(4px)",
               WebkitBackdropFilter: "blur(4px)",
               cursor: "pointer",
               fontFamily: "Alexandria, sans-serif",
               fontSize: 18,
               fontWeight: 500,
-              color: "#FEF9F6",
               letterSpacing: 0.5,
             }}
           >
@@ -1961,6 +1978,7 @@ export default function BazarghorrPage() {
                   fontSize: 24,
                   color: "#2d2d2d91",
                   width: "85%",
+                  textTransform: "uppercase",
                 }}
               >
                 {" "}

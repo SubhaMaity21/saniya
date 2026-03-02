@@ -305,7 +305,7 @@ export default function FooterSection({
 
         <div
           className="absolute left-1/2  h-0  -translate-x-1/2"
-          style={{ bottom: 70, width: 1920 }}
+          style={{ bottom: 70, width: "100%" }}
         >
           <div className="absolute inset-[-1px_0_0_0]">
             <svg
