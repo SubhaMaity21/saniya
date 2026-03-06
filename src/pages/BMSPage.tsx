@@ -437,7 +437,7 @@ export default function BMSPage() {
             // display: "flex",
             position: "relative",
             backgroundColor: "#65a3d4",
-             height: 1050,
+            height: 1050,
           }}
         >
           <div
