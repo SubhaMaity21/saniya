@@ -295,7 +295,7 @@ export default function BMSPage() {
             </div>
 
             <Link to={"/"}>
-              <p style={{ textDecoration: "underline" }}>View Prototype</p>
+              <p style={{ textDecoration: "underline",fontWeight: 600 }}>View Prototype</p>
             </Link>
           </div>
         </div>
@@ -362,7 +362,7 @@ export default function BMSPage() {
             style={{
               width: "50%",
               margin: "20px 50px 20px 80px",
-              gap: "50px",
+              gap: "30px",
               fontFamily: "Lucida Sans, sans-serif",
               fontSize: 18,
             }}
@@ -401,7 +401,7 @@ export default function BMSPage() {
               ))}
             </ul>
 
-            <div>
+            <div style={{marginTop:"-10px"}}>
               <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 30 }}>
                 What are we solving:{" "}
               </h2>
@@ -733,7 +733,7 @@ export default function BMSPage() {
               display: "flex",
               alignItems: "start",
               justifyContent: "center",
-              margin: " 0 80px 30px",
+              margin: " 15px 80px 30px",
               fontSize: 19,
               fontFamily: "Lucida Sans, sans-serif",
             }}
@@ -794,7 +794,7 @@ export default function BMSPage() {
               display: "flex",
               alignItems: "start",
               justifyContent: "center",
-              margin: "10px 80px 20px",
+              margin: "25px 80px 20px",
               marginLeft: "20px",
               marginBottom: 30,
               fontSize: 19,

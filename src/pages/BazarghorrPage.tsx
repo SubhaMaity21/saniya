@@ -176,7 +176,11 @@ function VendorAppUISection() {
     <CaseStudyContainer
       variant="light"
       zIndex={9}
-      style={{ marginTop: SECTION_OVERLAP, position: "relative",backgroundColor:"#FEF9F6" }}
+      style={{
+        marginTop: SECTION_OVERLAP,
+        position: "relative",
+        backgroundColor: "#FEF9F6",
+      }}
     >
       <div
         style={{
@@ -231,8 +235,7 @@ function VendorAppUISection() {
                 right: -20,
                 width: 160,
                 height: 180,
-               
-                
+
                 overflow: "visible",
                 zIndex: 2,
                 transform: "scale(1.1)",
@@ -270,7 +273,7 @@ function VendorAppUISection() {
                 fontSize: 16,
                 lineHeight: 1.7,
                 color: "#333",
-                maxWidth: 710
+                maxWidth: 710,
               }}
             >
               The Onboarding Flow Starts With A Landing Page That Sets Context
@@ -549,7 +552,7 @@ function MainScreensSection() {
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-                            <div
+              <div
                 className="absolute"
                 style={{ zIndex: -1, right: -70, top: 420 }}
               >
@@ -742,7 +745,7 @@ function MainScreensSection() {
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </PhoneMockup>
-                            <div
+              <div
                 className="absolute"
                 style={{ zIndex: -1, right: -70, top: 420 }}
               >
@@ -797,7 +800,7 @@ function MainScreensSection() {
             style={{
               display: "flex",
               justifyContent: "center",
-             
+
               alignItems: "center",
             }}
           >
@@ -873,7 +876,10 @@ function MainScreensSection() {
                 }}
               />
             </PhoneMockup> */}
-            <img src={vendorGroup} style={{ objectFit: "cover", width: "68%" }} />
+            <img
+              src={vendorGroup}
+              style={{ objectFit: "cover", width: "68%" }}
+            />
           </div>
         </div>
       </div>
@@ -1026,7 +1032,7 @@ function CustomerAppUISection() {
           padding: "0px 40px 80px",
         }}
       >
-        <SectionHeader number="09/10" title="Customer APP UI BREAKDOWN" />
+        <SectionHeader number="09/10" title="CUSTOMER APP UI BREAKDOWN" />
 
         <div
           style={{
@@ -1072,7 +1078,7 @@ function CustomerAppUISection() {
                 right: -60,
                 width: 200,
                 height: 250,
-                
+
                 overflow: "visible",
                 zIndex: 2,
                 transform: "scale(1.1)",
@@ -1108,12 +1114,11 @@ function CustomerAppUISection() {
             <p
               style={{
                 fontFamily: "Alike, serif",
-                maxWidth:730,
+                maxWidth: 730,
                 fontWeight: 400,
                 fontSize: 18,
                 lineHeight: 1.7,
                 color: "#333",
-                
               }}
             >
               Customer onboarding is kept simple with phone number and OTP
@@ -1254,85 +1259,85 @@ function CustomerMainScreensSection() {
               }
             }`}
           </style>
-       
-        <div
-        className="ba"
-          style={{
-            position: "relative",
-            marginBottom: 80,
-            marginTop: -400,
-            // marginRight: "-15%",
-          }}
-        >
+
           <div
+            className="ba"
             style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
-              gap: 42,
+              position: "relative",
+              marginBottom: 80,
+              marginTop: -400,
+              // marginRight: "-15%",
             }}
           >
-            {/* <img src={customerOrder} alt="Customer order"  /> */}
-            {/* Heading + paragraph right beside mockups */}
             <div
               style={{
-                alignSelf: "flex-start",
-                textAlign: "right",
-                flex: 1,
-                marginRight: "-27%",
-                marginTop: 200,
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "flex-end",
+                gap: 42,
               }}
             >
-              <h3
+              {/* <img src={customerOrder} alt="Customer order"  /> */}
+              {/* Heading + paragraph right beside mockups */}
+              <div
                 style={{
-                  fontFamily: HEADING_FONT,
-                  fontSize: 35,
-                  fontWeight: 400,
-                  letterSpacing: "6%",
-                  color: "#101010",
-                  marginBottom: 8,
-                  paddingRight: 5,
+                  alignSelf: "flex-start",
+                  textAlign: "right",
+                  flex: 1,
+                  marginRight: "-27%",
+                  marginTop: 200,
                 }}
               >
-                BUY AGAIN
-              </h3>
-              <p
-                style={{
-                  fontFamily: "Alike, serif",
-                  fontWeight: 400,
-                  fontSize: 16,
-                  lineHeight: 1.7,
-                  color: "#444",
-                  maxWidth: 450,
-                  marginBottom: 0,
-                  marginLeft: "auto",
-                }}
-              >
-                The Order Again Page Lets Customers Quickly Reorder Previously
-                Purchased Items From The Same Kirana Store, Saving Time And
-                Making Repeat Grocery Shopping Effortless.
-              </p>
-            </div>
+                <h3
+                  style={{
+                    fontFamily: HEADING_FONT,
+                    fontSize: 35,
+                    fontWeight: 400,
+                    letterSpacing: "6%",
+                    color: "#101010",
+                    marginBottom: 8,
+                    paddingRight: 5,
+                  }}
+                >
+                  BUY AGAIN
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Alike, serif",
+                    fontWeight: 400,
+                    fontSize: 16,
+                    lineHeight: 1.7,
+                    color: "#444",
+                    maxWidth: 450,
+                    marginBottom: 0,
+                    marginLeft: "auto",
+                  }}
+                >
+                  The Order Again Page Lets Customers Quickly Reorder Previously
+                  Purchased Items From The Same Kirana Store, Saving Time And
+                  Making Repeat Grocery Shopping Effortless.
+                </p>
+              </div>
 
-            {/* Phone mockups */}
-            <div
-              style={
-                {
-                  // display: "flex",
-                  // gap: 20,
-                  // flexWrap: "wrap",
+              {/* Phone mockups */}
+              <div
+                style={
+                  {
+                    // display: "flex",
+                    // gap: 20,
+                    // flexWrap: "wrap",
+                  }
                 }
-              }
-            >
-              <img
-                src={customerOrder}
-                alt="Customer order"
-                style={{ height: 1000, width: 1100, right: -200 }}
-              />
+              >
+                <img
+                  src={customerOrder}
+                  alt="Customer order"
+                  style={{ height: 1000, width: 1100, right: -200 }}
+                />
+              </div>
             </div>
           </div>
         </div>
-         </div>
 
         {/* ── CUSTOMER FLOW ── */}
         <div
@@ -1531,7 +1536,6 @@ function CustomerMainScreensSection() {
                   }}
                 />
               </div>
-
             </div>
           </div>
         </div>
@@ -1622,7 +1626,7 @@ function CustomerMainScreensSection() {
             style={{
               display: "flex",
               justifyContent: "center",
-            
+
               alignItems: "center",
             }}
           >
@@ -1695,7 +1699,10 @@ function CustomerMainScreensSection() {
                 }}
               />
             </PhoneMockup> */}
-            <img src={auntyGroup} style={{ objectFit: "cover", width: "91%",marginTop:-100 }} />
+            <img
+              src={auntyGroup}
+              style={{ objectFit: "cover", width: "91%", marginTop: -100 }}
+            />
           </div>
         </div>
       </div>
@@ -1704,6 +1711,23 @@ function CustomerMainScreensSection() {
 }
 
 function CustomerSection() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const containerHeight =
+    windowWidth < 768
+      ? 1200
+      : windowWidth < 1024
+        ? 1600
+        : windowWidth < 1440
+          ? 1850
+          : 2200;
+
   return (
     <div>
       <CustomerAppUISection />
@@ -1717,9 +1741,9 @@ function CustomerSection() {
           backgroundImage: `url(${s10aBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: 2250,
-          borderTopRightRadius:58,
-          borderTopLeftRadius:58,
+          height: containerHeight,
+          borderTopRightRadius: 58,
+          borderTopLeftRadius: 58,
         }}
       >
         {" "}
@@ -1760,7 +1784,7 @@ function CustomerSection() {
             position: "relative",
           }}
         >
-          <div style={{ width: "70%", left: "-50%",marginLeft:100 }}>
+          <div style={{ width: "70%", left: "-50%", marginLeft: 100 }}>
             <img
               src={s10a}
               alt="Dashboard"
@@ -1828,14 +1852,14 @@ export default function BazarghorrPage() {
   // When showButton becomes true, make button visible again
 
   useEffect(() => {
+    const metadata = {
+      title: "Bazarghorr: Hyperlocal Grocery App Design Case Study",
+      description:
+        "Portfolio of Saniya — case studies, selected work, and contact.",
+      // image: String(journey),
+    };
 
-       const metadata = {
-          title: 'Bazarghorr: Hyperlocal Grocery App Design Case Study',
-          description: 'Portfolio of Saniya — case studies, selected work, and contact.',
-          // image: String(journey),
-        };
-    
-        document.title = metadata.title;
+    document.title = metadata.title;
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         const isIntersecting = entry.isIntersecting;
@@ -1902,7 +1926,10 @@ export default function BazarghorrPage() {
       }}
     >
       {/* s1: Hero — rectangular, light bg */}
-      <div className="bz" style={{ background: "#fefcf4", position: "relative"  }}>
+      <div
+        className="bz"
+        style={{ background: "#fefcf4", position: "relative" }}
+      >
         {showStickyButton && (
           <button
             type="button"
@@ -1958,12 +1985,13 @@ export default function BazarghorrPage() {
                 justifyContent: "space-between",
                 gap: 30,
                 flexWrap: "wrap",
-                alignItems: "center"}}
+                alignItems: "center",
+              }}
             >
-              <p style={{  }}> 01/10</p>
+              <p style={{}}> 01/10</p>
               <p style={{}}>PROJECT OVERVIEW</p>
-               <p
-               style={{
+              <p
+                style={{
                   margin: 0,
                   flex: "0 0 auto",
                   textAlign: "left",
@@ -1994,7 +2022,7 @@ export default function BazarghorrPage() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                marginTop:-20,
+                marginTop: -20,
                 maxWidth: "33%",
               }}
             >
@@ -2052,10 +2080,16 @@ export default function BazarghorrPage() {
                   outline: none;
                 }
               `}</style>
-                <Link to="https://www.figma.com/design/5Jb4JKL8J5oV8EkqypSNYS/bazarghor-pvt?node-id=0-1&t=4canynYOg7fTAMoG-1" className="bazar-link">
+                <Link
+                  to="https://www.figma.com/design/5Jb4JKL8J5oV8EkqypSNYS/bazarghor-pvt?node-id=0-1&t=4canynYOg7fTAMoG-1"
+                  className="bazar-link"
+                >
                   VIEW PROTOTYPE
                 </Link>
-                <Link to="https://play.google.com/store/apps/details?id=com.bazarghorr.partner" className="bazar-link">
+                <Link
+                  to="https://play.google.com/store/apps/details?id=com.bazarghorr.partner"
+                  className="bazar-link"
+                >
                   VIEW ON PLAY STORE
                 </Link>
               </div>
@@ -2101,7 +2135,7 @@ export default function BazarghorrPage() {
                 fontWeight: 400,
                 fontSize: 16,
                 color: "#2D2D2D",
-                gap:20
+                gap: 20,
               }}
             >
               <p>
